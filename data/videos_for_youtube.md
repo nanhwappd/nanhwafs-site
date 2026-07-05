@@ -1,0 +1,308 @@
+# 视频上传清单（交冠铭 · YouTube 学校频道）
+
+上传后把「slug: YouTube视频ID」填进 `data/youtube_map.json`，重跑 build_news.py 即自动内嵌。
+
+- `20180324-3` 2018-03-24 周末来个影片~
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\229489427616996.mp4`
+- `20180712-1` 2018-07-12 2018年南华独中家长日暨园游会
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\280595655839706.mp4`
+- `20180712-3` 2018-07-12 2018年南华独中家长日暨园游会
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\280643279168277.mp4`
+- `20180713-1` 2018-07-13 2018年南华独中家长日暨园游会
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\281387849093820.mp4`
+- `20190501-1` 2019-05-01 色调修正版
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\397851201053030.mp4`
+- `20190816-1` 2019-08-16 Arduino 课程第一天，学习编码并不难~ 迈向工业4.0
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\490558651708388.mp4`
+- `20191024-1` 2019-10-24 2019 年 10 月校园动态
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\481999555732578.mp4`
+- `20191123-2` 2019-11-23 营歌：我要飞
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\532930084218391.mp4`
+- `20191123-7` 2019-11-23 过站游戏 1
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\497362757530181.mp4`
+- `20191123-8` 2019-11-23 过站游戏 2
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\436312233735219.mp4`
+- `20191123-9` 2019-11-23 过站游戏 3
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\729681347514551.mp4`
+- `20191123-11` 2019-11-23 过站游戏 4
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\538956943594441.mp4`
+- `20191123-12` 2019-11-23 过站游戏 6
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\714400462389096.mp4`
+- `20191123-13` 2019-11-23 过站游戏 7
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\2477855509160577.mp4`
+- `20191123-15` 2019-11-23 团康活动
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\1446300702196117.mp4`
+- `20191123-17` 2019-11-23 团康活动
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\417586918937982.mp4`
+- `20191123-18` 2019-11-23 爸爸妈妈晚安（1）
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\2953043118085971.mp4`
+- `20191123-19` 2019-11-23 爸爸妈妈晚安（2）
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\987962821572317.mp4`
+- `20191123-20` 2019-11-23 爸爸妈妈晚安（3）
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\2112289872204671.mp4`
+- `20191123-21` 2019-11-23 爸爸妈妈晚安（4）
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\711923219296865.mp4`
+- `20191123-22` 2019-11-23 爸爸妈妈晚安（5）
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\533978220515575.mp4`
+- `20191123-23` 2019-11-23 爸爸妈妈晚安（6）
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\1176365509226953.mp4`
+- `20191123-24` 2019-11-23 爸爸妈妈晚安（7）
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\2486136964817445.mp4`
+- `20191124-2` 2019-11-24 谢谢厨师为我们准备美味的膳食
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\721596448324074.mp4`
+- `20191124-3` 2019-11-24 E~~~ABC SO EASY
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\1166130533732465.mp4`
+- `20191124-5` 2019-11-24 先把手放开，才抓得住精彩的未来。(动动脑筋 1)
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\550175625762014.mp4`
+- `20191124-7` 2019-11-24 你若坚持，定会发光，时间是所向披靡的武器，它能集腋成裘，也能聚沙成塔，将人生的不
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\2584937061585586.mp4`
+- `20191124-11` 2019-11-24 团康：禽流感菌
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\1009209072746087.mp4`
+- `20191124-13` 2019-11-24 10,9,8,7,6,5,4,3,2,1.....
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\815882952166610.mp4`
+- `20191124-15` 2019-11-24 亲爱的爸爸妈妈晚安 zzz (1)
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\967000283672160.mp4`
+- `20191124-16` 2019-11-24 亲爱的爸爸妈妈晚安 zzz (2)
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\2571980879699731.mp4`
+- `20191124-17` 2019-11-24 亲爱的爸爸妈妈晚安 zzz (3)
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\1179437132245714.mp4`
+- `20191125-4` 2019-11-25 才艺表演
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\2421726314748723.mp4`
+- `20191125-5` 2019-11-25 校友叶文康献唱，营员合音。
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\2433663300226691.mp4`
+- `20191212-2` 2019-12-12 今天南华天使们与五杰学校的学生一起上课并体验不同的教学方式。分别是语文课《京剧趣
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\559733291515636.mp4`
+- `20191223-1` 2019-12-23 南华独中食堂施工第四个星期
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\1600493600124092.mp4`
+- `20191229-2` 2019-12-29 2019 年 12 月校园动态
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\2731792980211647.mp4`
+- `20191230-1` 2019-12-30 南华独中学会读书，学会做人
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\616410515766725.mp4`
+- `20200101-1` 2020-01-01 感谢孩子们协助清理食堂及搬座椅。午餐时间南华独中的孩子开始在食堂用餐。
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\2646028712147312.mp4`
+- `20200103-1` 2020-01-03 寄宿生正为新春晚会排练舞蹈。
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\2668200909925528.mp4`
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\1006020883106280.mp4`
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\1332490603622464.mp4`
+- `20200103-2` 2020-01-03 食堂翻修己完成80%了,也局部的开始使用,但由于工作人员刚使用新系统,这两天虽然
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\929503230777534.mp4`
+- `20200104-1` 2020-01-04 食堂后面，郭元福楼前面及排球场杂草丛生多时，现在进行清理。
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\610269676374294.mp4`
+- `20200104-3` 2020-01-04 寄宿生学习做捞生，以备新春晚宴当天让来宾品尝。祝贺大家鼠年安康、行大运。
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\1096555817361312.mp4`
+- `20200110-3` 2020-01-10 大家一起来 Hand ✋ clap
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\2436585233260313.mp4`
+- `20200114-1` 2020-01-14 大家一起来 Hand � clap
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\2439894756262694.mp4`
+- `20200119-1` 2020-01-19 新春佳节之际，校方悬挂大红绣球和红彩带。校园顿时增添了新春气息。
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\468507513831834.mp4`
+- `20200119-2` 2020-01-19 2020年，南中宿舍新春晚会圆满结束。
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\2552378808418737.mp4`
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\472886520286082.mp4`
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\787225585088032.mp4`
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\812661249213354.mp4`
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\176039200140945.mp4`
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\2241543175946437.mp4`
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\171276610752851.mp4`
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\204869210673843.mp4`
+- `20200119-3` 2020-01-19 南华独中醒狮团今早到金恩大巴杀与大家拜个早年。
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\853286531755960.mp4`
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\460469064621890.mp4`
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\587176222139666.mp4`
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\253896822241252.mp4`
+- `20200119-4` 2020-01-19 走入社区。。。
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\2525249464388297.mp4`
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\252705602358657.mp4`
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\2503931296513534.mp4`
+- `20200131-1` 2020-01-31 醒狮团再次被邀到玛丽娜岛采青。
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\865357750563487.mp4`
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\736207233569848.mp4`
+- `20200201-1` 2020-02-01 今天南华独中醒狮团为爱大华一对友族情侣订婚助兴。这也为南华独中醒狮团创造历史性一
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\1003623146676282.mp4`
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\2561685867262015.mp4`
+- `20200207-2` 2020-02-07 今天南华独中篮球🏀校队与TLDM篮球队进行一场友谊赛。成绩是南华独中57🆚TLD
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\168555257774225.mp4`
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\507345933253363.mp4`
+- `20200207-3` 2020-02-07 南华独中醒狮团及财神爷受邀请到City Harbour国际学校参与2020年庆祝
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\224737662003297.mp4`
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\606324179944603.mp4`
+- `20200308-1` 2020-03-08 7-3-2010本校醒狮团非常荣幸再次受邀请到邦各岛庆祝大丸关圣坛祖师诞助兴。
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\1538148159683260.mp4`
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\1679164525559174.mp4`
+- `20200420-1` 2020-04-20 行动管制令期间，校方除了安排老师进行线上教学外，也不忘让孩子锻炼健康的身体。
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\546952349580696.mp4`
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\2878768352172037.mp4`
+- `20200421-1` 2020-04-21 俗话说：身体是革命的本钱。
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\841374406369856.mp4`
+- `20200614-2` 2020-06-14 南华独中再一创举，以最有人性化的隔离和卫生措施的结合为必要举措。
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\2798310510278237.mp4`
+- `20201003-1` 2020-10-03 曼绒南华独立中学 2021 年的招生活动正式展开，下面是本校黄鹙葭老师特别剪辑的
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\335408861062446.mp4`
+- `20201003-2` 2020-10-03 2020年我们遇到了前所未有的疫情，为了应对此情况，也为了让家长放心。我们王俐璇
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\635688190651627.mp4`
+- `20201129-1` 2020-11-29 学校食堂的一角，让大家感受到大自然的气息。(一）
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\206331511098161.mp4`
+- `20210128-2` 2021-01-28 28/1/2021
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\437703977418125.mp4`
+- `20210727-1` 2021-07-27 2021年达人秀比赛《魅力人气奖》作品#1【单人组】林洁熙
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\1169115793583643.mp4`
+- `20210727-2` 2021-07-27 年达人秀比赛《魅力人气奖》作品#2【单人组】高妤涵
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\945819159534179.mp4`
+- `20210727-3` 2021-07-27 年达人秀比赛《魅力人气奖》作品#3【单人组】黄伶祺
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\1189010001567676.mp4`
+- `20210727-4` 2021-07-27 2021年达人秀比赛《魅力人气奖》作品#6【多人组】张诗静 & 张诗帆
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\844479489512832.mp4`
+- `20210727-5` 2021-07-27 2021年达人秀比赛《魅力人气奖》作品#4【单人组】陈翰炜
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\1162064480961339.mp4`
+- `20210727-6` 2021-07-27 2021年达人秀比赛《魅力人气奖》作品#5【单人组】吴敬南
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\335204814897842.mp4`
+- `20210801-1` 2021-08-01 Nama Sekolah: Sekolah Tinggi Nan Hwa (SU
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\386832502865302.mp4`
+- `20210810-2` 2021-08-10 2020年第46届高中毕业典礼，应届毕业生谢婉芝特别节目表演。
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\200663465367097.mp4`
+- `20210810-3` 2021-08-10 2020年第46届高中毕业典礼，应届高中毕业生代表李善彬同学致词
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\5151734251520978.mp4`
+- `20210810-4` 2021-08-10 2020年第46届高中毕业典礼，家长联谊会主席游美玉女士致词
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\952805955566654.mp4`
+- `20210810-5` 2021-08-10 2020年第46届高中毕业典礼，南华独中校长致词。
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\1017429815762186.mp4`
+- `20210810-6` 2021-08-10 2020年第46届高中毕业典礼，董事总务何添胜致词
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\514268266345686.mp4`
+- `20210810-7` 2021-08-10 2020年第46届高中毕业典礼，应届高中毕业生代表李善彬同学致词
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\2974945486052990.mp4`
+- `20210911-1` 2021-09-11 花好月圆共庆中秋——环保灯笼制作已经进入活动的第二阶段了。
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\huahaoyueyuangongqingzhongqiuhuanbaodenglongzhizuo_695595311379424\1202521426910792.mp4`
+- `20210912-1` 2021-09-12 为了配合环境教育课程，南华独中联课处举办了班级环保垃圾桶制作比赛。
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\844097542966262.mp4`
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\4475281312530915.mp4`
+- `20210929-1` 2021-09-29 诗歌题目 ：赞美老师
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\239863531432491.mp4`
+- `20210929-2` 2021-09-29 教师节祝福影片
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\888276562110360.mp4`
+- `20210929-3` 2021-09-29 表演曲目：小星星
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\1141234729958320.mp4`
+- `20210929-4` 2021-09-29 南华独中校长
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\200777025486680.mp4`
+- `20210929-5` 2021-09-29 校友会主席
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\312144950712805.mp4`
+- `20210929-6` 2021-09-29 家长联谊会主席
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\4327080974041144.mp4`
+- `20210929-7` 2021-09-29 表演曲目：Dingga
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\450188116313091.mp4`
+- `20210929-8` 2021-09-29 南华独中董事长
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\381490640111246.mp4`
+- `20210929-9` 2021-09-29 南华独中董事长
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\904207370294720.mp4`
+- `20220112-1` 2022-01-12 大家正为这星期六的“虎虎生威挥春”义举做好准备。感谢大家的用心。
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\1050542538836922.mp4`
+- `20220115-1` 2022-01-15 南华独中感谢文友会的全体同仁，书法家吴启强的配合，让这次的 “虎虎生威” 义务挥
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\464872271829216.mp4`
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\192021756444311.mp4`
+- `20220130-1` 2022-01-30 2022年 新春晚宴 😁精彩回顾😁
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\1119884562161847.mp4`
+- `20220130-2` 2022-01-30 2022年 新春晚宴 😁精彩回顾😁
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\1325624384578821.mp4`
+- `20220426-1` 2022-04-26 2022 年 4 月校园动态
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\403250941654847.mp4`
+- `20220426-2` 2022-04-26 2022 年 4 月校园动态
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\1570039370038075.mp4`
+- `20220426-3` 2022-04-26 2022 年 4 月校园动态
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\688381548885537.mp4`
+- `20221206-1` 2022-12-06 【精彩回顾】
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\585839360012650.mp4`
+- `20221207-1` 2022-12-07 【精彩回顾】
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\674444080945571.mp4`
+- `20230307-2` 2023-03-07 【精彩回顾】
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\596448689192469.mp4`
+- `20230402-1` 2023-04-02 2023年 南华独中开学典礼
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\725911665742146.mp4`
+- `20230402-2` 2023-04-02 2023年 南华独中开学典礼
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\145404858470576.mp4`
+- `20230523-2` 2023-05-23 南华独中校本课程
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\3384185811805091.mp4`
+- `20230524-1` 2023-05-24 南华独中校本课程
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\1286043402337158.mp4`
+- `20230616-2` 2023-06-16 2023年霹雳九独中国语论坛
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\211410695139587.mp4`
+- `20230809-1` 2023-08-09 曼绒县学联田径赛
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\845032476633743.mp4`
+- `20230818-1` 2023-08-18 曼绒田径学联赛
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\606333861628774.mp4`
+- `20230822-1` 2023-08-22 南华独中高中选修课
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\259169920266947.mp4`
+- `20231004-2` 2023-10-04 在马来感受“10后”的“10级”中文 |
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\859451575594089.mp4`
+- `20231128-1` 2023-11-28 南华独中 2023年
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\262566466804746.mp4`
+- `20231129-1` 2023-11-29 南华独中 2023年
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\722151176490316.mp4`
+- `20231130-1` 2023-11-30 南华独中 2023年
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\3591267454480430.mp4`
+- `20231201-1` 2023-12-01 南华独中 2023年
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\890057619512448.mp4`
+- `20231202-1` 2023-12-02 南华独中 2023年
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\328991376662072.mp4`
+- `20231203-1` 2023-12-03 南华独中 2023年
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\896708788468281.mp4`
+- `20231204-1` 2023-12-04 南华独中 2023年
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\1275500653852262.mp4`
+- `20231205-1` 2023-12-05 南华独中 2023年
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\7153303271389024.mp4`
+- `20231206-1` 2023-12-06 南华独中 2023年
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\7384376964908598.mp4`
+- `20231207-1` 2023-12-07 南华独中 2023年
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\1051113802679890.mp4`
+- `20231218-1` 2023-12-18 南华独中 2023年
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\1410777916180871.mp4`
+- `20231219-1` 2023-12-19 南华独中 2023年
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\372602298659316.mp4`
+- `20231220-1` 2023-12-20 南华独中 2023年
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\895224762014892.mp4`
+- `20231221-1` 2023-12-21 南华独中 2023年
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\376294598096445.mp4`
+- `20240204-1` 2024-02-04 南华独中2024年龙年贺岁片《Happy龙龙way》
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\373064995352064.mp4`
+- `20240423-2` 2024-04-23 2024 年 4 月校园动态
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\395391900004014.mp4`
+- `20241001-1` 2024-10-01 【中国央视】
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\510836171730592.mp4`
+- `20241228-1` 2024-12-28 《绽放》2024年高三毕业自创曲
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\974639838055785.mp4`
+- `20250331-1` 2025-03-31 2025 年 3 月校园动态
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\1361947088178625.mp4`
+- `20250331-2` 2025-03-31 南华独中恭贺马来同胞开斋节快乐！
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\1196805375424605.mp4`
+- `20250831-1` 2025-08-31 南华独中 2025年
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\3040059772843653.mp4`
+- `20250901-1` 2025-09-01 南华独中 2025年
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\4460478487537843.mp4`
+- `20250902-1` 2025-09-02 南华独中 2025年
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\551460994679799.mp4`
+- `20250903-2` 2025-09-03 南华独中 2025年
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\24428546400169526.mp4`
+- `20250904-1` 2025-09-04 南华独中 2025年
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\690495227146541.mp4`
+- `20250905-1` 2025-09-05 南华独中 2025年
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\1730275664341605.mp4`
+- `20250907-1` 2025-09-07 南华独中 2025年
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\1830325677905906.mp4`
+- `20250909-1` 2025-09-09 南华独中 2025年
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\1885481078700218.mp4`
+- `20250913-1` 2025-09-13 南华独中 2025年
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\672832285245803.mp4`
+- `20250915-1` 2025-09-15 南华独中 2025年
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\24391070763910680.mp4`
+- `20250916-1` 2025-09-16 南华独中 2025年
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\1193779382591517.mp4`
+- `20250919-2` 2025-09-19 南华独中 2025年
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\24633420549677163.mp4`
+- `20251003-1` 2025-10-03 南华独中 2025年
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\3036029573244121.mp4`
+- `20251006-1` 2025-10-06 中秋安圆  心明致远
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\1342661523926961.mp4`
+- `20251020-1` 2025-10-20 ✨ Light up the world with kindness! ✨
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\1816276028979317.mp4`
+- `20260318-1` 2026-03-18 🎉 Selamat Hari Raya Aidilfitri 🎉
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\2073914910059752.mp4`
+- `20260613-1` 2026-06-13 🏆【惊天逆转！2026年南华独中运动会完美落幕】
+  - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\1651636889230737.mp4`
