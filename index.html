@@ -3,64 +3,258 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>南华独立中学</title>
-<meta name="description" content="马来西亚霹雳州曼绒县南华独立中学官方网站——校园动态、活动新闻与招生资讯。">
+<title>南华独立中学 Nan Hwa High School · 霹雳曼绒</title>
+<meta name="description" content="马来西亚霹雳州曼绒县南华独立中学——每个孩子，都值得被看见。招生资讯、办学方针、校园动态官方网站。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="南华独立中学 · 每个孩子，都值得被看见">
+<meta property="og:description" content="霹雳曼绒南华独中官方网站：招生资讯、课程改革、校园动态。">
+<meta property="og:image" content="https://nanhwappd.github.io/nanhwafs-site/news/2024/img/20241226-1-0.jpg">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"School","name":"曼绒县南华独立中学",
+ "alternateName":"Nan Hwa High School","foundingDate":"1936",
+ "address":{"@type":"PostalAddress","streetAddress":"Lot 2446, Kg. Sungai Wangi","postalCode":"32400","addressLocality":"Ayer Tawar","addressRegion":"Perak","addressCountry":"MY"},
+ "telephone":"+60 5-691 1442","email":"stnh@nanhwafs.edu.my"}
+</script>
 <style>
-  :root { --green:#3EB370; --cream:#F5F1E8; --ink:#222; }
-  * { box-sizing:border-box; margin:0; padding:0; }
-  body { font-family:"Noto Sans SC","Microsoft YaHei",system-ui,sans-serif;
-         color:var(--ink); background:var(--cream); line-height:1.7; }
-  header { background:var(--green); color:#fff; padding:1rem 1.5rem;
-           display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:.5rem; }
-  header .logo { font-size:1.3rem; font-weight:700; letter-spacing:.05em; }
-  nav a { color:#fff; text-decoration:none; margin-left:1.2rem; font-size:.95rem; opacity:.9; }
-  nav a:hover { opacity:1; text-decoration:underline; }
-  .hero { max-width:880px; margin:3.5rem auto 2rem; padding:0 1.5rem; }
-  .hero h1 { font-size:2.2rem; color:var(--green); margin-bottom:.6rem; }
-  .hero p { font-size:1.05rem; max-width:60ch; color:#444; }
-  main { max-width:880px; margin:0 auto 4rem; padding:0 1.5rem; }
-  h2 { color:var(--green); border-bottom:2px solid var(--green); padding-bottom:.3rem; margin:2.5rem 0 1rem; }
-  .post { background:#fff; border-radius:8px; padding:1.2rem 1.4rem; margin-bottom:1rem;
-          box-shadow:0 1px 4px rgba(0,0,0,.06); }
-  .post time { font-size:.8rem; color:#888; }
-  .post h3 { margin:.2rem 0 .4rem; }
-  .post a { color:var(--green); text-decoration:none; }
-  .post a:hover { text-decoration:underline; }
-  footer { background:#2a2a2a; color:#bbb; text-align:center; padding:1.5rem; font-size:.85rem; }
+:root { --green:#3EB370; --green-dark:#2E9059; --green-deep:#1E5C3A; --cream:#F5F1E8; --ink:#222; }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { font-family:"Noto Sans SC","Microsoft YaHei",system-ui,sans-serif;
+       color:var(--ink); background:#fff; line-height:1.85; font-size:18px; }
+img { max-width:100%; display:block; }
+.site-header { background:var(--green); padding:.9rem 1.2rem; position:sticky; top:0; z-index:20;
+               display:flex; align-items:center; justify-content:space-between; gap:.5rem; flex-wrap:wrap; }
+.site-header .logo { color:#fff; font-weight:700; font-size:1.15rem; text-decoration:none; letter-spacing:.05em; }
+.site-header nav { display:flex; flex-wrap:wrap; gap:1rem; }
+.site-header nav a { color:#fff; opacity:.92; text-decoration:none; font-size:.95rem; }
+.site-header nav a:hover { opacity:1; text-decoration:underline; }
+
+/* Hero —— 真实照片满版 + 绿色渐变压字 */
+.hero { position:relative; min-height:clamp(420px, 72vh, 640px); display:flex; align-items:flex-end; }
+.hero .bg { position:absolute; inset:0; }
+.hero .bg img { width:100%; height:100%; object-fit:cover; object-position:center 35%; }
+.hero .bg::after { content:""; position:absolute; inset:0;
+  background:linear-gradient(to top, rgba(20,60,38,.88) 0%, rgba(20,60,38,.45) 45%, rgba(20,60,38,.15) 100%); }
+.hero .wrap { position:relative; z-index:2; max-width:1080px; margin:0 auto; width:100%;
+              padding:4.5rem 1.4rem 2.6rem; color:#fff; }
+.hero .slogan { font-size:clamp(1.7rem, 5vw, 2.7rem); font-weight:800; line-height:1.4;
+                text-shadow:0 2px 12px rgba(0,0,0,.35); }
+.hero .sub { max-width:36em; margin-top:.6rem; font-size:clamp(1rem, 2.4vw, 1.1rem); opacity:.95;
+             text-shadow:0 1px 8px rgba(0,0,0,.4); }
+.hero .meta { font-size:.9rem; letter-spacing:.12em; opacity:.85; margin-bottom:.8rem; }
+.hero .cta { margin-top:1.5rem; display:flex; gap:.8rem; flex-wrap:wrap; }
+.btn { display:inline-block; padding:.7rem 1.7rem; border-radius:999px; text-decoration:none; font-weight:700; }
+.btn-solid { background:#fff; color:var(--green-deep); }
+.btn-solid:hover { background:var(--cream); }
+.btn-line { border:2px solid rgba(255,255,255,.9); color:#fff; }
+.btn-line:hover { background:rgba(255,255,255,.15); }
+
+section { max-width:1080px; margin:0 auto; padding:3.4rem 1.4rem; }
+.sec-head h2 { color:var(--green-dark); font-size:clamp(1.5rem, 3.6vw, 2rem); line-height:1.4; }
+.sec-head .sub { font-weight:700; margin:.3rem 0 1.8rem; }
+
+.pillars { display:grid; gap:0; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); }
+.pillar { padding:1.6rem 1.6rem 1.6rem 0; border-left:1px solid #e5dfd2; padding-left:1.6rem; }
+.pillar:first-child { border-left:none; padding-left:0; }
+.pillar .num { display:block; font-size:2.4rem; font-weight:800; color:var(--green); line-height:1; margin-bottom:.6rem; opacity:.85; }
+.pillar h3 { color:var(--green-dark); margin-bottom:.5rem; font-size:1.15rem; }
+.pillar p { font-size:.98rem; color:#3a3a3a; }
+.pillar .en { display:block; font-size:.8rem; color:#7ba38d; letter-spacing:.05em; }
+
+/* 图文对分 */
+.split { display:grid; gap:2rem; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); align-items:center; }
+.split .ph { aspect-ratio:4/3; border-radius:12px; overflow:hidden; }
+.split .ph img { width:100%; height:100%; object-fit:cover; }
+.split ul { list-style:none; display:grid; gap:.7rem; }
+.split li { padding-left:1.4em; position:relative; font-size:.98rem; }
+.split li::before { content:"●"; color:var(--green); position:absolute; left:0; font-size:.7em; top:.55em; }
+.split .cap { font-size:.85rem; color:#888; margin-top:.5rem; }
+
+/* 照片三联 */
+.trio { display:grid; gap:1rem; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); }
+.trio figure { border-radius:12px; overflow:hidden; background:#000; position:relative; aspect-ratio:4/3; }
+.trio img { width:100%; height:100%; object-fit:cover; transition:transform .4s; }
+.trio figure:hover img { transform:scale(1.04); }
+.trio figcaption { position:absolute; left:0; right:0; bottom:0; padding:1.6rem .9rem .6rem;
+  color:#fff; font-size:1rem; font-weight:600;
+  background:linear-gradient(to top, rgba(0,0,0,.72), transparent); }
+
+.news-cards { display:grid; gap:1.2rem; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); }
+.news-cards .post-card { background:#fff; border:1px solid #e5dfd2; border-radius:12px; overflow:hidden; }
+.news-cards .thumb { aspect-ratio:16/9; overflow:hidden; }
+.news-cards .thumb img { width:100%; height:100%; object-fit:cover; }
+.news-cards .txt { padding:.9rem 1.1rem 1.1rem; }
+.news-cards time { font-size:.82rem; color:#888; }
+.news-cards a { display:block; color:var(--ink); font-weight:600; text-decoration:none; margin-top:.2rem; line-height:1.6; }
+.news-cards a:hover { color:var(--green-dark); }
+.more { margin-top:1.5rem; font-weight:700; }
+.more a { color:var(--green-dark); }
+
+.quotes { background:var(--green-deep); color:#fff; }
+.quotes .wrap { max-width:880px; margin:0 auto; padding:3.2rem 1.4rem; }
+.quotes blockquote { margin-bottom:1.8rem; font-size:1.08rem; line-height:2; }
+.quotes blockquote:last-child { margin-bottom:0; }
+.quotes cite { display:block; font-style:normal; font-size:.9rem; opacity:.8; margin-top:.4rem; }
+
+footer { background:#2a2a2a; color:#ccc; font-size:.95rem; }
+footer .wrap { max-width:1080px; margin:0 auto; padding:2.4rem 1.4rem;
+               display:grid; gap:1.6rem; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); }
+footer h3 { color:#fff; font-size:1.05rem; margin-bottom:.6rem; }
+footer a { color:#9fd8b8; text-decoration:none; }
+footer a:hover { text-decoration:underline; }
+footer .copy { text-align:center; padding:1rem; border-top:1px solid #444; font-size:.82rem; color:#999; }
 </style>
 </head>
 <body>
-<header>
-  <div class="logo">南华独立中学</div>
+<header class="site-header">
+  <a class="logo" href="index.html">南华独立中学</a>
   <nav>
-    <a href="index.html">首页</a>
-    <a href="#news">校园动态</a>
-    <a href="#about">关于</a>
+    <a href="admission/index.html">招生专区</a>
+    <a href="news/index.html">新闻动态</a>
+    <a href="#contact">联系我们</a>
   </nav>
 </header>
 
-<section class="hero">
-  <h1>守护传承 · 面向未来</h1>
-  <p>马来西亚霹雳州曼绒县南华独立中学——这里是校园动态、活动新闻与招生资讯的官方入口。</p>
+<div class="hero">
+  <div class="bg"><img src="news/2024/img/20241226-1-0.jpg" alt="南华独中毕业典礼大合照" fetchpriority="high"></div>
+  <div class="wrap">
+    <div class="meta">NAN HWA HIGH SCHOOL · 霹雳曼绒 · 创立于 1936 年</div>
+    <h1 class="slogan">每个孩子，都值得被看见。</h1>
+    <p class="sub">在南华，我们相信教育的本质，不是塑造同样的学生，而是帮助每一个生命找到自己的光——一个让孩子敢梦想、能实现、愿承担的地方。</p>
+    <div class="cta">
+      <a class="btn btn-solid" href="admission/index.html">招生资讯</a>
+      <a class="btn btn-line" href="#contact">预约参观 / 联系我们</a>
+    </div>
+  </div>
+</div>
+
+<section>
+  <div class="sec-head">
+    <h2>教育不是一场竞争，而是一场修行。</h2>
+    <p class="sub">我们以三大核心办学方针，陪孩子走近百年的教育路。</p>
+  </div>
+  <div class="pillars">
+    <div class="pillar"><span class="num">01</span><h3>学会读书 <span class="en">To Learn to Read</span></h3>
+      <p>引导学生独立思考、培养批判性思维与自学能力，让他们看清问题并提出解决方案。</p></div>
+    <div class="pillar"><span class="num">02</span><h3>学会做人 <span class="en">To Learn to Be Human</span></h3>
+      <p>帮助学生认识自己、发现热忱、培养天赋与学会感恩，建立坚韧而强大的内心。</p></div>
+    <div class="pillar"><span class="num">03</span><h3>学会引领 <span class="en">To Learn to Lead</span></h3>
+      <p>培养大格局，强调才德兼备，提升组织能力，让学生具备统筹与协调的能力。</p></div>
+  </div>
 </section>
 
-<main>
-  <h2 id="news">最新动态</h2>
-  <article class="post">
-    <time datetime="2026-06-28">2026 年 6 月 28 日</time>
-    <h3><a href="news/2026/20260628-1.html">课本之外的南洋史诗：南华师生吉隆坡寻根手记</a></h3>
-    <p>南华独中的 10 位同学在联课处老师的带领下跨越山海，在大马华社的核心历史坐标间用脚步丈量历史。</p>
-  </article>
-  <p style="margin-top:1rem"><a href="news/index.html" style="color:var(--green);font-weight:600">
-     进入按年新闻馆 →（2018–2026，共 1198 篇）</a></p>
+<section style="background:var(--cream); max-width:none;">
+  <div style="max-width:1080px; margin:0 auto;">
+    <div class="sec-head">
+      <h2>学习，不止于课堂。</h2>
+      <p class="sub">自 2022 年起全面启动课程改革，以素养导向教学为核心。</p>
+    </div>
+    <div class="split">
+      <div>
+        <div class="ph"><img src="news/2025/img/20250716-1-0.jpg" alt="南华独中 AI 创客空间" loading="lazy"></div>
+        <p class="cap">AI 创客空间——在温度与科技交汇处，培育未来掌舵人</p>
+      </div>
+      <ul>
+        <li>五大领域素养、18 门校本课程，推行项目式学习（PBL）</li>
+        <li>Python 编程、机器人、无人机课程与研究导向学习</li>
+        <li>课改 2.0：打破文理分科的「文理跨科模式」</li>
+        <li>AI 教学与应用计划——理解科技、运用科技、反思科技</li>
+        <li>《南华漫游》质性评量，让成长不再被分数定义</li>
+        <li>导师制度：每一位学生都有自己的导师，倾听心声、陪伴成长</li>
+      </ul>
+    </div>
+  </div>
+</section>
 
-  <h2 id="about">关于本站</h2>
-  <p>曼绒县南华独立中学官方网站。校园新闻档案源自学校官方脸书专页（2018 年至今），
-     逐篇整理为可检索的原生页面。</p>
-</main>
+<section>
+  <div class="sec-head">
+    <h2>十余个社团，是青春最真实的战场。</h2>
+    <p class="sub">超过 10 个社团，陪伴孩子发现热情与潜能。</p>
+  </div>
+  <div class="trio">
+    <figure><img src="news/2026/img/20260622-1-0.jpg" alt="廿四节令鼓队" loading="lazy">
+      <figcaption>廿四节令鼓队 · 州赛载誉</figcaption></figure>
+    <figure><img src="news/2026/img/20260615-1-0.jpg" alt="校运会啦啦队" loading="lazy">
+      <figcaption>校运会 · 尘封 26 年纪录被刷新</figcaption></figure>
+    <figure><img src="news/2026/img/20260424-1-0.jpg" alt="校本茶文化课程" loading="lazy">
+      <figcaption>校本茶艺课 · 中华文化浸润</figcaption></figure>
+  </div>
+</section>
 
-<footer>
-  © 2026 南华独立中学 · 静态站骨架（GitHub Pages 候选版）
+<section style="background:var(--cream); max-width:none;">
+  <div style="max-width:1080px; margin:0 auto;">
+    <div class="sec-head">
+      <h2>一所学校的实力，来自学生的光。</h2>
+      <p class="sub">每一份奖项，都是成长的印记。</p>
+    </div>
+    <div class="split">
+      <div>
+        <div class="ph"><img src="news/2025/img/20250617-1-0.jpg" alt="全国 AI 机器人竞赛冠军" loading="lazy"></div>
+        <p class="cap">2025 全国中学生 AI 机器人竞赛——总决赛冠军</p>
+      </div>
+      <ul>
+        <li>全国 AI 机器人竞赛冠军与殿军（2025）；台湾 TIRT 国际赛代表马来西亚出征获亚军与团体总冠军</li>
+        <li>马来西亚教育部私立学校组「五星级卓越学校奖」（2014 & 2015）</li>
+        <li>「2022 南洋卓越教育奖」杰出教育机构奖</li>
+        <li>国际艺术节金奖（2024、2025）</li>
+        <li>多名学生获国内外大学奖学金录取</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head">
+    <h2>校园动态</h2>
+    <p class="sub">南华的每一天，都在这里被记录。</p>
+  </div>
+  <div class="news-cards">
+    <div class="post-card">
+      <div class="thumb"><img src="news/2026/img/20260628-1-0.jpg" alt="" loading="lazy"></div>
+      <div class="txt"><time datetime="2026-06-28">2026-06-28</time>
+        <a href="news/2026/20260628-1.html">课本之外的南洋史诗：南华师生吉隆坡寻根手记</a></div>
+    </div>
+    <div class="post-card">
+      <div class="thumb"><img src="news/2026/img/20260627-1-0.jpg" alt="" loading="lazy"></div>
+      <div class="txt"><time datetime="2026-06-27">2026-06-27</time>
+        <a href="news/2026/20260627-1.html">一盏清茶，一片匠心</a></div>
+    </div>
+    <div class="post-card">
+      <div class="thumb"><img src="news/2026/img/20260626-1-0.jpg" alt="" loading="lazy"></div>
+      <div class="txt"><time datetime="2026-06-26">2026-06-26</time>
+        <a href="news/2026/20260626-1.html">祝贺陈丽冰校长荣获 HRD Corp 认证讲师资格</a></div>
+    </div>
+  </div>
+  <p class="more"><a href="news/index.html">进入按年新闻馆 →（2018–2026，共 1198 篇）</a></p>
+</section>
+
+<div class="quotes">
+  <div class="wrap">
+    <blockquote>发挥天赋、发掘热忱、认识自己的前提是允许犯错，错误是最好的老师。学校让孩子在试错文化中推开一扇扇通往无垠而精彩的世界。
+      <cite>—— 南华独立中学董事长 颜登逸先生</cite></blockquote>
+    <blockquote>让花成花，让树成树，让教育成就每一个独特的灵魂。
+      <cite>—— 南华独立中学校长 陈丽冰博士</cite></blockquote>
+  </div>
+</div>
+
+<footer id="contact">
+  <div class="wrap">
+    <div>
+      <h3>联系我们</h3>
+      <p>电话：+60 5-691 1442 / 5-691 3457<br>
+         WhatsApp：+60 11-6464 6267<br>
+         邮箱：<a href="mailto:stnh@nanhwafs.edu.my">stnh@nanhwafs.edu.my</a></p>
+    </div>
+    <div>
+      <h3>校址</h3>
+      <p>Lot 2446, Kg. Sungai Wangi,<br>32400 Ayer Tawar, Perak, Malaysia.</p>
+    </div>
+    <div>
+      <h3>关注南华</h3>
+      <p><a href="https://www.facebook.com/sekolahtingginanhwa" rel="noopener">Facebook 官方专页</a><br>
+         <a href="news/index.html">按年新闻馆（2018–2026）</a></p>
+    </div>
+  </div>
+  <div class="copy">© 2026 曼绒县南华独立中学 Nan Hwa High School</div>
 </footer>
 </body>
 </html>
