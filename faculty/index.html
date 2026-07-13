@@ -1,0 +1,561 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>师资团队 · 点灯的人 · 南华独立中学</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;700;900&display=swap" rel="stylesheet">
+<style>
+/* 骨架：viktor-oddy portfolio（入场显影+视差+衬线大字）；动效曲线：kinetics 弹簧物理（linear() 拟合，带过冲回弹） */
+:root { --green:#3EB370; --green-deep:#2E9059; --gold:#C99A2E; --cream:#F5F1E8; --ink:#1E2A22; --muted:#5C6B60;
+  --serif:"Noto Serif SC","Source Han Serif SC","STZhongsong","SimSun",serif;
+  /* kinetics 式弹簧曲线：轻过冲（卡片抬升）与重回弹（头像归位） */
+  --spring-soft:linear(0, .35 18%, .78 36%, 1.04 54%, 1.09 62%, 1.02 80%, 1);
+  --spring-bouncy:linear(0, .4 16%, .95 32%, 1.18 44%, .96 60%, 1.04 74%, .99 86%, 1); }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { background:var(--cream); color:var(--ink); font-family:"Noto Sans SC","Microsoft YaHei",system-ui,sans-serif; }
+a { text-decoration:none; color:inherit; }
+
+.topbar { display:flex; align-items:center; gap:.7rem; padding:1.1rem clamp(1.2rem,4vw,3rem); }
+.topbar img { height:40px; }
+.topbar b { font-family:var(--serif); font-size:1.05rem; letter-spacing:.08em; }
+.topbar a.back { margin-left:auto; font-size:.85rem; color:var(--muted); }
+.topbar a.back:hover { color:var(--green-deep); }
+
+header.lead { max-width:1080px; margin:0 auto; padding:clamp(2.5rem,6vh,4.5rem) clamp(1.2rem,4vw,3rem) 1rem; }
+.kicker { font-size:.82rem; letter-spacing:.3em; color:var(--green-deep); margin-bottom:1rem; }
+h1 { font-family:var(--serif); font-weight:900; font-size:clamp(2rem,5vw,3.6rem); line-height:1.25; letter-spacing:.02em; }
+h1 .w { display:inline-block; opacity:0; filter:blur(8px); transform:translateY(24px);
+  transition:opacity .5s ease-out, filter .5s ease-out, transform .6s var(--spring-soft); }
+h1 .w.on { opacity:1; filter:blur(0); transform:translateY(0); }
+h1 em { font-style:normal; color:var(--gold); }
+.lead p.intro { margin-top:1.2rem; max-width:38em; color:var(--muted); line-height:2; font-size:.98rem; }
+
+.grid { max-width:1080px; margin:0 auto; padding:2.5rem clamp(1.2rem,4vw,3rem) 5rem;
+  display:grid; grid-template-columns:repeat(3,1fr); gap:1.4rem; }
+@media (max-width:880px) { .grid { grid-template-columns:1fr; max-width:520px; } }
+
+.card { background:#fff; border-radius:1.4rem; overflow:hidden; display:flex; flex-direction:column;
+  box-shadow:0 2px 10px rgba(30,42,34,.07);
+  opacity:0; transform:translateY(34px);
+  transition:opacity .7s ease-out, box-shadow .45s ease,
+    transform .7s var(--spring-soft); }
+.card.in-view { opacity:1; transform:translateY(0); }
+.card:hover { transform:translateY(-8px); box-shadow:0 18px 44px rgba(30,42,34,.16); }
+
+.portrait { position:relative; aspect-ratio:4/5; overflow:hidden;
+  background:linear-gradient(155deg, #E8F4EC 0%, #CDE8D8 55%, #B5DCC6 100%); }
+.portrait img { width:100%; height:100%; object-fit:cover; display:block;
+  transition:transform .8s var(--spring-bouncy); }
+.card:hover .portrait img { transform:scale(1.045) rotate(.4deg); }
+
+.body { padding:1.2rem 1.4rem 1.5rem; display:flex; flex-direction:column; flex:1; }
+.body h2 { font-family:var(--serif); font-weight:700; font-size:1.3rem; letter-spacing:.06em; }
+.body .role { margin-top:.35rem; font-size:.78rem; letter-spacing:.1em; color:var(--green-deep); }
+.tags { margin-top:.9rem; display:flex; flex-wrap:wrap; gap:.4rem; }
+/* 标签弹入：kinetics 弹簧错峰 */
+.tag { font-size:.7rem; letter-spacing:.04em; color:var(--green-deep);
+  border:1px solid rgba(62,179,112,.45); background:rgba(62,179,112,.08);
+  padding:.26rem .7rem; border-radius:999px;
+  opacity:0; transform:scale(.6);
+  transition:opacity .4s ease-out, transform .55s var(--spring-bouncy); }
+.card.in-view .tag { opacity:1; transform:scale(1); }
+
+.note { max-width:1080px; margin:0 auto 4rem; padding:0 clamp(1.2rem,4vw,3rem);
+  font-size:.78rem; color:#9aa89e; line-height:1.8; }
+
+@media (prefers-reduced-motion: reduce) {
+  h1 .w, .card, .tag, .portrait img { transition:none; opacity:1; transform:none; filter:none; }
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <img src="../assets/img/crest-color.png" alt="南华独中校徽">
+  <b>南华独立中学</b>
+  <a class="back" href="../index.html">← 回到首页</a>
+</div>
+
+<header class="lead">
+  <p class="kicker">师资团队 · FACULTY</p>
+  <h1 id="headline"></h1>
+  <p class="intro">九十载灯火不灭，靠的是一代代亲手点灯的人。南华的老师不只是授课者——他们陪孩子找方向、修心性、开眼界。这里是全体专任与兼职教师团队。</p>
+</header>
+
+<main class="grid">
+
+  <article class="card">
+    <div class="portrait"><img src="../assets/img/faculty/01.jpg" alt="陳麗冰" loading="lazy"></div>
+    <div class="body">
+      <h2>陳麗冰博士</h2>
+      <p class="role">校长</p>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="portrait"><img src="../assets/img/faculty/02.jpg" alt="杨秀珍" loading="lazy"></div>
+    <div class="body">
+      <h2>杨秀珍老师</h2>
+      <p class="role">教务主任</p>
+      <div class="tags">
+        <span class="tag" style="transition-delay:0.15s">华文</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="portrait"><img src="../assets/img/faculty/03.jpg" alt="李淑桦" loading="lazy"></div>
+    <div class="body">
+      <h2>李淑桦老师</h2>
+      <p class="role">训导主任兼英文主任</p>
+      <div class="tags">
+        <span class="tag" style="transition-delay:0.15s">ENG</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="portrait"><img src="../assets/img/faculty/04.jpg" alt="林子策" loading="lazy"></div>
+    <div class="body">
+      <h2>林子策老师</h2>
+      <p class="role">项目策划处主任</p>
+      <div class="tags">
+        <span class="tag" style="transition-delay:0.15s">华文</span>
+        <span class="tag" style="transition-delay:0.23s">选修课</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="portrait"><img src="../assets/img/faculty/05.jpg" alt="黄冠銘" loading="lazy"></div>
+    <div class="body">
+      <h2>黄冠銘老师</h2>
+      <p class="role">电脑科技主任兼国际处老师</p>
+      <div class="tags">
+        <span class="tag" style="transition-delay:0.15s">航模</span>
+        <span class="tag" style="transition-delay:0.23s">选修课</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="portrait"><img src="../assets/img/faculty/06.jpg" alt="叶佳盛" loading="lazy"></div>
+    <div class="body">
+      <h2>叶佳盛老师</h2>
+      <p class="role">辅导主任</p>
+      <div class="tags">
+        <span class="tag" style="transition-delay:0.15s">辅导</span>
+        <span class="tag" style="transition-delay:0.23s">升学辅导</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="portrait"><img src="../assets/img/faculty/07.jpg" alt="赖静绣" loading="lazy"></div>
+    <div class="body">
+      <h2>赖静绣老师</h2>
+      <p class="role">技职教育中心主任</p>
+      <div class="tags">
+        <span class="tag" style="transition-delay:0.15s">数学</span>
+        <span class="tag" style="transition-delay:0.23s">家政</span>
+        <span class="tag" style="transition-delay:0.31s">选修课</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="portrait"><img src="../assets/img/faculty/08.jpg" alt="徐子轩" loading="lazy"></div>
+    <div class="body">
+      <h2>徐子轩老师</h2>
+      <p class="role">联课主任</p>
+      <div class="tags">
+        <span class="tag" style="transition-delay:0.15s">美学</span>
+        <span class="tag" style="transition-delay:0.23s">美术</span>
+        <span class="tag" style="transition-delay:0.31s">Adobe</span>
+        <span class="tag" style="transition-delay:0.39s">选修课</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="portrait"><img src="../assets/img/faculty/09.jpg" alt="廖丽华" loading="lazy"></div>
+    <div class="body">
+      <h2>廖丽华老师</h2>
+      <p class="role">华文兼史地主任</p>
+      <div class="tags">
+        <span class="tag" style="transition-delay:0.15s">华文</span>
+        <span class="tag" style="transition-delay:0.23s">历史</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="portrait"><img src="../assets/img/faculty/10.jpg" alt="陈敏柔" loading="lazy"></div>
+    <div class="body">
+      <h2>陈敏柔老师</h2>
+      <p class="role">专任教师</p>
+      <div class="tags">
+        <span class="tag" style="transition-delay:0.15s">华文</span>
+        <span class="tag" style="transition-delay:0.23s">商业</span>
+        <span class="tag" style="transition-delay:0.31s">SPM华文</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="portrait"><img src="../assets/img/faculty/11.jpg" alt="潘柔榛" loading="lazy"></div>
+    <div class="body">
+      <h2>潘柔榛老师</h2>
+      <p class="role">贩卖部助理老师</p>
+      <div class="tags">
+        <span class="tag" style="transition-delay:0.15s">华文</span>
+        <span class="tag" style="transition-delay:0.23s">地理</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="portrait"><img src="../assets/img/faculty/12.jpg" alt="李佳城" loading="lazy"></div>
+    <div class="body">
+      <h2>李佳城老师</h2>
+      <p class="role">专任教师</p>
+      <div class="tags">
+        <span class="tag" style="transition-delay:0.15s">地理</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="portrait"><img src="../assets/img/faculty/13.jpg" alt="黄俊锦" loading="lazy"></div>
+    <div class="body">
+      <h2>黄俊锦老师</h2>
+      <p class="role">专任教师</p>
+      <div class="tags">
+        <span class="tag" style="transition-delay:0.15s">历史</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="portrait"><img src="../assets/img/faculty/14.jpg" alt="李敏禎" loading="lazy"></div>
+    <div class="body">
+      <h2>李敏禎老师</h2>
+      <p class="role">专任教师</p>
+      <div class="tags">
+        <span class="tag" style="transition-delay:0.15s">ENG</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="portrait"><img src="../assets/img/faculty/15.jpg" alt="Kavithanjali A/P Sandrasegaran" loading="lazy"></div>
+    <div class="body">
+      <h2>Teacher Kavithanjali A/P Sandrasegaran</h2>
+      <p class="role">专任教师</p>
+      <div class="tags">
+        <span class="tag" style="transition-delay:0.15s">ENG</span>
+        <span class="tag" style="transition-delay:0.23s">SPM ENG</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="portrait"><img src="../assets/img/faculty/16.jpg" alt="Mukuntta A/P Krushnan" loading="lazy"></div>
+    <div class="body">
+      <h2>Teacher Mukuntta A/P Krushnan</h2>
+      <p class="role">专任教师</p>
+      <div class="tags">
+        <span class="tag" style="transition-delay:0.15s">ENG</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="portrait"><img src="../assets/img/faculty/17.jpg" alt="Noor Athikah bt Abu Kassim" loading="lazy"></div>
+    <div class="body">
+      <h2>Cikgu Noor Athikah bt Abu Kassim</h2>
+      <p class="role">马来文主任</p>
+      <div class="tags">
+        <span class="tag" style="transition-delay:0.15s">BM</span>
+        <span class="tag" style="transition-delay:0.23s">SPM PM</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="portrait"><img src="../assets/img/faculty/18.jpg" alt="Mohammad Shahril Bin Abdul Rahman" loading="lazy"></div>
+    <div class="body">
+      <h2>Cikgu Mohammad Shahril Bin Abdul Rahman</h2>
+      <p class="role">专任教师</p>
+      <div class="tags">
+        <span class="tag" style="transition-delay:0.15s">BM</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="portrait"><img src="../assets/img/faculty/19.jpg" alt="雷文香" loading="lazy"></div>
+    <div class="body">
+      <h2>雷文香老师</h2>
+      <p class="role">专任教师</p>
+      <div class="tags">
+        <span class="tag" style="transition-delay:0.15s">BM</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="portrait"><img src="../assets/img/faculty/20.jpg" alt="Nur Asyikin Binti Kamarulzaman" loading="lazy"></div>
+    <div class="body">
+      <h2>Cikgu Nur Asyikin Binti Kamarulzaman</h2>
+      <p class="role">专任教师</p>
+      <div class="tags">
+        <span class="tag" style="transition-delay:0.15s">BM</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="portrait"><img src="../assets/img/faculty/21.jpg" alt="陈文欣" loading="lazy"></div>
+    <div class="body">
+      <h2>陈文欣老师</h2>
+      <p class="role">专任教师</p>
+      <div class="tags">
+        <span class="tag" style="transition-delay:0.15s">数学</span>
+        <span class="tag" style="transition-delay:0.23s">高数</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="portrait"><img src="../assets/img/faculty/22.jpg" alt="陈广宏" loading="lazy"></div>
+    <div class="body">
+      <h2>陈广宏老师</h2>
+      <p class="role">专任教师</p>
+      <div class="tags">
+        <span class="tag" style="transition-delay:0.15s">数学</span>
+        <span class="tag" style="transition-delay:0.23s">高级数学</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="portrait"><img src="../assets/img/faculty/23.jpg" alt="郑乔峰" loading="lazy"></div>
+    <div class="body">
+      <h2>郑乔峰老师</h2>
+      <p class="role">专任教师</p>
+      <div class="tags">
+        <span class="tag" style="transition-delay:0.15s">数学</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="portrait"><img src="../assets/img/faculty/24.jpg" alt="刘瑞龙" loading="lazy"></div>
+    <div class="body">
+      <h2>刘瑞龙老师</h2>
+      <p class="role">科学主任</p>
+      <div class="tags">
+        <span class="tag" style="transition-delay:0.15s">科学</span>
+        <span class="tag" style="transition-delay:0.23s">生物</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="portrait"><img src="../assets/img/faculty/25.jpg" alt="陈嘉怡" loading="lazy"></div>
+    <div class="body">
+      <h2>陈嘉怡老师</h2>
+      <p class="role">化学室助理老师</p>
+      <div class="tags">
+        <span class="tag" style="transition-delay:0.15s">科学</span>
+        <span class="tag" style="transition-delay:0.23s">化学</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="portrait"><img src="../assets/img/faculty/26.jpg" alt="李国良" loading="lazy"></div>
+    <div class="body">
+      <h2>李国良老师</h2>
+      <p class="role">物理室助理老师</p>
+      <div class="tags">
+        <span class="tag" style="transition-delay:0.15s">物理</span>
+        <span class="tag" style="transition-delay:0.23s">家政</span>
+        <span class="tag" style="transition-delay:0.31s">SPM SC</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="portrait"><img src="../assets/img/faculty/27.jpg" alt="叶佳莹" loading="lazy"></div>
+    <div class="body">
+      <h2>叶佳莹老师</h2>
+      <p class="role">专任教师</p>
+      <div class="tags">
+        <span class="tag" style="transition-delay:0.15s">科学</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="portrait"><img src="../assets/img/faculty/28.jpg" alt="余延盛" loading="lazy"></div>
+    <div class="body">
+      <h2>余延盛老师</h2>
+      <p class="role">专任教师</p>
+      <div class="tags">
+        <span class="tag" style="transition-delay:0.15s">AI 教学与应用中心</span>
+        <span class="tag" style="transition-delay:0.23s">AI编程</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="portrait"><img src="../assets/img/faculty/30.jpg" alt="董子颂" loading="lazy"></div>
+    <div class="body">
+      <h2>董子颂老师</h2>
+      <p class="role">专任教师</p>
+      <div class="tags">
+        <span class="tag" style="transition-delay:0.15s">会计</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="portrait"><img src="../assets/img/faculty/31.jpg" alt="林光进" loading="lazy"></div>
+    <div class="body">
+      <h2>林光进老师</h2>
+      <p class="role">专任教师</p>
+      <div class="tags">
+        <span class="tag" style="transition-delay:0.15s">电脑</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="portrait"><img src="../assets/img/faculty/32.jpg" alt="黄鹙葭" loading="lazy"></div>
+    <div class="body">
+      <h2>黄鹙葭老师</h2>
+      <p class="role">专任教师</p>
+      <div class="tags">
+        <span class="tag" style="transition-delay:0.15s">美术</span>
+        <span class="tag" style="transition-delay:0.23s">选修课</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="portrait"><img src="../assets/img/faculty/33.jpg" alt="颜国政" loading="lazy"></div>
+    <div class="body">
+      <h2>颜国政老师</h2>
+      <p class="role">体育老师</p>
+      <div class="tags">
+        <span class="tag" style="transition-delay:0.15s">体育</span>
+        <span class="tag" style="transition-delay:0.23s">运技</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="portrait"><img src="../assets/img/faculty/34.jpg" alt="林祥烟" loading="lazy"></div>
+    <div class="body">
+      <h2>林祥烟老师</h2>
+      <p class="role">专任教师（兼职）</p>
+      <div class="tags">
+        <span class="tag" style="transition-delay:0.15s">高级数学</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="portrait"><img src="../assets/img/faculty/35.jpg" alt="陈明芬" loading="lazy"></div>
+    <div class="body">
+      <h2>陈明芬老师</h2>
+      <p class="role">专任教师（兼职）</p>
+      <div class="tags">
+        <span class="tag" style="transition-delay:0.15s">华文</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="portrait"><img src="../assets/img/faculty/36.jpg" alt="汤文翔" loading="lazy"></div>
+    <div class="body">
+      <h2>汤文翔老师</h2>
+      <p class="role">专任教师（兼职）</p>
+      <div class="tags">
+        <span class="tag" style="transition-delay:0.15s">音乐</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="portrait"><img src="../assets/img/faculty/37.jpg" alt="洪贞月" loading="lazy"></div>
+    <div class="body">
+      <h2>洪贞月教练</h2>
+      <p class="role">专任教师（兼职）</p>
+      <div class="tags">
+        <span class="tag" style="transition-delay:0.15s">游泳教练</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="portrait"><img src="../assets/img/faculty/38.jpg" alt="Jeganathan A/L Sinalingan" loading="lazy"></div>
+    <div class="body">
+      <h2>Coach Jeganathan A/L Sinalingan</h2>
+      <p class="role">专任教师（兼职）</p>
+      <div class="tags">
+        <span class="tag" style="transition-delay:0.15s">壁球教练</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="portrait"><img src="../assets/img/faculty/39.jpg" alt="柯家浚" loading="lazy"></div>
+    <div class="body">
+      <h2>柯家浚老师</h2>
+      <p class="role">数学主任（兼职）</p>
+      <div class="tags">
+        <span class="tag" style="transition-delay:0.15s">物理</span>
+      </div>
+    </div>
+  </article>
+
+  <article class="card">
+    <div class="portrait"><img src="../assets/img/faculty/40.jpg" alt="林继萱" loading="lazy"></div>
+    <div class="body">
+      <h2>林继萱老师</h2>
+      <p class="role">专任教师（兼职）</p>
+      <div class="tags">
+        <span class="tag" style="transition-delay:0.15s">雅思</span>
+      </div>
+    </div>
+  </article>
+
+</main>
+
+<p class="note">名单依据 2026 年 6 月教职员名单（39 位专任+兼职教师，另有 1 位主任因缺照片暂未收录）；卡片入场/抬升/头像回弹/标签弹入均用 kinetics 式弹簧曲线（CSS linear()），不依赖任何 JS 库。</p>
+
+<script>
+// 标题逐词弹簧显影（aetheris BlurText × kinetics spring）
+const hl = document.getElementById('headline');
+['师资团队，是','一群','<em>点灯的人</em>','。'].forEach((w,i)=>{
+  const s = document.createElement('span');
+  s.className = 'w'; s.innerHTML = w;
+  s.style.transitionDelay = (i*0.12)+'s';
+  hl.appendChild(s);
+});
+setTimeout(()=>document.querySelectorAll('#headline .w').forEach(w=>w.classList.add('on')), 60);
+
+// 卡片滚动入场：viktor-oddy useInViewAnimation 范式（触发一次即 unobserve）
+const io = new IntersectionObserver(es=>es.forEach(e=>{
+  if(e.isIntersecting){ e.target.classList.add('in-view'); io.unobserve(e.target); }
+}),{threshold:.12});
+document.querySelectorAll('.card').forEach((c,i)=>{ c.style.transitionDelay=(i*.04)+'s'; io.observe(c); });
+</script>
+</body>
+</html>
