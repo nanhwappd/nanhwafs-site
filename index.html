@@ -9,6 +9,9 @@
 <meta property="og:title" content="南华独立中学 · 每个孩子，都值得被看见">
 <meta property="og:description" content="霹雳曼绒南华独中官方网站：招生资讯、课程改革、校园动态。">
 <meta property="og:image" content="https://nanhwappd.github.io/nanhwafs-site/news/2024/img/20241226-1-0.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;700;900&display=swap" rel="stylesheet">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"School","name":"曼绒县南华独立中学",
  "alternateName":"Nan Hwa High School","foundingDate":"1936",
@@ -16,37 +19,127 @@
  "telephone":"+60 5-691 1442","email":"stnh@nanhwafs.edu.my"}
 </script>
 <style>
-:root { --green:#3EB370; --green-dark:#2E9059; --green-deep:#1E5C3A; --cream:#F5F1E8; --ink:#222; }
+:root { --green:#3EB370; --green-dark:#2E9059; --green-deep:#1E5C3A; --cream:#F5F1E8; --ink:#222;
+  --gold:#E8B84B; --serif:"Noto Serif SC","Source Han Serif SC","STZhongsong","SimSun",serif; }
 * { box-sizing:border-box; margin:0; padding:0; }
 body { font-family:"Noto Sans SC","Microsoft YaHei",system-ui,sans-serif;
        color:var(--ink); background:#fff; line-height:1.85; font-size:18px; }
 img { max-width:100%; display:block; }
-.site-header { background:var(--green); padding:.9rem 1.2rem; position:sticky; top:0; z-index:20;
-               display:flex; align-items:center; justify-content:space-between; gap:.5rem; flex-wrap:wrap; }
-.site-header .logo { color:#fff; font-weight:700; font-size:1.15rem; text-decoration:none; letter-spacing:.05em; }
-.site-header nav { display:flex; flex-wrap:wrap; gap:1rem; }
-.site-header nav a { color:#fff; opacity:.92; text-decoration:none; font-size:.95rem; }
-.site-header nav a:hover { opacity:1; text-decoration:underline; }
+/* Hero v5 —— 晨曦视频满版 + 文件夹标签导航 */
+.hero { position:relative; height:100vh; height:100svh; min-height:700px; overflow:hidden;
+  color:#fff; background:#0b1410; }
+.hero video { position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+  filter:brightness(1.14) saturate(1.1); }
+.hero .scrim { position:absolute; inset:0; pointer-events:none;
+  background:linear-gradient(to top, rgba(6,16,10,.82) 0%, rgba(6,16,10,.34) 34%, rgba(6,16,10,.06) 58%, rgba(6,16,10,.3) 100%); }
+#dust { position:absolute; inset:0; width:100%; height:100%; z-index:4; pointer-events:none; }
 
-/* Hero —— 真实照片满版 + 绿色渐变压字 */
-.hero { position:relative; min-height:clamp(420px, 72vh, 640px); display:flex; align-items:flex-end; }
-.hero .bg { position:absolute; inset:0; }
-.hero .bg img { width:100%; height:100%; object-fit:cover; object-position:center 35%; }
-.hero .bg::after { content:""; position:absolute; inset:0;
-  background:linear-gradient(to top, rgba(20,60,38,.88) 0%, rgba(20,60,38,.45) 45%, rgba(20,60,38,.15) 100%); }
-.hero .wrap { position:relative; z-index:2; max-width:1080px; margin:0 auto; width:100%;
-              padding:4.5rem 1.4rem 2.6rem; color:#fff; }
-.hero .slogan { font-size:clamp(1.7rem, 5vw, 2.7rem); font-weight:800; line-height:1.4;
-                text-shadow:0 2px 12px rgba(0,0,0,.35); }
-.hero .sub { max-width:36em; margin-top:.6rem; font-size:clamp(1rem, 2.4vw, 1.1rem); opacity:.95;
-             text-shadow:0 1px 8px rgba(0,0,0,.4); }
-.hero .meta { font-size:.9rem; letter-spacing:.12em; opacity:.85; margin-bottom:.8rem; }
-.hero .cta { margin-top:1.5rem; display:flex; gap:.8rem; flex-wrap:wrap; }
-.btn { display:inline-block; padding:.7rem 1.7rem; border-radius:999px; text-decoration:none; font-weight:700; }
-.btn-solid { background:#fff; color:var(--green-deep); }
-.btn-solid:hover { background:var(--cream); }
-.btn-line { border:2px solid rgba(255,255,255,.9); color:#fff; }
-.btn-line:hover { background:rgba(255,255,255,.15); }
+.topbar { position:absolute; top:0; left:0; right:0; z-index:6;
+  display:flex; align-items:center; justify-content:space-between;
+  padding:1rem 2rem; height:76px; }
+.brand { display:flex; align-items:center; gap:.8rem; color:#fff; }
+.brand img { height:46px; width:auto; filter:drop-shadow(0 2px 6px rgba(0,0,0,.5)); }
+.brand .name { display:flex; align-items:baseline; gap:.7rem; }
+.brand b { font-family:var(--serif); font-weight:700; font-size:1.22rem; letter-spacing:.08em;
+  text-shadow:0 1px 8px rgba(0,0,0,.55); }
+.brand small { font-size:.72rem; letter-spacing:.22em; color:#d7eadf; opacity:.85; }
+/* 导航加雾面底座提高存在感（用户反馈：顶部的字容易被忽略） */
+.topbar nav { display:flex; gap:1.5rem; align-items:center; padding:.5rem 1.4rem; border-radius:999px;
+  background:rgba(6,16,10,.42); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+  border:1px solid rgba(255,255,255,.2); box-shadow:inset 0 1px 0 rgba(255,255,255,.16); }
+.topbar nav a { color:#fff; font-size:1.02rem; font-weight:600; text-decoration:none;
+  text-shadow:0 1px 6px rgba(0,0,0,.55); padding-bottom:2px; }
+.topbar nav a:hover { border-bottom:2px solid var(--green); }
+a.badge90 { border:1px solid rgba(232,184,75,.7); color:var(--gold); font-size:.82rem; font-weight:700;
+  padding:.32rem .9rem; border-radius:999px; letter-spacing:.14em; text-shadow:none;
+  background:rgba(232,184,75,.12); transition:background .2s ease; }
+a.badge90:hover { background:rgba(232,184,75,.28); border-bottom:none; }
+
+.hero .content { position:absolute; z-index:5; left:0; right:0;
+  bottom:clamp(8.5rem, 20vh, 12rem);
+  padding:0 clamp(1.2rem,5vw,4.5rem); max-width:1180px; }
+.kicker { display:inline-flex; flex-wrap:wrap; align-items:baseline; column-gap:.9em; row-gap:.3em;
+  font-family:var(--serif); font-weight:600;
+  font-size:clamp(.78rem, .6rem + .55vw, .95rem); letter-spacing:.22em; color:#eef7f1;
+  margin-bottom:1.2rem; text-shadow:0 1px 6px rgba(0,0,0,.6);
+  padding:.45em 1.1em .45em 1.2em; border-radius:999px;
+  background:rgba(6,16,10,.38); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
+  border:1px solid rgba(255,255,255,.18); box-shadow:inset 0 1px 0 rgba(255,255,255,.16); }
+.kicker span { white-space:nowrap; }
+.kicker .dot { color:var(--gold); letter-spacing:0; }
+.kicker em { font-style:normal; color:var(--gold); }
+.hero h1 { font-family:var(--serif); font-weight:900;
+  font-size:clamp(2.3rem, 6vw, 4.6rem); line-height:1.22; letter-spacing:.03em;
+  text-shadow:0 2px 20px rgba(0,0,0,.55), 0 0 26px rgba(255,244,214,.4); }
+.hero h1 .light { color:var(--gold);
+  text-shadow:0 2px 20px rgba(0,0,0,.5), 0 0 30px rgba(232,184,75,.6); }
+/* 副文案：雾面半透明金边框面板（用户反馈：直接压在视频上不易读） */
+.hero .sub { margin-top:1.15rem; font-size:clamp(.92rem, .8rem + .5vw, 1.08rem); color:#f4f0e5;
+  max-width:34em; line-height:2; padding:.9rem 1.3rem; border-radius:1rem;
+  background:rgba(6,16,10,.46); backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+  border:1px solid rgba(232,184,75,.42); box-shadow:inset 0 1px 0 rgba(255,255,255,.14);
+  text-shadow:0 1px 8px rgba(0,0,0,.5); }
+.hero .cta { margin-top:1.7rem; display:flex; gap:.9rem; flex-wrap:wrap; }
+.btn { display:inline-block; padding:.78rem 1.9rem; border-radius:999px; font-weight:700; font-size:.98rem;
+  text-decoration:none; backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+  transition:transform .18s ease, background .18s ease; }
+.btn:hover { transform:translateY(-2px); }
+.btn-solid { background:rgba(62,179,112,.8); color:#fff; border:1px solid rgba(255,255,255,.28);
+  box-shadow:0 6px 22px rgba(62,179,112,.32), inset 0 1px 0 rgba(255,255,255,.4); }
+.btn-solid:hover { background:rgba(46,144,89,.92); }
+.btn-line { border:1px solid rgba(255,255,255,.45); color:#fff; background:rgba(255,255,255,.08);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.35); }
+.btn-line:hover { background:rgba(255,255,255,.16); }
+
+/* 五个文件夹标签：微微冒头，靠近才升起 */
+.doors { position:absolute; z-index:5; left:0; right:0; bottom:0;
+  display:grid; grid-template-columns:repeat(5, 1fr); gap:.6rem; align-items:end;
+  padding:0 clamp(.8rem, 2vw, 2rem); }
+.door { --peek:3.3rem; display:block; color:#fff; overflow:hidden; text-decoration:none;
+  border-radius:.9rem .9rem 0 0;
+  background:rgba(8,20,13,.55); backdrop-filter:blur(16px); -webkit-backdrop-filter:blur(16px);
+  border:1px solid rgba(255,255,255,.16); border-bottom:none;
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.18);
+  padding:.95rem 1.15rem 1.15rem;
+  transform:translateY(calc(100% - var(--peek)));
+  transition:transform .38s cubic-bezier(.22,.8,.3,1), background .3s ease;
+  animation:doorBreath 5s ease-in-out infinite; }
+@keyframes doorBreath {
+  0%, 100% { transform:translateY(calc(100% - var(--peek))); filter:brightness(1); }
+  50% { transform:translateY(calc(100% - var(--peek) - .5rem)); filter:brightness(1.35); }
+}
+.door:nth-child(2) { animation-delay:.55s; }
+.door:nth-child(3) { animation-delay:1.1s; }
+.door:nth-child(4) { animation-delay:1.65s; }
+.door:nth-child(5) { animation-delay:2.2s; }
+.door:hover, .door:focus-visible { animation:none; transform:translateY(0); background:rgba(24,58,39,.68); }
+.door b { display:block; font-family:var(--serif); font-weight:700;
+  font-size:clamp(.92rem, .75rem + .45vw, 1.08rem); letter-spacing:.1em; white-space:nowrap; }
+.door b::after { content:"→"; float:right; color:var(--gold); transition:transform .25s ease; }
+.door:hover b::after { transform:translateX(4px); }
+.door span { display:block; margin-top:.55rem; font-size:.8rem; color:#d9e8de; line-height:1.7;
+  opacity:0; transition:opacity .3s ease .1s; }
+.door:hover span, .door:focus-visible span { opacity:1; }
+
+@media (max-width:1080px) {
+  .door { --peek:3rem; padding:.85rem .9rem 1rem; }
+  .door b { letter-spacing:.04em; }
+}
+@media (max-width:760px) {
+  .topbar { padding:.9rem 1.1rem; }
+  .topbar nav { gap:0; padding:0; background:none; border:none; box-shadow:none; }
+  .topbar nav a:not(.badge90) { display:none; }
+  .brand img { height:38px; }
+  .hero .content { bottom:clamp(11rem, 30vh, 14rem); }
+  .doors { grid-template-columns:1fr 1fr; gap:.45rem; padding:0 .6rem; }
+  .door { transform:none; animation:none; padding:.75rem .9rem; border-radius:.7rem .7rem 0 0; }
+  .door span { display:none; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .btn, .door, .door b::after, .door span { transition:none; }
+  .door { transform:none; animation:none; }
+  .door span { opacity:1; }
+}
 
 section { max-width:1080px; margin:0 auto; padding:3.4rem 1.4rem; }
 .sec-head h2 { color:var(--green-dark); font-size:clamp(1.5rem, 3.6vw, 2rem); line-height:1.4; }
@@ -105,29 +198,64 @@ footer .copy { text-align:center; padding:1rem; border-top:1px solid #444; font-
 </style>
 </head>
 <body>
-<header class="site-header">
-  <a class="logo" href="index.html">南华独立中学</a>
-  <nav>
-    <a href="admission/index.html">招生专区</a>
-    <a href="news/index.html">新闻动态</a>
-    <a href="#contact">联系我们</a>
-  </nav>
-</header>
-
 <div class="hero">
-  <div class="bg"><img src="news/2024/img/20241226-1-0.jpg" alt="南华独中毕业典礼大合照" fetchpriority="high"></div>
-  <div class="wrap">
-    <div class="meta">NAN HWA HIGH SCHOOL · 霹雳曼绒 · 创立于 1936 年</div>
-    <h1 class="slogan">每个孩子，都值得被看见。</h1>
-    <p class="sub">在南华，我们相信教育的本质，不是塑造同样的学生，而是帮助每一个生命找到自己的光——一个让孩子敢梦想、能实现、愿承担的地方。</p>
+  <video id="dawn" autoplay muted playsinline preload="auto" poster="assets/img/dawn-poster.jpg">
+    <source src="assets/video/dawn-hero.mp4" type="video/mp4">
+  </video>
+  <video id="dawn2" muted playsinline preload="auto" style="opacity:0" aria-hidden="true">
+    <source src="assets/video/dawn-hero.mp4" type="video/mp4">
+  </video>
+  <div class="scrim"></div>
+  <canvas id="dust"></canvas>
+
+  <header class="topbar">
+    <div class="brand">
+      <img src="assets/img/crest-color.png" alt="南华独中校徽">
+      <span class="name"><b>南华独立中学</b><small>NAN HWA HIGH SCHOOL</small></span>
+    </div>
+    <nav>
+      <a href="admission/index.html">招生专区</a>
+      <a href="news/index.html">新闻动态</a>
+      <a href="#contact">联系我们</a>
+      <a class="badge90" href="90/index.html" title="九十周年校庆专页">1936 · 九十周年</a>
+    </nav>
+  </header>
+
+  <div class="content">
+    <p class="kicker"><span>霹雳曼绒</span><span class="dot">·</span><span>五星级卓越独中</span><span class="dot">·</span><span>创立于 <em>1936</em> 年</span></p>
+    <h1>一束照耀<span class="light">九十载</span>的光</h1>
+    <p class="sub">自1936年曼绒先贤点燃的华教灯火，直至今日工艺楼、技职教育大楼、中国茶文化馆等的设立，九十载光阴，南华独中只做一件事：帮助每一位孩子，找到属于自己的光。</p>
     <div class="cta">
-      <a class="btn btn-solid" href="admission/index.html">招生资讯</a>
-      <a class="btn btn-line" href="#contact">预约参观 / 联系我们</a>
+      <a class="btn btn-solid" href="https://nanhwa.eschool.edu.my/newreg/" target="_blank" rel="noopener">线上报名</a>
+      <a class="btn btn-line" href="#story">走进南华</a>
     </div>
   </div>
+
+  <nav class="doors" aria-label="快速入口">
+    <a class="door" href="admission/index.html">
+      <b>了解报读资讯</b>
+      <span>招生对象 · 报名流程 · 六项奖助学金</span>
+    </a>
+    <a class="door" href="#learn">
+      <b>认识南华</b>
+      <span>校本课程 · 技职选修 · AI 创客空间</span>
+    </a>
+    <a class="door" href="faculty/index.html">
+      <b>师资团队</b>
+      <span>与孩子同行的点灯人</span>
+    </a>
+    <a class="door" href="90/index.html">
+      <b>南华春秋</b>
+      <span>一部从 1936 年写起的校史</span>
+    </a>
+    <a class="door" href="news/index.html">
+      <b>每日南华</b>
+      <span>1,198 篇校园纪事，仍在继续</span>
+    </a>
+  </nav>
 </div>
 
-<section>
+<section id="story">
   <div class="sec-head">
     <h2>教育不是一场竞争，而是一场修行。</h2>
     <p class="sub">我们以三大核心办学方针，陪孩子走近百年的教育路。</p>
@@ -142,7 +270,7 @@ footer .copy { text-align:center; padding:1rem; border-top:1px solid #444; font-
   </div>
 </section>
 
-<section style="background:var(--cream); max-width:none;">
+<section id="learn" style="background:var(--cream); max-width:none;">
   <div style="max-width:1080px; margin:0 auto;">
     <div class="sec-head">
       <h2>学习，不止于课堂。</h2>
@@ -256,5 +384,69 @@ footer .copy { text-align:center; padding:1rem; border-top:1px solid #444; font-
   </div>
   <div class="copy">© 2026 曼绒县南华独立中学 Nan Hwa High School</div>
 </footer>
+
+<script>
+// 晨曦播一次到破晓满光，之后无缝循环最后 6 秒（云与棕榈持续飘动，太阳不重升）
+// 手法：双 video 交叉淡入，接缝藏在 700ms 淡入淡出里
+const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const vA = document.getElementById('dawn'), vB = document.getElementById('dawn2');
+if (reduced) { vA.removeAttribute('autoplay'); vA.pause(); vB.remove(); }
+else (function(){
+  const TAIL = 6, XF = 700; // 循环尾段秒数 / 交叉淡入毫秒
+  let cur = vA, nxt = vB, switching = false;
+  function fade(el, target){
+    const from = parseFloat(el.style.opacity === '' ? 1 : el.style.opacity);
+    const t0 = performance.now();
+    (function step(now){
+      const p = Math.min(1, (now - t0) / XF);
+      el.style.opacity = from + (target - from) * p;
+      if (p < 1) requestAnimationFrame(step);
+    })(t0);
+  }
+  function arm(v){
+    v.addEventListener('timeupdate', () => {
+      if (switching || v !== cur || !v.duration) return;
+      if (v.duration - v.currentTime <= XF/1000 + 0.1) {
+        switching = true;
+        nxt.currentTime = Math.max(0, v.duration - TAIL);
+        nxt.play().then(() => {
+          fade(nxt, 1); fade(cur, 0);
+          setTimeout(() => { cur.pause(); [cur, nxt] = [nxt, cur]; switching = false; }, XF + 80);
+        }).catch(() => { switching = false; });
+      }
+    });
+  }
+  arm(vA); arm(vB);
+})();
+
+// 定格后画面不死：金色微尘缓浮 + 明灭闪烁
+if (!reduced) (function(){
+  const c = document.getElementById('dust'), ctx = c.getContext('2d');
+  let w, h, ps;
+  function reset(){
+    w = c.width = c.clientWidth; h = c.height = c.clientHeight;
+    ps = Array.from({length:36}, () => ({
+      x:Math.random()*w, y:Math.random()*h,
+      r:.6+Math.random()*1.5, vy:.08+Math.random()*.22, vx:(Math.random()-.5)*.06,
+      a:.25+Math.random()*.45, ph:Math.random()*Math.PI*2, f:.4+Math.random()*.8,
+      gold:Math.random()<.7
+    }));
+  }
+  reset(); addEventListener('resize', reset);
+  function tick(t){
+    ctx.clearRect(0,0,w,h);
+    for (const p of ps){
+      p.y -= p.vy; p.x += p.vx;
+      if (p.y < -4) { p.y = h+4; p.x = Math.random()*w; }
+      const tw = p.a * (0.35 + 0.65*Math.abs(Math.sin(t/1000*p.f + p.ph)));
+      ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, 7);
+      ctx.fillStyle = p.gold ? `rgba(232,184,75,${tw})` : `rgba(255,255,255,${tw*.8})`;
+      ctx.fill();
+    }
+    requestAnimationFrame(tick);
+  }
+  requestAnimationFrame(tick);
+})();
+</script>
 </body>
 </html>
