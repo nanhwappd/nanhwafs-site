@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>认识南华 · 校训与办学理念 · 南华独立中学</title>
+<meta name="description" content="南华独立中学校训「明德格物，致知笃行」与一训三风（校风·立德、教风·爱生、学风·博学），以及办学方针、校史大事纪、办学殊荣总览。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@200;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+/* 骨干设计：11 Build(留白+细字重对比+暖金) + 02 Stamen(暖色调) + 10 Müller-Brockmann(框中有框+规则化淡入)
+   + 18 Kenya Hara暖化版(暖金光晕+骄傲语气) 四style筛选入围/后备后的融合试版，用于 about/ 页面重排试验。 */
+:root {
+  --cream:#F8F4EA; --paper:#FFFFFF; --ink:#2A2822; --muted:#7A6E56; --muted-lt:#9C9484;
+  --gold:#C9974A; --gold-deep:#B5804A; --terracotta:#B5643A; --rule:#E3D4B0; --mount:#EFE9DA;
+  --serif:"Noto Serif SC","Source Han Serif SC","STZhongsong","SimSun",serif;
+}
+* { box-sizing:border-box; margin:0; padding:0; }
+body { background:var(--cream); color:var(--ink); font-family:"Noto Sans SC","Microsoft YaHei",system-ui,sans-serif; line-height:1.9; font-weight:300; }
+a { text-decoration:none; color:inherit; }
+img { max-width:100%; display:block; }
+
+/* 头栏：满版视频，object-fit改cover消灭letterbox黑边——"占据画面全部" */
+.cover { position:relative; min-height:clamp(420px, 62vh, 620px); overflow:hidden; color:#fff;
+  background:linear-gradient(to bottom, #1a1208 0%, #2b1f10 55%, var(--cream) 100%); }
+.cover .bg { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center; }
+.cover .scrim { position:absolute; inset:0; pointer-events:none;
+  background:linear-gradient(to top, rgba(20,14,6,.74) 0%, rgba(20,14,6,.32) 42%, rgba(20,14,6,.06) 66%, rgba(20,14,6,.24) 100%); }
+.cover .sun { position:absolute; width:520px; height:520px; border-radius:50%; top:-200px; right:-40px;
+  background:radial-gradient(circle, rgba(255,206,120,.35), transparent 68%); filter:blur(4px); pointer-events:none; }
+.cover .fade-bottom { position:absolute; left:0; right:0; bottom:-1px; height:clamp(70px,14vh,150px);
+  background:linear-gradient(to bottom, transparent, var(--cream)); pointer-events:none; }
+
+.topbar { position:relative; z-index:3; display:flex; align-items:center; justify-content:space-between; padding:1.1rem clamp(1.2rem,4vw,3rem); }
+.brand { display:flex; align-items:center; gap:.8rem; color:#fff; }
+.brand img { height:46px; width:auto; filter:drop-shadow(0 2px 6px rgba(0,0,0,.5)); }
+.brand .name { display:flex; align-items:baseline; gap:.7rem; }
+.brand b { font-family:var(--serif); font-weight:700; font-size:1.22rem; letter-spacing:.08em; text-shadow:0 1px 8px rgba(0,0,0,.55); }
+.brand small { font-size:.72rem; letter-spacing:.22em; color:#f0e2c4; opacity:.85; }
+.logo90 img { height:58px; width:auto; filter:drop-shadow(0 2px 8px rgba(0,0,0,.5)); transition:transform .2s ease; }
+.logo90:hover img { transform:scale(1.06); }
+
+.cover .content { position:relative; z-index:3; max-width:900px; margin:0 auto;
+  padding:clamp(3.5rem,16vh,7rem) clamp(1.2rem,4vw,3rem) clamp(1.8rem,5vh,2.6rem); }
+.kicker { font-size:.8rem; letter-spacing:.32em; color:#FFEFC4; margin-bottom:1rem;
+  text-shadow:0 1px 3px rgba(0,0,0,.8), 0 2px 14px rgba(0,0,0,.6), 0 0 18px rgba(255,201,120,.5); }
+.cover h1 { font-family:var(--serif); font-weight:200; font-size:clamp(2rem,5vw,3.2rem); line-height:1.5; letter-spacing:.02em;
+  text-shadow:0 2px 16px rgba(0,0,0,.55); }
+.cover h1 b { font-weight:900; }
+.shimmer-text {
+  background: linear-gradient(100deg, #F5E7C4 30%, #FFDD98 50%, #F5E7C4 70%);
+  background-size: 200% auto; -webkit-background-clip: text; background-clip: text; color: transparent;
+  text-shadow:0 0 26px rgba(255,204,120,.6), 0 0 64px rgba(255,204,120,.3);
+  animation: shimmer 3s linear infinite;
+}
+@keyframes shimmer { to { background-position: -200% center; } }
+@media (prefers-reduced-motion: reduce) { .shimmer-text { animation:none; background-position:0 center; } }
+.cover p.intro { margin-top:1.2rem; max-width:38em; color:#f2ecdd; line-height:2; font-size:.98rem; font-weight:300;
+  text-shadow:0 1px 8px rgba(0,0,0,.55); }
+
+section { max-width:960px; margin:0 auto; padding:3.2rem clamp(1.2rem,4vw,3rem) .6rem; }
+.sec-head { border-bottom:1px solid var(--rule); padding-bottom:1rem; margin-bottom:2rem; }
+.sec-head .en { font-size:.78rem; color:var(--gold); letter-spacing:.28em; }
+.sec-head h2 { font-family:var(--serif); font-weight:900; color:var(--ink); font-size:clamp(1.5rem,3.6vw,2.1rem); line-height:1.4; margin-top:.4rem; }
+
+/* 全宽图：校史卷轴 / 一训三风挂轴——去掉圆角裁切+卡框留白，让原图边到边占满，不再吃掉画面 */
+.full-bleed { width:100%; display:block; }
+.full-bleed-wrap { margin:2.2rem 0; background:var(--mount); }
+
+/* 校训 */
+.motto-plate { background:linear-gradient(135deg,var(--gold-deep),var(--gold)); color:#fff;
+  border-radius:.4rem; padding:clamp(1.8rem,5vw,3rem); text-align:center; margin-top:2.4rem; }
+.motto-plate .line { font-family:var(--serif); font-weight:700; font-size:clamp(1.3rem,3.6vw,1.9rem);
+  letter-spacing:.12em; line-height:2.1; }
+.motto-plate .line span { font-weight:900; }
+.motto-src { margin-top:1.6rem; color:var(--muted); font-size:.9rem; max-width:42em; font-weight:300; }
+.motto-src + .motto-src { margin-top:.8rem; }
+
+.eyebrow { font-size:.78rem; letter-spacing:.28em; color:var(--gold); margin-bottom:.5rem; }
+.subhead { font-family:var(--serif); font-weight:900; color:var(--ink); font-size:clamp(1.3rem,3vw,1.7rem); margin-bottom:1.2rem; }
+
+/* 办学方针：暖金光斑挂轴区块 */
+.policy-statement { position:relative; overflow:hidden; border-radius:.6rem;
+  background:linear-gradient(135deg,var(--gold-deep),var(--gold)); padding:clamp(2.4rem,7vw,4rem) 1.5rem;
+  text-align:center; margin-bottom:2rem; }
+.policy-quote { position:relative; z-index:2; font-family:var(--serif); font-weight:900; color:#fff;
+  font-size:clamp(1.35rem,4vw,2.1rem); line-height:1.7; text-shadow:0 2px 10px rgba(0,0,0,.18); }
+.spotlight-glow { position:absolute; left:50%; top:50%; width:220px; height:220px; border-radius:50%;
+  background:radial-gradient(circle, rgba(255,255,255,.28), transparent 70%); transform:translate(-50%, -50%); pointer-events:none; }
+.vision { margin-top:.6rem; font-size:.95rem; color:var(--muted); max-width:44em; font-weight:300; }
+.vision a { color:var(--terracotta); font-weight:700; white-space:nowrap; }
+
+/* 殊荣：荣誉榜叙事式排版——2022/2025维持照片(masonry)+文字并排；2012-2016改固定3栏网格+文字置底 */
+.honor-story { margin-top:3.4rem; }
+.honor-story:first-child { margin-top:0; }
+.honor-story-head .yr { font-family:var(--serif); font-weight:900; color:var(--gold); font-size:1.3rem; letter-spacing:.02em; }
+.honor-story-head h3 { font-family:var(--serif); font-weight:700; color:var(--ink); font-size:clamp(1rem,2.2vw,1.2rem); margin-top:.2rem; }
+.honor-story-rule { border:0; border-top:2px solid var(--terracotta); opacity:.4; margin:.8rem 0 1.3rem; }
+.honor-headline { font-family:var(--serif); font-weight:800; color:var(--terracotta); font-size:1.05rem; line-height:1.5; margin-bottom:1.4rem; }
+.honor-body { display:grid; gap:1.6rem; }
+@media (min-width:840px) { .honor-body { grid-template-columns:1.05fr 1fr; align-items:start; } }
+.honor-text { margin-top:1.8rem; }
+.honor-body .honor-text { margin-top:0; }
+.honor-text p { font-size:.92rem; color:var(--ink); line-height:1.9; margin-bottom:.9rem; font-weight:300; text-align:justify; text-justify:inter-character; }
+.honor-text b { font-weight:700; color:var(--ink); }
+
+/* 默认：masonry，保留原生比例不裁切(2022南洋奖/2025领导力表扬用) */
+.honor-photos { column-count:2; column-gap:.8rem; }
+.honor-photo { display:inline-block; width:100%; break-inside:avoid; margin-bottom:.8rem;
+  background:var(--paper); border:1px solid var(--rule); box-shadow:0 6px 16px rgba(90,60,20,.14); padding:6px 6px 8px; }
+.honor-photo img { width:100%; height:auto; display:block; }
+
+/* 固定3栏网格(2012-2016星级认证史专用) */
+.honor-photos.grid-fixed { display:grid; grid-template-columns:repeat(3,1fr); column-count:unset; gap:.9rem; }
+.honor-photos.grid-fixed .honor-photo { display:block; margin-bottom:0; break-inside:auto; }
+.honor-photos.grid-fixed .honor-photo img { aspect-ratio:1/1; object-fit:contain; }
+
+footer { text-align:center; padding:2.5rem 1rem 3rem; font-size:.82rem; color:var(--muted-lt); }
+
+@media (max-width:640px) { .motto-plate .line { letter-spacing:.06em; } }
+@media (max-width:760px) {
+  .topbar { padding:.9rem 1.1rem; }
+  .brand img { height:38px; }
+  .logo90 img { height:44px; }
+}
+
+/* 滚动淡入：仅在 JS 就绪且不偏好减少动效时生效，默认内容始终可见 */
+.has-js .reveal { opacity:0; transform:translateY(18px);
+  transition:opacity .7s cubic-bezier(.16,.8,.24,1), transform .7s cubic-bezier(.16,.8,.24,1); }
+.has-js .reveal.in { opacity:1; transform:translateY(0); }
+@media (prefers-reduced-motion: reduce) {
+  .has-js .reveal { opacity:1; transform:none; transition:none; }
+}
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <video class="bg" autoplay muted loop playsinline preload="auto" poster="../assets/img/about-aerial-poster.jpg">
+    <source src="../assets/video/about-aerial-loop.mp4" type="video/mp4">
+  </video>
+  <div class="sun"></div>
+  <div class="scrim"></div>
+  <div class="fade-bottom"></div>
+
+  <div class="topbar">
+    <a class="brand" href="../index.html">
+      <img src="../assets/img/crest-color.png" alt="南华独中校徽">
+      <span class="name"><b>南华独立中学</b><small>NAN HWA HIGH SCHOOL</small></span>
+    </a>
+    <nav>
+      <a class="logo90" href="../90/index.html" title="1936 · 九十周年校庆专页"><img src="../assets/img/logo90.png" alt="90 周年徽标 · 九十年风雨兼程，育见百年"></a>
+    </nav>
+  </div>
+
+  <div class="content">
+    <p class="kicker">认识南华独中 · 一训三风 · 愿景与办学方针</p>
+    <h1><b class="shimmer-text">明德 · 格物 · 致知 · 笃行</b></h1>
+  </div>
+</div>
+
+<section id="history" class="reveal">
+  <div class="sec-head">
+    <p class="en">School Chronology</p>
+    <h2>南华校史 · 大事纪</h2>
+  </div>
+  <p class="vision" style="margin-bottom:1.6rem;">从 1936 年四校合并创立，历经战火停办、独中复兴、新校迁建，到今日迈向创校 90 周年。<a href="../history/index.html">完整校史 →</a></p>
+</section>
+<div class="full-bleed-wrap">
+  <img class="full-bleed" src="../assets/img/about/history-scroll.jpg" alt="南华独中简史与大事纪挂轴：1936年四校合并创立南洋华侨中学，历经战事停办、独中复兴、新校落成、薪火承传，迈向创校90周年">
+</div>
+
+<section id="winds" class="reveal">
+  <p class="eyebrow">School Motto</p>
+  <h3 class="subhead">南华校训</h3>
+  <div class="motto-plate">
+    <p class="line">明德中格物，<span>致知</span>后笃行；</p>
+    <p class="line">知行而合一，<span>厚德</span>以载物。</p>
+  </div>
+  <p class="motto-src">「明德格物」语出儒家经典《大学》：「大学之道，在明明德，在亲民，在止于至善」；「格物·致知」语出《礼记·大学》：「致知在格物，物格而后致知」；「笃行」语出《礼记·中庸》：「博学之，审问之，慎思之，明辨之，笃行之」。</p>
+  <p class="motto-src">从品格的培养、求知精神境界的追求，到道德品质的完善，涵盖了南华「德技双馨、知行合一」的教育理念——学有所得，就要努力践履所学，使所学最终有所落实。</p>
+</section>
+<div class="full-bleed-wrap">
+  <img class="full-bleed" src="../assets/img/about/winds-banner.png" alt="南华独中一训三风挂轴：校风·立德、教风·爱生、学风·博学">
+</div>
+
+<section id="policy" class="reveal">
+  <div class="sec-head">
+    <p class="en">Vision &amp; Guiding Principles</p>
+    <h2>愿景与办学方针</h2>
+  </div>
+  <div class="policy-statement">
+    <span class="spotlight-glow"></span>
+    <h3 class="policy-quote">培养「迎领」21 世纪<br>中华文化素养领袖人才</h3>
+  </div>
+
+  <p class="vision">马来西亚霹雳州曼绒县南华独立中学秉持着「学会读书 · 学会做人 · 学会领导」的办学方针，通过教学过程引导学生掌握新知识、培养学生独立思考、批判性思维、自学能力，同时通过活动让学生认识自己、发掘热忱、培养天赋及学会感恩，让学生沐浴于中华文化素养的熏陶下，以期培养「迎领」21 世纪中华文化素养领袖人才。</p>
+</section>
+<div class="full-bleed-wrap">
+  <img class="full-bleed" src="../assets/img/about/policy-banner.png" alt="南华独中办学方针挂轴：学会读书、学会做人、学会领导，培养迎领21世纪中华文化素养领袖人才">
+</div>
+
+<section id="honors" class="reveal">
+  <div class="sec-head">
+    <p class="en">Honors &amp; Accolades</p>
+    <h2>被以殊荣</h2>
+  </div>
+  <article class="honor-story reveal">
+    <div class="honor-story-head">
+      <p class="yr">2012 – 2016</p><h3>私立学校素质标准认证（SKIPS）</h3>
+    </div>
+    <hr class="honor-story-rule">
+    <p class="honor-headline">南华独中两年内从四星跃升五星，隔年再度蝉联</p>
+    <div class="honor-photos grid-fixed">
+      <div class="honor-photo"><img src="../assets/img/about/honors/award-four-star-2012.jpg" alt="2012年度四星级认证证书" loading="lazy"></div>
+      <div class="honor-photo"><img src="../assets/img/about/honors/award-five-star-2013.jpg" alt="2013年度五星级认证证书" loading="lazy"></div>
+      <div class="honor-photo"><img src="../assets/img/about/honors/clip-five-star-2014-report.jpg" alt="2014年星洲日报剪报，南华独中获五星级奖" loading="lazy"></div>
+      <div class="honor-photo"><img src="../assets/img/about/honors/award-five-star.jpg" alt="2015年度五星级认证证书续证" loading="lazy"></div>
+      <div class="honor-photo"><img src="../assets/img/about/honors/award-five-star-2015-scan.jpg" alt="2015年度五星级认证证书存档扫描副本" loading="lazy"></div>
+      <div class="honor-photo"><img src="../assets/img/about/honors/clip-five-star-2016-retain.jpg" alt="2016年星洲日报剪报，南华独中再蝉联5星" loading="lazy"></div>
+    </div>
+    <div class="honor-text">
+      <p>2012 年度全国私立学校素质标准（SKIPS）评估中，南华独中获颁<b>四星级</b>认证；短短一年后，在 2013 年度评估中跃升<b>五星级</b>，由霹雳州教育局颁证。2014 年 1 月 7 日，《星洲日报》以〈南华独中获五星级奖〉为题报道这项成绩。</p>
+      <p>2015 年度评估中，教育部续发五星级认证；2016 年 4 月 13 日，《星洲日报》再以〈南华独中再蝉联 5 星〉专题报道，标题点出「管理卓越，学术优异」，<b>校长陳麗冰博士</b>代表全体教职员领证。</p>
+    </div>
+  </article>
+
+  <article class="honor-story reveal">
+    <div class="honor-story-head">
+      <p class="yr">2022</p><h3>南洋卓越教育奖 Nanyang Education Award</h3>
+    </div>
+    <hr class="honor-story-rule">
+    <p class="honor-headline">南华独中双喜临门：机构与领导人同获殊荣</p>
+    <div class="honor-body">
+      <div class="honor-photos">
+        <div class="honor-photo"><img src="../assets/img/about/honors/award-nanyang-institution.jpg" alt="2022年南洋卓越教育奖杰出教育机构奖，校长陳麗冰博士代表领奖" loading="lazy"></div>
+        <div class="honor-photo"><img src="../assets/img/about/honors/award-nanyang-institution-letter.jpg" alt="杰出教育机构奖贺信" loading="lazy"></div>
+        <div class="honor-photo"><img src="../assets/img/about/honors/award-nanyang-educator.jpg" alt="2022年南洋卓越教育奖年度教育业者奖，董事长颜登逸领奖" loading="lazy"></div>
+        <div class="honor-photo"><img src="../assets/img/about/honors/award-nanyang-educator-letter.jpg" alt="年度教育业者奖贺信" loading="lazy"></div>
+      </div>
+      <div class="honor-text">
+        <p>2022 年南洋卓越教育奖（Nanyang Education Award）放榜，南华独中荣获「<b>杰出教育机构奖</b>」（Outstanding Educational Institutions Award），由<b>校长陳麗冰博士</b>代表领受；董事长<b>颜登逸</b>同届亦荣获「<b>年度教育业者奖</b>」（Educationist of the Year Award）。</p>
+        <p>奖项由南洋商报主办，马来西亚教育业者公会（PMPPM）与槟城教育业者公会（PPIPP）联办。</p>
+      </div>
+    </div>
+  </article>
+
+  <article class="honor-story reveal">
+    <div class="honor-story-head">
+      <p class="yr">2025</p><h3>霹雳州教育表扬大会 Majlis Apresiasi Peringkat Negeri Perak</h3>
+    </div>
+    <hr class="honor-story-rule">
+    <p class="honor-headline">校长陳麗冰博士 荣膺「私立学校领导力特别教育奖」州际冠军</p>
+    <div class="honor-body">
+      <div class="honor-photos">
+        <div class="honor-photo"><img src="../assets/img/about/honors/award-leadership-1.jpg" alt="校长陳麗冰博士出席2025年霹雳州教育表扬大会领奖" loading="lazy"></div>
+        <div class="honor-photo"><img src="../assets/img/about/honors/award-leadership-2.jpg" alt="校长陳麗冰博士出席2025年霹雳州教育表扬大会现场留影" loading="lazy"></div>
+        <div class="honor-photo"><img src="../assets/img/about/honors/award-leadership-3.jpg" alt="校长陳麗冰博士出席2025年霹雳州教育表扬大会现场留影" loading="lazy"></div>
+      </div>
+      <div class="honor-text">
+        <p><b>校长陳麗冰博士</b>受邀出席由霹雳州教育局主办的「2025 年霹雳州教育表扬大会」，凭卓越的学校管理与领导表现，荣获「<b>私立学校领导力特别教育奖</b>」（Anugerah Khas Pendidikan Kepimpinan Sekolah Swasta）州际冠军。这项殊荣考核私立学校机构管理、愿景规划与资源整合等各面向。</p>
+        <p>陳校长表示，董事会自 2011 年提出「学会读书 · 学会做人」方针以来，全体董事、教职员生与社区伙伴的长期努力，才是这份荣誉真正的主人。</p>
+      </div>
+    </div>
+  </article>
+</section>
+
+<footer>© 2026 曼绒县南华独立中学</footer>
+
+<script>
+document.documentElement.classList.add('has-js');
+const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (reducedMotion) {
+  const bgVideo = document.querySelector('.cover video.bg');
+  if (bgVideo) { bgVideo.removeAttribute('autoplay'); bgVideo.pause(); }
+}
+const policyBox = document.querySelector('.policy-statement');
+const glow = policyBox && policyBox.querySelector('.spotlight-glow');
+if (policyBox && glow) {
+  policyBox.addEventListener('mousemove', (e) => {
+    const r = policyBox.getBoundingClientRect();
+    glow.style.left = (e.clientX - r.left) + 'px';
+    glow.style.top = (e.clientY - r.top) + 'px';
+  });
+}
+if (!reducedMotion && 'IntersectionObserver' in window) {
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold:.14, rootMargin:'0px 0px -6% 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+} else {
+  document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+}
+</script>
+</body>
+</html>
