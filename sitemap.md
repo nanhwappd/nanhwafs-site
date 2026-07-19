@@ -14,6 +14,7 @@
 /admission/                     招生资讯
 /academic/                      学术课程
 /cocurricular/                  联课活动
+/facilities/                    硬体设施（新增，未在v1.0原始规划中，2026-07-19随about家族一并建成）
 /alumni/                        校友
 /donate/                        捐助支持
 /contact/                       联系我们
@@ -28,7 +29,8 @@
 | / 首页 | P4 收尾时重做 | 最新 6 条新闻卡片 + 栏目入口；版面设计届时另议（motionsites 灵感用在这里） |
 | /history/ | P4 之后、8 月中前 | 「南华时光隧道」相册 + 按年大事记（从 posts.json 提炼） |
 | /about/ /admission/ /contact/ | P5 前补上 | 向校方/冠铭要现成文案，一页一档 |
-| /academic/ /cocurricular/ /alumni/ /donate/ | 上线后迭代 | 先放占位页 + noindex，有内容再开 |
+| /about/ /academic/ /cocurricular/ /facilities/ | ✅ 2026-07-19 四页均已建成 | 2027简介手册文案+真实照片，套用同一「四style骨干」设计 |
+| /alumni/ /donate/ | 上线后迭代 | 先放占位页 + noindex，有内容再开 |
 
 ## 新闻内页模板锁定（1198 页共用，改版只动 CSS）
 

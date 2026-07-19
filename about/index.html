@@ -41,8 +41,13 @@ img { max-width:100%; display:block; }
 .logo90 img { height:58px; width:auto; filter:drop-shadow(0 2px 8px rgba(0,0,0,.5)); transition:transform .2s ease; }
 .logo90:hover img { transform:scale(1.06); }
 
+.family-nav { position:relative; z-index:3; display:flex; gap:.6rem; flex-wrap:wrap; padding:0 clamp(1.2rem,4vw,3rem) 1rem; }
+.family-nav a { font-size:.82rem; letter-spacing:.05em; color:#f0e2c4; padding:.4rem 1.1rem; border:1px solid rgba(255,255,255,.32); border-radius:999px; transition:background .2s,border-color .2s; }
+.family-nav a:hover { background:rgba(255,255,255,.14); border-color:rgba(255,255,255,.65); }
+.family-nav a.active { background:rgba(255,255,255,.2); border-color:rgba(255,255,255,.8); font-weight:500; }
+
 .cover .content { position:relative; z-index:3; max-width:900px; margin:0 auto;
-  padding:clamp(3.5rem,16vh,7rem) clamp(1.2rem,4vw,3rem) clamp(1.8rem,5vh,2.6rem); }
+  padding:clamp(2.4rem,10vh,4.4rem) clamp(1.2rem,4vw,3rem) clamp(1.8rem,5vh,2.6rem); }
 .kicker { font-size:.8rem; letter-spacing:.32em; color:#FFEFC4; margin-bottom:1rem;
   text-shadow:0 1px 3px rgba(0,0,0,.8), 0 2px 14px rgba(0,0,0,.6), 0 0 18px rgba(255,201,120,.5); }
 .cover h1 { font-family:var(--serif); font-weight:200; font-size:clamp(2rem,5vw,3.2rem); line-height:1.5; letter-spacing:.02em;
@@ -153,6 +158,13 @@ footer { text-align:center; padding:2.5rem 1rem 3rem; font-size:.82rem; color:va
       <a class="logo90" href="../90/index.html" title="1936 · 九十周年校庆专页"><img src="../assets/img/logo90.png" alt="90 周年徽标 · 九十年风雨兼程，育见百年"></a>
     </nav>
   </div>
+
+  <nav class="family-nav" aria-label="认识南华系列">
+    <a href="../about/index.html" class="active">认识南华</a>
+    <a href="../academic/index.html">学术课程</a>
+    <a href="../cocurricular/index.html">联课活动</a>
+    <a href="../facilities/index.html">硬体设施</a>
+  </nav>
 
   <div class="content">
     <p class="kicker">认识南华独中 · 一训三风 · 愿景与办学方针</p>

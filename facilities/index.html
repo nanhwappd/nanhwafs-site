@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>硬体设施 · 学习空间与科技楼 · 南华独立中学</title>
+<meta name="description" content="南华独立中学硬体设施：校内泳池、茶艺馆、运动与教室设施、技职教育中心（科技楼三层）与AI创客空间。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@200;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+<style>
+/* 骨干设计：11 Build + 02 Stamen + 10 Müller-Brockmann + 18 Kenya Hara暖化版，沿用 about/ 定稿版本。 */
+:root {
+  --cream:#F8F4EA; --paper:#FFFFFF; --ink:#2A2822; --muted:#7A6E56; --muted-lt:#9C9484;
+  --gold:#C9974A; --gold-deep:#B5804A; --terracotta:#B5643A; --rule:#E3D4B0; --mount:#EFE9DA;
+  --serif:"Noto Serif SC","Source Han Serif SC","STZhongsong","SimSun",serif;
+}
+* { box-sizing:border-box; margin:0; padding:0; }
+body { background:var(--cream); color:var(--ink); font-family:"Noto Sans SC","Microsoft YaHei",system-ui,sans-serif; line-height:1.9; font-weight:300; }
+a { text-decoration:none; color:inherit; }
+img { max-width:100%; display:block; }
+
+.cover { position:relative; min-height:clamp(420px, 62vh, 620px); overflow:hidden; color:#fff;
+  background:linear-gradient(to bottom, #1a1208 0%, #2b1f10 55%, var(--cream) 100%); }
+.cover .bg { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center; }
+.cover .scrim { position:absolute; inset:0; pointer-events:none;
+  background:linear-gradient(to top, rgba(20,14,6,.74) 0%, rgba(20,14,6,.32) 42%, rgba(20,14,6,.06) 66%, rgba(20,14,6,.24) 100%); }
+.cover .sun { position:absolute; width:520px; height:520px; border-radius:50%; top:-200px; right:-40px;
+  background:radial-gradient(circle, rgba(255,206,120,.35), transparent 68%); filter:blur(4px); pointer-events:none; }
+.cover .fade-bottom { position:absolute; left:0; right:0; bottom:-1px; height:clamp(70px,14vh,150px);
+  background:linear-gradient(to bottom, transparent, var(--cream)); pointer-events:none; }
+
+.topbar { position:relative; z-index:3; display:flex; align-items:center; justify-content:space-between; padding:1.1rem clamp(1.2rem,4vw,3rem); }
+.brand { display:flex; align-items:center; gap:.8rem; color:#fff; }
+.brand img { height:46px; width:auto; filter:drop-shadow(0 2px 6px rgba(0,0,0,.5)); }
+.brand .name { display:flex; align-items:baseline; gap:.7rem; }
+.brand b { font-family:var(--serif); font-weight:700; font-size:1.22rem; letter-spacing:.08em; text-shadow:0 1px 8px rgba(0,0,0,.55); }
+.brand small { font-size:.72rem; letter-spacing:.22em; color:#f0e2c4; opacity:.85; }
+.logo90 img { height:58px; width:auto; filter:drop-shadow(0 2px 8px rgba(0,0,0,.5)); transition:transform .2s ease; }
+.logo90:hover img { transform:scale(1.06); }
+
+.family-nav { position:relative; z-index:3; display:flex; gap:.6rem; flex-wrap:wrap; padding:0 clamp(1.2rem,4vw,3rem) 1rem; }
+.family-nav a { font-size:.82rem; letter-spacing:.05em; color:#f0e2c4; padding:.4rem 1.1rem; border:1px solid rgba(255,255,255,.32); border-radius:999px; transition:background .2s,border-color .2s; }
+.family-nav a:hover { background:rgba(255,255,255,.14); border-color:rgba(255,255,255,.65); }
+.family-nav a.active { background:rgba(255,255,255,.2); border-color:rgba(255,255,255,.8); font-weight:500; }
+
+.cover .content { position:relative; z-index:3; max-width:900px; margin:0 auto;
+  padding:clamp(2.4rem,10vh,4.4rem) clamp(1.2rem,4vw,3rem) clamp(1.8rem,5vh,2.6rem); }
+.kicker { font-size:.8rem; letter-spacing:.32em; color:#FFEFC4; margin-bottom:1rem;
+  text-shadow:0 1px 3px rgba(0,0,0,.8), 0 2px 14px rgba(0,0,0,.6), 0 0 18px rgba(255,201,120,.5); }
+.cover h1 { font-family:var(--serif); font-weight:200; font-size:clamp(2rem,5vw,3.2rem); line-height:1.5; letter-spacing:.02em;
+  text-shadow:0 2px 16px rgba(0,0,0,.55); }
+.cover h1 b { font-weight:900; }
+.shimmer-text {
+  background: linear-gradient(100deg, #F5E7C4 30%, #FFDD98 50%, #F5E7C4 70%);
+  background-size: 200% auto; -webkit-background-clip: text; background-clip: text; color: transparent;
+  text-shadow:0 0 26px rgba(255,204,120,.6), 0 0 64px rgba(255,204,120,.3);
+  animation: shimmer 3s linear infinite;
+}
+@keyframes shimmer { to { background-position: -200% center; } }
+@media (prefers-reduced-motion: reduce) { .shimmer-text { animation:none; background-position:0 center; } }
+.cover p.intro { margin-top:1.2rem; max-width:38em; color:#f2ecdd; line-height:2; font-size:.98rem; font-weight:300;
+  text-shadow:0 1px 8px rgba(0,0,0,.55); }
+
+section { max-width:960px; margin:0 auto; padding:3.2rem clamp(1.2rem,4vw,3rem) .6rem; }
+.sec-head { border-bottom:1px solid var(--rule); padding-bottom:1rem; margin-bottom:2rem; }
+.sec-head .en { font-size:.78rem; color:var(--gold); letter-spacing:.28em; }
+.sec-head h2 { font-family:var(--serif); font-weight:900; color:var(--ink); font-size:clamp(1.5rem,3.6vw,2.1rem); line-height:1.4; margin-top:.4rem; }
+
+.vision { margin-top:.6rem; font-size:.95rem; color:var(--muted); max-width:44em; font-weight:300; }
+
+.pillar { margin-top:3.2rem; }
+.pillar:first-child { margin-top:0; }
+.pillar-body { display:grid; gap:1.6rem; }
+@media (min-width:840px) { .pillar-body { grid-template-columns:1fr 1.1fr; align-items:center; } }
+.pillar-photo { background:var(--paper); border:1px solid var(--rule); box-shadow:0 6px 16px rgba(90,60,20,.14); padding:6px 6px 8px; }
+.pillar-photo img { width:100%; height:auto; display:block; }
+.pillar-text h3 { font-family:var(--serif); font-weight:800; color:var(--ink); font-size:clamp(1.1rem,2.4vw,1.35rem); margin-bottom:.8rem; }
+.pillar-text p { font-size:.92rem; color:var(--ink); line-height:1.9; margin-bottom:.9rem; font-weight:300; text-align:justify; text-justify:inter-character; }
+
+.tag-grid { display:flex; flex-wrap:wrap; gap:.55rem; }
+.tag-grid span { font-size:.84rem; padding:.4rem .95rem; background:var(--paper); border:1px solid var(--rule); border-radius:999px; color:var(--ink); font-weight:400; }
+
+.policy-statement { position:relative; overflow:hidden; border-radius:.6rem;
+  background:linear-gradient(135deg,var(--gold-deep),var(--gold)); padding:clamp(2.4rem,7vw,4rem) 1.5rem;
+  text-align:center; margin-bottom:2rem; }
+.policy-quote { position:relative; z-index:2; font-family:var(--serif); font-weight:900; color:#fff;
+  font-size:clamp(1.2rem,3.6vw,1.7rem); line-height:1.7; text-shadow:0 2px 10px rgba(0,0,0,.18); }
+.spotlight-glow { position:absolute; left:50%; top:50%; width:220px; height:220px; border-radius:50%;
+  background:radial-gradient(circle, rgba(255,255,255,.28), transparent 70%); transform:translate(-50%, -50%); pointer-events:none; }
+
+footer { text-align:center; padding:2.5rem 1rem 3rem; font-size:.82rem; color:var(--muted-lt); }
+
+@media (max-width:760px) {
+  .topbar { padding:.9rem 1.1rem; }
+  .brand img { height:38px; }
+  .logo90 img { height:44px; }
+  .family-nav { padding:0 1.1rem 1rem; }
+}
+
+.has-js .reveal { opacity:0; transform:translateY(18px);
+  transition:opacity .7s cubic-bezier(.16,.8,.24,1), transform .7s cubic-bezier(.16,.8,.24,1); }
+.has-js .reveal.in { opacity:1; transform:translateY(0); }
+@media (prefers-reduced-motion: reduce) {
+  .has-js .reveal { opacity:1; transform:none; transition:none; }
+}
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <video class="bg" autoplay muted loop playsinline preload="auto" poster="../assets/img/about-aerial-poster.jpg">
+    <source src="../assets/video/about-aerial-loop.mp4" type="video/mp4">
+  </video>
+  <div class="sun"></div>
+  <div class="scrim"></div>
+  <div class="fade-bottom"></div>
+
+  <div class="topbar">
+    <a class="brand" href="../index.html">
+      <img src="../assets/img/crest-color.png" alt="南华独中校徽">
+      <span class="name"><b>南华独立中学</b><small>NAN HWA HIGH SCHOOL</small></span>
+    </a>
+    <nav>
+      <a class="logo90" href="../90/index.html" title="1936 · 九十周年校庆专页"><img src="../assets/img/logo90.png" alt="90 周年徽标 · 九十年风雨兼程，育见百年"></a>
+    </nav>
+  </div>
+
+  <nav class="family-nav" aria-label="认识南华系列">
+    <a href="../about/index.html">认识南华</a>
+    <a href="../academic/index.html">学术课程</a>
+    <a href="../cocurricular/index.html">联课活动</a>
+    <a href="../facilities/index.html" class="active">硬体设施</a>
+  </nav>
+
+  <div class="content">
+    <p class="kicker">硬体设施 · 学习空间与科技楼</p>
+    <h1><b class="shimmer-text">为教育，打造最好的环境</b></h1>
+    <p class="intro">从现代化的教室、相关的实验室或工作室，到休闲设施与其他便利，南华独立中学备有完善的教学设备和有利学习的硬体建设，一应俱全。</p>
+  </div>
+</div>
+
+<section id="leisure" class="reveal">
+  <div class="sec-head">
+    <p class="en">Campus Life</p>
+    <h2>生活与休闲设施</h2>
+  </div>
+
+  <div class="pillar">
+    <div class="pillar-body">
+      <div class="pillar-photo"><img src="../assets/img/facilities/pool.jpg" alt="南华独中丹斯里颜清文杯游泳比赛，学生在校内泳池竞泳" loading="lazy"></div>
+      <div class="pillar-text">
+        <h3>游泳池</h3>
+        <p>校内泳池就在宿舍楼与教学楼之间，是体育与健康素养领域校本课程的日常教学场地，也是游泳与救生学会的训练基地。2024 年首届「丹斯里颜清文杯游泳比赛」便在此举行，吸引十二所小学报名参加。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="pillar">
+    <div class="pillar-body">
+      <div class="pillar-photo"><img src="../assets/img/facilities/tea-room.jpg" alt="南华独中中国茶文化推广中心，师生现场演示茶艺冲泡" loading="lazy"></div>
+      <div class="pillar-text">
+        <h3>中国茶文化推广中心</h3>
+        <p>南华独中与漳州科技职业学院携手共建「中国茶文化推广中心」，是中华文化素养课程的实践空间，学生在这里学习茶艺冲泡的礼仪与技法，是校园里最安静的一角。</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="tag-grid" style="margin-top:2.6rem;">
+    <span>大礼堂</span><span>多用途学生餐厅</span><span>延展舞台</span>
+    <span>亲子厅</span><span>丹斯里颜清文铜像</span>
+  </div>
+</section>
+
+<section id="sports-classrooms" class="reveal">
+  <div class="sec-head">
+    <p class="en">Sports &amp; Classroom Facilities</p>
+    <h2>运动与教室设施</h2>
+  </div>
+  <p class="vision" style="margin-bottom:1.6rem;">从球场到专科教室，南华独中的硬体设施支撑着五大领域校本课程与选修课程的日常运作。</p>
+  <div class="tag-grid">
+    <span>篮球场</span><span>室内篮球场</span><span>壁球场</span><span>羽球场</span><span>排球场</span><span>大草场</span>
+    <span>音乐室</span><span>缝纫教室</span><span>美工室</span><span>木工室</span>
+    <span>中央厨房</span><span>咖啡与甜点艺术教室</span><span>A.I. 教室</span><span>影艺空间</span>
+  </div>
+</section>
+
+<section id="vocational" class="reveal">
+  <div class="sec-head">
+    <p class="en">Vocational Education Centre</p>
+    <h2>技职教育中心 · 科技楼</h2>
+  </div>
+  <div class="pillar">
+    <div class="pillar-body">
+      <div class="pillar-photo"><img src="../assets/img/facilities/vocational-centre.jpg" alt="南华独中技职教育中心开幕仪式，董事与嘉宾于科技楼内合影" loading="lazy"></div>
+      <div class="pillar-text">
+        <h3>梦想从这里起航</h3>
+        <p>科技楼技职教育中心于 2024 年隆重开幕，为学生提供更广阔的学习空间和更丰富的资源：第一层的多用途活动室及技职教室，让学生展示所学技能、举办各种活动；第二层的 STEAM 教室，让学生探索科学、技术、工程、艺术与数学；第三层的南华酒店管理部门，则为对酒店管理和服务行业感兴趣的学生，提供实践机会，培养他们成为行业中的领导者。</p>
+      </div>
+    </div>
+  </div>
+  <div class="tag-grid" style="margin-top:2.6rem;">
+    <span>多用途活动室</span><span>美容教室</span><span>美甲教室</span><span>STEAM 教室</span><span>南华酒店管理</span>
+  </div>
+</section>
+
+<section id="ai" class="reveal">
+  <div class="sec-head">
+    <p class="en">AI Makerspace</p>
+    <h2>AI 创客空间</h2>
+  </div>
+  <div class="pillar">
+    <div class="pillar-body">
+      <div class="pillar-photo"><img src="../assets/img/facilities/ai-makerspace.jpg" alt="南华独中AI创客空间内部，展示厅与开放式玻璃教室" loading="lazy"></div>
+      <div class="pillar-text">
+        <h3>在动手中理解 AI</h3>
+        <p>「AI 创客空间」设于科技楼二楼，展示厅、开放式玻璃教室、六边形课桌与创客小间一应俱全，旨在打造一个融合创意、科技与教育的实践基地，让学生在动手中理解 AI，在协作中发展未来能力。空间支援项目式学习，鼓励学生亲手设计、编程、测试 AI 作品，也引导学生思考 AI 伦理与其对社会的影响，培育有责任感的科技公民。</p>
+      </div>
+    </div>
+  </div>
+  <div class="policy-statement" style="margin-top:2.4rem;">
+    <span class="spotlight-glow"></span>
+    <h3 class="policy-quote">前沿的科技，辅以深厚的人文底蕴</h3>
+  </div>
+</section>
+
+<footer>© 2026 曼绒县南华独立中学</footer>
+
+<script>
+document.documentElement.classList.add('has-js');
+const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (reducedMotion) {
+  const bgVideo = document.querySelector('.cover video.bg');
+  if (bgVideo) { bgVideo.removeAttribute('autoplay'); bgVideo.pause(); }
+}
+const policyBox = document.querySelector('.policy-statement');
+const glow = policyBox && policyBox.querySelector('.spotlight-glow');
+if (policyBox && glow) {
+  policyBox.addEventListener('mousemove', (e) => {
+    const r = policyBox.getBoundingClientRect();
+    glow.style.left = (e.clientX - r.left) + 'px';
+    glow.style.top = (e.clientY - r.top) + 'px';
+  });
+}
+if (!reducedMotion && 'IntersectionObserver' in window) {
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold:.14, rootMargin:'0px 0px -6% 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+} else {
+  document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+}
+</script>
+</body>
+</html>
