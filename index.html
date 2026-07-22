@@ -129,60 +129,86 @@ img { max-width:100%; display:block; }
   .door span { opacity:1; }
 }
 
-section { max-width:1080px; margin:0 auto; padding:3.4rem 1.4rem; }
-.sec-head h2 { color:var(--green-dark); font-size:clamp(1.5rem, 3.6vw, 2rem); line-height:1.4; }
-.sec-head .sub { font-weight:700; margin:.3rem 0 1.8rem; }
+/* ===== hero 以下内容区：暖金衬线骨干设计，与 about/academic/cocurricular/facilities 统一系统 =====
+   独立 --w- 前缀变量域，不覆盖上方 hero 所用 --gold/--green，两套配色零冲突。 */
+:root {
+  --w-cream:#F8F4EA; --w-paper:#FFFFFF; --w-ink:#2A2822; --w-muted:#7A6E56; --w-muted-lt:#9C9484;
+  --w-gold:#C9974A; --w-gold-deep:#B5804A; --w-terracotta:#B5643A; --w-rule:#E3D4B0; --w-mount:#EFE9DA;
+}
+body { background:var(--w-cream); }
 
+section { max-width:1080px; margin:0 auto; padding:3.6rem 1.4rem .8rem; }
+.sec-head { border-bottom:1px solid var(--w-rule); padding-bottom:1rem; margin-bottom:1.8rem; }
+.sec-head .en { font-size:.78rem; color:var(--w-gold); letter-spacing:.28em; }
+.sec-head h2 { font-family:var(--serif); font-weight:900; color:var(--w-ink); font-size:clamp(1.4rem,3.4vw,1.9rem); line-height:1.5; margin-top:.4rem; }
+.vision { font-size:.95rem; color:var(--w-muted); max-width:44em; font-weight:300; line-height:1.9; }
+
+/* 三大方针 */
 .pillars { display:grid; gap:0; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); }
-.pillar { padding:1.6rem 1.6rem 1.6rem 0; border-left:1px solid #e5dfd2; padding-left:1.6rem; }
-.pillar:first-child { border-left:none; padding-left:0; }
-.pillar .num { display:block; font-size:2.4rem; font-weight:800; color:var(--green); line-height:1; margin-bottom:.6rem; opacity:.85; }
-.pillar h3 { color:var(--green-dark); margin-bottom:.5rem; font-size:1.15rem; }
-.pillar p { font-size:.98rem; color:#3a3a3a; }
-.pillar .en { display:block; font-size:.8rem; color:#7ba38d; letter-spacing:.05em; }
+.pillar-num { padding:1.7rem 1.7rem 1.7rem 0; border-left:1px solid var(--w-rule); padding-left:1.7rem; }
+.pillar-num:first-child { border-left:none; padding-left:0; }
+.pillar-num .num { display:block; font-family:var(--serif); font-size:2.3rem; font-weight:900; color:var(--w-gold); line-height:1; margin-bottom:.7rem; opacity:.9; }
+.pillar-num h3 { font-family:var(--serif); color:var(--w-ink); margin-bottom:.6rem; font-size:1.12rem; font-weight:700; }
+.pillar-num p { font-size:.92rem; color:var(--w-muted); font-weight:300; line-height:1.85; }
+.pillar-num .num-en { display:block; font-size:.76rem; color:var(--w-gold); letter-spacing:.06em; font-weight:400; margin-top:.15rem; }
 
-/* 图文对分 */
-.split { display:grid; gap:2rem; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); align-items:center; }
-.split .ph { aspect-ratio:4/3; border-radius:12px; overflow:hidden; }
-.split .ph img { width:100%; height:100%; object-fit:cover; }
-.split ul { list-style:none; display:grid; gap:.7rem; }
-.split li { padding-left:1.4em; position:relative; font-size:.98rem; }
-.split li::before { content:"●"; color:var(--green); position:absolute; left:0; font-size:.7em; top:.55em; }
-.split .cap { font-size:.85rem; color:#888; margin-top:.5rem; }
+/* 图文对分（沿用 facilities pillar 模式） */
+.pillar-body { display:grid; gap:1.6rem; grid-template-columns:repeat(auto-fit, minmax(300px, 1fr)); align-items:center; }
+.pillar-photo { background:var(--w-paper); border:1px solid var(--w-rule); box-shadow:0 6px 16px rgba(90,60,20,.14); padding:6px 6px 8px; }
+.pillar-photo img { width:100%; aspect-ratio:4/3; object-fit:cover; display:block; }
+.pillar-cap { font-size:.85rem; color:var(--w-muted-lt); margin-top:.6rem; text-align:center; }
+.pillar-text ul { list-style:none; display:grid; gap:.7rem; margin-top:.2rem; }
+.pillar-text li { padding-left:1.4em; position:relative; font-size:.92rem; color:var(--w-ink); font-weight:300; line-height:1.8; }
+.pillar-text li::before { content:"●"; color:var(--w-gold); position:absolute; left:0; font-size:.6em; top:.6em; }
 
 /* 照片三联 */
 .trio { display:grid; gap:1rem; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); }
-.trio figure { border-radius:12px; overflow:hidden; background:#000; position:relative; aspect-ratio:4/3; }
-.trio img { width:100%; height:100%; object-fit:cover; transition:transform .4s; }
-.trio figure:hover img { transform:scale(1.04); }
-.trio figcaption { position:absolute; left:0; right:0; bottom:0; padding:1.6rem .9rem .6rem;
-  color:#fff; font-size:1rem; font-weight:600;
-  background:linear-gradient(to top, rgba(0,0,0,.72), transparent); }
+.trio figure { border-radius:.3rem; overflow:hidden; background:#000; position:relative; aspect-ratio:4/3; }
+.trio img { width:100%; height:100%; object-fit:cover; transition:transform .5s ease; }
+.trio figure:hover img { transform:scale(1.05); }
+.trio figcaption { position:absolute; left:0; right:0; bottom:0; padding:1.8rem .95rem .7rem;
+  color:#fff; font-family:var(--serif); font-size:.98rem; font-weight:700;
+  background:linear-gradient(to top, rgba(20,14,6,.82), transparent); }
 
+/* 校园动态 news 卡片 */
 .news-cards { display:grid; gap:1.2rem; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); }
-.news-cards .post-card { background:#fff; border:1px solid #e5dfd2; border-radius:12px; overflow:hidden; }
+.news-cards .post-card { background:var(--w-paper); border:1px solid var(--w-rule); border-radius:.4rem; overflow:hidden; transition:box-shadow .25s ease; }
+.news-cards .post-card:hover { box-shadow:0 8px 20px rgba(90,60,20,.14); }
 .news-cards .thumb { aspect-ratio:16/9; overflow:hidden; }
 .news-cards .thumb img { width:100%; height:100%; object-fit:cover; }
 .news-cards .txt { padding:.9rem 1.1rem 1.1rem; }
-.news-cards time { font-size:.82rem; color:#888; }
-.news-cards a { display:block; color:var(--ink); font-weight:600; text-decoration:none; margin-top:.2rem; line-height:1.6; }
-.news-cards a:hover { color:var(--green-dark); }
-.more { margin-top:1.5rem; font-weight:700; }
-.more a { color:var(--green-dark); }
+.news-cards time { font-size:.8rem; color:var(--w-muted-lt); letter-spacing:.03em; }
+.news-cards a { display:block; color:var(--w-ink); font-weight:600; text-decoration:none; margin-top:.3rem; line-height:1.6; font-size:.96rem; }
+.news-cards a:hover { color:var(--w-terracotta); }
+.more { margin-top:1.6rem; font-weight:700; font-size:.92rem; }
+.more a { color:var(--w-gold-deep); }
 
-.quotes { background:var(--green-deep); color:#fff; }
-.quotes .wrap { max-width:880px; margin:0 auto; padding:3.2rem 1.4rem; }
-.quotes blockquote { margin-bottom:1.8rem; font-size:1.08rem; line-height:2; }
+/* 语录：暖金深色挂轴，与 cover 渐变呼应 */
+.quotes { background:linear-gradient(135deg, #1a1208 0%, #2b1f10 100%); color:#f2ecdd; position:relative; }
+.quotes::before { content:""; position:absolute; top:0; left:0; right:0; height:2px;
+  background:linear-gradient(90deg, transparent, var(--w-gold), transparent); }
+.quotes .wrap { max-width:880px; margin:0 auto; padding:3.6rem 1.4rem; }
+.quotes blockquote { margin-bottom:2rem; font-family:var(--serif); font-weight:300; font-size:1.1rem; line-height:2.1; }
 .quotes blockquote:last-child { margin-bottom:0; }
-.quotes cite { display:block; font-style:normal; font-size:.9rem; opacity:.8; margin-top:.4rem; }
+.quotes cite { display:block; font-style:normal; font-size:.86rem; color:var(--w-gold); opacity:.9; margin-top:.5rem; letter-spacing:.03em; }
 
-footer { background:#2a2a2a; color:#ccc; font-size:.95rem; }
-footer .wrap { max-width:1080px; margin:0 auto; padding:2.4rem 1.4rem;
-               display:grid; gap:1.6rem; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); }
-footer h3 { color:#fff; font-size:1.05rem; margin-bottom:.6rem; }
-footer a { color:#9fd8b8; text-decoration:none; }
+/* 页脚：暖色深调，与 quotes 呼应，联系信息保留完整功能 */
+footer { background:#1E1810; color:#c9c0ac; font-size:.95rem; }
+footer .wrap { max-width:1080px; margin:0 auto; padding:2.6rem 1.4rem;
+               display:grid; gap:1.8rem; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); }
+footer h3 { font-family:var(--serif); color:#fff; font-size:1rem; font-weight:700; letter-spacing:.04em; margin-bottom:.7rem; }
+footer p { font-size:.88rem; line-height:1.9; font-weight:300; }
+footer a { color:var(--w-gold); text-decoration:none; }
 footer a:hover { text-decoration:underline; }
-footer .copy { text-align:center; padding:1rem; border-top:1px solid #444; font-size:.82rem; color:#999; }
+footer .copy { text-align:center; padding:1.1rem; border-top:1px solid rgba(255,255,255,.08); font-size:.8rem; color:#8c8370; }
+
+/* 滚动淡入：仅在 JS 就绪且不偏好减少动效时生效，默认内容始终可见 */
+.has-js .reveal { opacity:0; transform:translateY(18px);
+  transition:opacity .7s cubic-bezier(.16,.8,.24,1), transform .7s cubic-bezier(.16,.8,.24,1); }
+.has-js .reveal.in { opacity:1; transform:translateY(0); }
+@media (prefers-reduced-motion: reduce) {
+  .has-js .reveal { opacity:1; transform:none; transition:none; }
+}
 </style>
 </head>
 <body>
@@ -237,32 +263,34 @@ footer .copy { text-align:center; padding:1rem; border-top:1px solid #444; font-
   </nav>
 </div>
 
-<section id="story">
+<section id="story" class="reveal">
   <div class="sec-head">
+    <p class="en">Our Philosophy</p>
     <h2>教育不是一场竞争，而是一场修行。</h2>
-    <p class="sub">我们以三大核心办学方针，陪孩子走近百年的教育路。</p>
   </div>
+  <p class="vision" style="margin-bottom:2rem;">我们以三大核心办学方针，陪孩子走近百年的教育路。</p>
   <div class="pillars">
-    <div class="pillar"><span class="num">01</span><h3>学会读书 <span class="en">To Learn to Read</span></h3>
+    <div class="pillar-num"><span class="num">01</span><h3>学会读书<span class="num-en">To Learn to Read</span></h3>
       <p>引导学生独立思考、培养批判性思维与自学能力，让他们看清问题并提出解决方案。</p></div>
-    <div class="pillar"><span class="num">02</span><h3>学会做人 <span class="en">To Learn to Be Human</span></h3>
+    <div class="pillar-num"><span class="num">02</span><h3>学会做人<span class="num-en">To Learn to Be Human</span></h3>
       <p>帮助学生认识自己、发现热忱、培养天赋与学会感恩，建立坚韧而强大的内心。</p></div>
-    <div class="pillar"><span class="num">03</span><h3>学会引领 <span class="en">To Learn to Lead</span></h3>
+    <div class="pillar-num"><span class="num">03</span><h3>学会引领<span class="num-en">To Learn to Lead</span></h3>
       <p>培养大格局，强调才德兼备，提升组织能力，让学生具备统筹与协调的能力。</p></div>
   </div>
 </section>
 
-<section id="learn" style="background:var(--cream); max-width:none;">
-  <div style="max-width:1080px; margin:0 auto;">
-    <div class="sec-head">
-      <h2>学习，不止于课堂。</h2>
-      <p class="sub">自 2022 年起全面启动课程改革，以素养导向教学为核心。</p>
+<section id="learn" class="reveal" style="background:var(--w-mount);">
+  <div class="sec-head">
+    <p class="en">Curriculum Reform</p>
+    <h2>学习，不止于课堂。</h2>
+  </div>
+  <p class="vision" style="margin-bottom:1.8rem;">自 2022 年起全面启动课程改革，以素养导向教学为核心。</p>
+  <div class="pillar-body">
+    <div>
+      <div class="pillar-photo"><img src="news/2025/img/20250716-1-0.jpg" alt="南华独中 AI 创客空间" loading="lazy"></div>
+      <p class="pillar-cap">AI 创客空间——在温度与科技交汇处，培育未来掌舵人</p>
     </div>
-    <div class="split">
-      <div>
-        <div class="ph"><img src="news/2025/img/20250716-1-0.jpg" alt="南华独中 AI 创客空间" loading="lazy"></div>
-        <p class="cap">AI 创客空间——在温度与科技交汇处，培育未来掌舵人</p>
-      </div>
+    <div class="pillar-text">
       <ul>
         <li>五大领域素养、18 门校本课程，推行项目式学习（PBL）</li>
         <li>Python 编程、机器人、无人机课程与研究导向学习</li>
@@ -275,11 +303,12 @@ footer .copy { text-align:center; padding:1rem; border-top:1px solid #444; font-
   </div>
 </section>
 
-<section>
+<section class="reveal">
   <div class="sec-head">
+    <p class="en">Co-curricular Life</p>
     <h2>十余个社团，是青春最真实的战场。</h2>
-    <p class="sub">超过 10 个社团，陪伴孩子发现热情与潜能。</p>
   </div>
+  <p class="vision" style="margin-bottom:1.8rem;">超过 10 个社团，陪伴孩子发现热情与潜能。</p>
   <div class="trio">
     <figure><img src="news/2026/img/20260622-1-0.jpg" alt="廿四节令鼓队" loading="lazy">
       <figcaption>廿四节令鼓队 · 州赛载誉</figcaption></figure>
@@ -290,17 +319,18 @@ footer .copy { text-align:center; padding:1rem; border-top:1px solid #444; font-
   </div>
 </section>
 
-<section style="background:var(--cream); max-width:none;">
-  <div style="max-width:1080px; margin:0 auto;">
-    <div class="sec-head">
-      <h2>一所学校的实力，来自学生的光。</h2>
-      <p class="sub">每一份奖项，都是成长的印记。</p>
+<section class="reveal" style="background:var(--w-mount);">
+  <div class="sec-head">
+    <p class="en">Achievements</p>
+    <h2>一所学校的实力，来自学生的光。</h2>
+  </div>
+  <p class="vision" style="margin-bottom:1.8rem;">每一份奖项，都是成长的印记。</p>
+  <div class="pillar-body">
+    <div>
+      <div class="pillar-photo"><img src="news/2025/img/20250617-1-0.jpg" alt="全国 AI 机器人竞赛冠军" loading="lazy"></div>
+      <p class="pillar-cap">2025 全国中学生 AI 机器人竞赛——总决赛冠军</p>
     </div>
-    <div class="split">
-      <div>
-        <div class="ph"><img src="news/2025/img/20250617-1-0.jpg" alt="全国 AI 机器人竞赛冠军" loading="lazy"></div>
-        <p class="cap">2025 全国中学生 AI 机器人竞赛——总决赛冠军</p>
-      </div>
+    <div class="pillar-text">
       <ul>
         <li>全国 AI 机器人竞赛冠军与殿军（2025）；台湾 TIRT 国际赛代表马来西亚出征获亚军与团体总冠军</li>
         <li>马来西亚教育部私立学校组「五星级卓越学校奖」（2014 & 2015）</li>
@@ -312,11 +342,12 @@ footer .copy { text-align:center; padding:1rem; border-top:1px solid #444; font-
   </div>
 </section>
 
-<section>
+<section class="reveal">
   <div class="sec-head">
+    <p class="en">Campus Journal</p>
     <h2>校园动态</h2>
-    <p class="sub">南华的每一天，都在这里被记录。</p>
   </div>
+  <p class="vision" style="margin-bottom:1.8rem;">南华的每一天，都在这里被记录。</p>
   <div class="news-cards">
     <div class="post-card">
       <div class="thumb"><img src="news/2026/img/20260628-1-0.jpg" alt="" loading="lazy"></div>
@@ -368,6 +399,7 @@ footer .copy { text-align:center; padding:1rem; border-top:1px solid #444; font-
 </footer>
 
 <script>
+document.documentElement.classList.add('has-js');
 // 循环转场：片尾 2.4 秒渐渐暗下来 → 黑场停一拍 → 从头再天亮一轮
 const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
 const vid = document.getElementById('dawn'), fadeEl = document.getElementById('fade');
@@ -414,6 +446,15 @@ if (!reduced) (function(){
   }
   requestAnimationFrame(tick);
 })();
+
+if (!reduced && 'IntersectionObserver' in window) {
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold:.14, rootMargin:'0px 0px -6% 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+} else {
+  document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+}
 </script>
 </body>
 </html>
