@@ -9,62 +9,64 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;700;900&display=swap" rel="stylesheet">
 <style>
 /* 骨架：viktor-oddy portfolio（入场显影+视差+衬线大字）；动效曲线：kinetics 弹簧物理（linear() 拟合，带过冲回弹） */
-:root { --green:#3EB370; --green-deep:#2E9059; --gold:#C99A2E; --cream:#F5F1E8; --ink:#1E2A22; --muted:#5C6B60;
+/* 配色：与 about/academic/cocurricular/facilities/admission/history 统一暖金衬线系统，结构与动效逻辑不变 */
+:root { --cream:#F8F4EA; --paper:#FFFFFF; --ink:#2A2822; --muted:#7A6E56; --muted-lt:#9C9484;
+  --gold:#C9974A; --gold-deep:#B5804A; --terracotta:#B5643A; --rule:#E3D4B0;
   --serif:"Noto Serif SC","Source Han Serif SC","STZhongsong","SimSun",serif;
   /* kinetics 式弹簧曲线：轻过冲（卡片抬升）与重回弹（头像归位） */
   --spring-soft:linear(0, .35 18%, .78 36%, 1.04 54%, 1.09 62%, 1.02 80%, 1);
   --spring-bouncy:linear(0, .4 16%, .95 32%, 1.18 44%, .96 60%, 1.04 74%, .99 86%, 1); }
 * { box-sizing:border-box; margin:0; padding:0; }
-body { background:var(--cream); color:var(--ink); font-family:"Noto Sans SC","Microsoft YaHei",system-ui,sans-serif; }
+body { background:var(--cream); color:var(--ink); font-family:"Noto Sans SC","Microsoft YaHei",system-ui,sans-serif; font-weight:300; }
 a { text-decoration:none; color:inherit; }
 
 .topbar { display:flex; align-items:center; gap:.7rem; padding:1.1rem clamp(1.2rem,4vw,3rem); }
 .topbar img { height:40px; }
 .topbar b { font-family:var(--serif); font-size:1.05rem; letter-spacing:.08em; }
 .topbar a.back { margin-left:auto; font-size:.85rem; color:var(--muted); }
-.topbar a.back:hover { color:var(--green-deep); }
+.topbar a.back:hover { color:var(--gold-deep); }
 
 header.lead { max-width:1080px; margin:0 auto; padding:clamp(2.5rem,6vh,4.5rem) clamp(1.2rem,4vw,3rem) 1rem; }
-.kicker { font-size:.82rem; letter-spacing:.3em; color:var(--green-deep); margin-bottom:1rem; }
+.kicker { font-size:.82rem; letter-spacing:.3em; color:var(--gold); margin-bottom:1rem; }
 h1 { font-family:var(--serif); font-weight:900; font-size:clamp(2rem,5vw,3.6rem); line-height:1.25; letter-spacing:.02em; }
 h1 .w { display:inline-block; opacity:0; filter:blur(8px); transform:translateY(24px);
   transition:opacity .5s ease-out, filter .5s ease-out, transform .6s var(--spring-soft); }
 h1 .w.on { opacity:1; filter:blur(0); transform:translateY(0); }
 h1 em { font-style:normal; color:var(--gold); }
-.lead p.intro { margin-top:1.2rem; max-width:38em; color:var(--muted); line-height:2; font-size:.98rem; }
+.lead p.intro { margin-top:1.2rem; max-width:38em; color:var(--muted); line-height:2; font-size:.98rem; font-weight:300; }
 
 .grid { max-width:1080px; margin:0 auto; padding:2.5rem clamp(1.2rem,4vw,3rem) 5rem;
   display:grid; grid-template-columns:repeat(3,1fr); gap:1.4rem; }
 @media (max-width:880px) { .grid { grid-template-columns:1fr; max-width:520px; } }
 
-.card { background:#fff; border-radius:1.4rem; overflow:hidden; display:flex; flex-direction:column;
-  box-shadow:0 2px 10px rgba(30,42,34,.07);
+.card { background:var(--paper); border:1px solid var(--rule); border-radius:.6rem; overflow:hidden; display:flex; flex-direction:column;
+  box-shadow:0 2px 10px rgba(90,60,20,.08);
   opacity:0; transform:translateY(34px);
   transition:opacity .7s ease-out, box-shadow .45s ease,
     transform .7s var(--spring-soft); }
 .card.in-view { opacity:1; transform:translateY(0); }
-.card:hover { transform:translateY(-8px); box-shadow:0 18px 44px rgba(30,42,34,.16); }
+.card:hover { transform:translateY(-8px); box-shadow:0 18px 44px rgba(90,60,20,.16); }
 
 .portrait { position:relative; aspect-ratio:4/5; overflow:hidden;
-  background:linear-gradient(155deg, #E8F4EC 0%, #CDE8D8 55%, #B5DCC6 100%); }
+  background:linear-gradient(155deg, var(--mount, #EFE9DA) 0%, #E3D4B0 55%, #C9974A 100%); }
 .portrait img { width:100%; height:100%; object-fit:cover; display:block;
   transition:transform .8s var(--spring-bouncy); }
 .card:hover .portrait img { transform:scale(1.045) rotate(.4deg); }
 
 .body { padding:1.2rem 1.4rem 1.5rem; display:flex; flex-direction:column; flex:1; }
-.body h2 { font-family:var(--serif); font-weight:700; font-size:1.3rem; letter-spacing:.06em; }
-.body .role { margin-top:.35rem; font-size:.78rem; letter-spacing:.1em; color:var(--green-deep); }
+.body h2 { font-family:var(--serif); font-weight:700; font-size:1.3rem; letter-spacing:.06em; color:var(--ink); }
+.body .role { margin-top:.35rem; font-size:.78rem; letter-spacing:.1em; color:var(--gold-deep); }
 .tags { margin-top:.9rem; display:flex; flex-wrap:wrap; gap:.4rem; }
 /* 标签弹入：kinetics 弹簧错峰 */
-.tag { font-size:.7rem; letter-spacing:.04em; color:var(--green-deep);
-  border:1px solid rgba(62,179,112,.45); background:rgba(62,179,112,.08);
+.tag { font-size:.7rem; letter-spacing:.04em; color:var(--terracotta);
+  border:1px solid var(--rule); background:var(--cream);
   padding:.26rem .7rem; border-radius:999px;
   opacity:0; transform:scale(.6);
   transition:opacity .4s ease-out, transform .55s var(--spring-bouncy); }
 .card.in-view .tag { opacity:1; transform:scale(1); }
 
 .note { max-width:1080px; margin:0 auto 4rem; padding:0 clamp(1.2rem,4vw,3rem);
-  font-size:.78rem; color:#9aa89e; line-height:1.8; }
+  font-size:.78rem; color:var(--muted-lt); line-height:1.8; }
 
 @media (prefers-reduced-motion: reduce) {
   h1 .w, .card, .tag, .portrait img { transition:none; opacity:1; transform:none; filter:none; }
