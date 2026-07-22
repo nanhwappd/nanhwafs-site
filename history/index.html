@@ -7,79 +7,146 @@
 <meta name="description" content="曼绒县南华独立中学九十年校史——从 1935 年四校合并创立，到日据停办、复办、改制救校、迁校扩建，直至今日。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@200;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
-:root { --green:#3EB370; --green-deep:#2E9059; --gold:#C99A2E; --cream:#F5F1E8; --ink:#1E2A22; --muted:#5C6B60;
-  --serif:"Noto Serif SC","Source Han Serif SC","STZhongsong","SimSun",serif; }
+/* 骨干设计：与 about/academic/cocurricular/facilities/admission 统一系统，套用到南华春秋。 */
+:root {
+  --cream:#F8F4EA; --paper:#FFFFFF; --ink:#2A2822; --muted:#7A6E56; --muted-lt:#9C9484;
+  --gold:#C9974A; --gold-deep:#B5804A; --terracotta:#B5643A; --rule:#E3D4B0; --mount:#EFE9DA;
+  --serif:"Noto Serif SC","Source Han Serif SC","STZhongsong","SimSun",serif;
+}
 * { box-sizing:border-box; margin:0; padding:0; }
-body { background:var(--cream); color:var(--ink); font-family:"Noto Sans SC","Microsoft YaHei",system-ui,sans-serif; line-height:1.9; }
+body { background:var(--cream); color:var(--ink); font-family:"Noto Sans SC","Microsoft YaHei",system-ui,sans-serif; line-height:1.9; font-weight:300; }
 a { text-decoration:none; color:inherit; }
 img { max-width:100%; display:block; }
 
-.topbar { display:flex; align-items:center; gap:.7rem; padding:1.1rem clamp(1.2rem,4vw,3rem); }
-.topbar img { height:40px; }
-.topbar b { font-family:var(--serif); font-size:1.05rem; letter-spacing:.08em; }
-.topbar a.back { margin-left:auto; font-size:.85rem; color:var(--muted); }
-.topbar a.back:hover { color:var(--green-deep); }
+.cover { position:relative; min-height:clamp(420px, 58vh, 580px); overflow:hidden; color:#fff;
+  background:linear-gradient(to bottom, #1a1208 0%, #2b1f10 55%, var(--cream) 100%); }
+.cover .bg { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center; filter:saturate(.9); }
+.cover .scrim { position:absolute; inset:0; pointer-events:none;
+  background:linear-gradient(to top, rgba(20,14,6,.78) 0%, rgba(20,14,6,.36) 42%, rgba(20,14,6,.1) 66%, rgba(20,14,6,.26) 100%); }
+.cover .sun { position:absolute; width:520px; height:520px; border-radius:50%; top:-200px; right:-40px;
+  background:radial-gradient(circle, rgba(255,206,120,.32), transparent 68%); filter:blur(4px); pointer-events:none; }
+.cover .fade-bottom { position:absolute; left:0; right:0; bottom:-1px; height:clamp(70px,14vh,150px);
+  background:linear-gradient(to bottom, transparent, var(--cream)); pointer-events:none; }
 
-header.lead { max-width:900px; margin:0 auto; padding:clamp(2.5rem,6vh,4.5rem) clamp(1.2rem,4vw,3rem) 1rem; }
-.kicker { font-size:.82rem; letter-spacing:.3em; color:var(--green-deep); margin-bottom:1rem; }
-h1 { font-family:var(--serif); font-weight:900; font-size:clamp(2rem,5vw,3.4rem); line-height:1.25; letter-spacing:.02em; }
-h1 em { font-style:normal; color:var(--gold); }
-.lead p.intro { margin-top:1.2rem; max-width:38em; color:var(--muted); line-height:2; font-size:.98rem; }
-.lead p.src { margin-top:.9rem; font-size:.8rem; color:#9aa89e; }
+.topbar { position:relative; z-index:3; display:flex; align-items:center; justify-content:space-between; padding:1.1rem clamp(1.2rem,4vw,3rem); }
+.brand { display:flex; align-items:center; gap:.8rem; color:#fff; }
+.brand img { height:46px; width:auto; filter:drop-shadow(0 2px 6px rgba(0,0,0,.5)); }
+.brand .name { display:flex; align-items:baseline; gap:.7rem; }
+.brand b { font-family:var(--serif); font-weight:700; font-size:1.22rem; letter-spacing:.08em; text-shadow:0 1px 8px rgba(0,0,0,.55); }
+.brand small { font-size:.72rem; letter-spacing:.22em; color:#f0e2c4; opacity:.85; }
+.logo90 img { height:58px; width:auto; filter:drop-shadow(0 2px 8px rgba(0,0,0,.5)); transition:transform .2s ease; }
+.logo90:hover img { transform:scale(1.06); }
 
-/* 时期导航 */
-.eranav { max-width:900px; margin:1.6rem auto 0; padding:0 clamp(1.2rem,4vw,3rem);
+.family-nav { position:relative; z-index:3; display:flex; gap:.6rem; flex-wrap:wrap; padding:0 clamp(1.2rem,4vw,3rem) 1rem; }
+.family-nav a { font-size:.82rem; letter-spacing:.05em; color:#f0e2c4; padding:.4rem 1.1rem; border:1px solid rgba(255,255,255,.32); border-radius:999px; transition:background .2s,border-color .2s; }
+.family-nav a:hover { background:rgba(255,255,255,.14); border-color:rgba(255,255,255,.65); }
+.family-nav a.active { background:rgba(255,255,255,.2); border-color:rgba(255,255,255,.8); font-weight:500; }
+
+.cover .content { position:relative; z-index:3; max-width:900px; margin:0 auto;
+  padding:clamp(2rem,8vh,3.6rem) clamp(1.2rem,4vw,3rem) clamp(1.6rem,4.5vh,2.4rem); }
+.kicker { font-size:.8rem; letter-spacing:.32em; color:#FFEFC4; margin-bottom:1rem;
+  text-shadow:0 1px 3px rgba(0,0,0,.8), 0 2px 14px rgba(0,0,0,.6), 0 0 18px rgba(255,201,120,.5); }
+.cover h1 { font-family:var(--serif); font-weight:200; font-size:clamp(1.9rem,4.8vw,3rem); line-height:1.5; letter-spacing:.02em;
+  text-shadow:0 2px 16px rgba(0,0,0,.55); }
+.cover h1 b { font-weight:900; }
+.shimmer-text {
+  background: linear-gradient(100deg, #F5E7C4 30%, #FFDD98 50%, #F5E7C4 70%);
+  background-size: 200% auto; -webkit-background-clip: text; background-clip: text; color: transparent;
+  text-shadow:0 0 26px rgba(255,204,120,.6), 0 0 64px rgba(255,204,120,.3);
+  animation: shimmer 3s linear infinite;
+}
+@keyframes shimmer { to { background-position: -200% center; } }
+@media (prefers-reduced-motion: reduce) { .shimmer-text { animation:none; background-position:0 center; } }
+.cover p.intro { margin-top:1.1rem; max-width:40em; color:#f2ecdd; line-height:2; font-size:.96rem; font-weight:300;
+  text-shadow:0 1px 8px rgba(0,0,0,.55); }
+.cover p.src { margin-top:.7rem; font-size:.78rem; color:#c9beA0; }
+
+/* 时期索引 */
+.eranav { max-width:960px; margin:2rem auto 0; padding:0 clamp(1.2rem,4vw,3rem);
   display:flex; flex-wrap:wrap; gap:.5rem; }
-.eranav a { font-size:.82rem; padding:.3rem .85rem; border-radius:999px; border:1px solid rgba(46,144,89,.35);
-  color:var(--green-deep); background:#fff; transition:background .2s; }
-.eranav a:hover { background:rgba(62,179,112,.12); }
+.eranav a { font-size:.82rem; padding:.35rem .95rem; border-radius:999px; border:1px solid var(--rule);
+  color:var(--gold-deep); background:var(--paper); transition:background .2s, border-color .2s; }
+.eranav a:hover { background:var(--mount); border-color:var(--gold); }
 
-section.era { max-width:900px; margin:0 auto; padding:2.8rem clamp(1.2rem,4vw,3rem) .6rem; }
-.era-head { border-bottom:2px solid rgba(201,154,46,.4); padding-bottom:.9rem; margin-bottom:1.6rem; }
-.era-head .years { font-family:var(--serif); font-weight:700; color:var(--gold); letter-spacing:.12em; font-size:.95rem; }
-.era-head h2 { font-family:var(--serif); font-weight:900; color:var(--green-deep); font-size:clamp(1.5rem,3.6vw,2.1rem); line-height:1.35; }
-.era-head .en { font-size:.8rem; color:var(--muted); letter-spacing:.06em; }
-.era-head .brief { margin-top:.6rem; color:var(--muted); font-size:.92rem; max-width:44em; }
+section.era { max-width:960px; margin:0 auto; padding:3rem clamp(1.2rem,4vw,3rem) .6rem; }
+.era-head { border-bottom:1px solid var(--rule); padding-bottom:1rem; margin-bottom:1.8rem; }
+.era-head .years { font-family:var(--serif); font-weight:700; color:var(--gold); letter-spacing:.12em; font-size:.92rem; }
+.era-head h2 { font-family:var(--serif); font-weight:900; color:var(--ink); font-size:clamp(1.4rem,3.4vw,1.9rem); line-height:1.4; margin-top:.3rem; }
+.era-head .en { font-size:.78rem; color:var(--muted-lt); letter-spacing:.06em; margin-top:.2rem; }
+.era-head .brief { margin-top:.7rem; color:var(--muted); font-size:.92rem; max-width:44em; font-weight:300; line-height:1.9; }
 
 /* 年份条目：左侧年份轴 */
-.entry { display:grid; grid-template-columns:7.5em 1fr; gap:1.2rem; padding:1.1rem 0; border-left:2px solid rgba(62,179,112,.25); }
-.entry .yr { font-family:var(--serif); font-weight:700; color:var(--green-deep); font-size:1.08rem;
+.entry { display:grid; grid-template-columns:7.5em 1fr; gap:1.2rem; padding:1.15rem 0; border-left:2px solid var(--rule); }
+.entry .yr { font-family:var(--serif); font-weight:700; color:var(--gold-deep); font-size:1.05rem;
   padding-left:1.1rem; position:relative; line-height:1.6; }
 .entry .yr::before { content:""; position:absolute; left:-6px; top:.62em; width:10px; height:10px;
   border-radius:50%; background:var(--gold); }
-.entry .txt p { font-size:.95rem; margin-bottom:.7rem; }
+.entry .txt p { font-size:.93rem; margin-bottom:.7rem; color:var(--ink); font-weight:300; line-height:1.9; text-align:justify; text-justify:inter-character; }
 .entry .txt p:last-child { margin-bottom:0; }
-.entry figure { margin:.9rem 0 .3rem; max-width:520px; }
-.entry figure img { border-radius:.7rem; box-shadow:0 2px 12px rgba(30,42,34,.12); }
-.entry figcaption { font-size:.8rem; color:#9aa89e; margin-top:.4rem; }
-.era .note { margin:1.2rem 0 .6rem; padding:.9rem 1.2rem; border:1.5px dashed rgba(62,179,112,.45);
-  border-radius:.9rem; font-size:.88rem; color:var(--muted); background:rgba(255,255,255,.55); }
-.era .note a { color:var(--green-deep); font-weight:700; }
+.entry figure { margin:1rem 0 .3rem; max-width:520px; background:var(--paper); border:1px solid var(--rule); box-shadow:0 6px 16px rgba(90,60,20,.14); padding:6px 6px 8px; }
+.entry figure img { display:block; }
+.entry figcaption { font-size:.8rem; color:var(--muted-lt); margin-top:.5rem; padding:0 .2rem; }
+.era .note { margin:1.3rem 0 .6rem; padding:1rem 1.3rem; border:1.5px dashed var(--rule);
+  border-radius:.5rem; font-size:.88rem; color:var(--muted); background:var(--paper); }
+.era .note a { color:var(--terracotta); font-weight:700; }
 .era .note a:hover { text-decoration:underline; }
 
 @media (max-width:640px) {
   .entry { grid-template-columns:1fr; gap:.3rem; }
   .entry .yr::before { top:.55em; }
 }
-footer { text-align:center; padding:2.5rem 1rem 3rem; font-size:.82rem; color:#9aa89e; }
+@media (max-width:760px) {
+  .topbar { padding:.9rem 1.1rem; }
+  .brand img { height:38px; }
+  .logo90 img { height:44px; }
+  .family-nav { padding:0 1.1rem 1rem; }
+}
+footer { text-align:center; padding:2.5rem 1rem 3rem; font-size:.82rem; color:var(--muted-lt); }
+
+.has-js .reveal { opacity:0; transform:translateY(18px);
+  transition:opacity .7s cubic-bezier(.16,.8,.24,1), transform .7s cubic-bezier(.16,.8,.24,1); }
+.has-js .reveal.in { opacity:1; transform:translateY(0); }
+@media (prefers-reduced-motion: reduce) {
+  .has-js .reveal { opacity:1; transform:none; transition:none; }
+}
 </style>
 </head>
 <body>
 
-<div class="topbar">
-  <img src="../assets/img/crest-color.png" alt="南华独中校徽">
-  <b>南华独立中学</b>
-  <a class="back" href="../index.html">← 回到首页</a>
-</div>
+<div class="cover">
+  <img class="bg" src="../assets/img/gate-1986.jpg" alt="1986 年南华独中新校舍与校门史料照片">
+  <div class="sun"></div>
+  <div class="scrim"></div>
+  <div class="fade-bottom"></div>
 
-<header class="lead">
-  <p class="kicker">南华春秋 · 1935–至今</p>
-  <h1>一部从胶林里<em>写起</em>的校史。</h1>
-  <p class="intro">四间中学部合并、日据停办、战后复办、改制存亡、救校迁校、扩建腾飞——南华独中的九十年，是曼绒华社一代代人接力点灯的九十年。</p>
-  <p class="src">本页史料整理自本校《勿忘历史 · 牢记使命》专栏。</p>
-</header>
+  <div class="topbar">
+    <a class="brand" href="../index.html">
+      <img src="../assets/img/crest-color.png" alt="南华独中校徽">
+      <span class="name"><b>南华独立中学</b><small>NAN HWA HIGH SCHOOL</small></span>
+    </a>
+    <nav>
+      <a class="logo90" href="../90/index.html" title="1936 · 九十周年校庆专页"><img src="../assets/img/logo90.png" alt="90 周年徽标 · 九十年风雨兼程，育见百年"></a>
+    </nav>
+  </div>
+
+  <nav class="family-nav" aria-label="认识南华系列">
+    <a href="../about/index.html">认识南华</a>
+    <a href="../academic/index.html">学术课程</a>
+    <a href="../cocurricular/index.html">联课活动</a>
+    <a href="../facilities/index.html">硬体设施</a>
+    <a href="../admission/index.html">招生专区</a>
+    <a href="index.html" class="active">南华春秋</a>
+  </nav>
+
+  <div class="content">
+    <p class="kicker">南华春秋 · 1935–至今</p>
+    <h1><b class="shimmer-text">一部从胶林里写起</b>的校史。</h1>
+    <p class="intro">四间中学部合并、日据停办、战后复办、改制存亡、救校迁校、扩建腾飞——南华独中的九十年，是曼绒华社一代代人接力点灯的九十年。</p>
+    <p class="src">本页史料整理自本校《勿忘历史 · 牢记使命》专栏。</p>
+  </div>
+</div>
 
 <nav class="eranav" aria-label="时期索引">
   <a href="#era1">1935–1945 成立南华</a>
@@ -90,7 +157,7 @@ footer { text-align:center; padding:2.5rem 1rem 3rem; font-size:.82rem; color:#9
   <a href="#era6">2021–至今 初心不忘</a>
 </nav>
 
-<section class="era" id="era1">
+<section class="era reveal" id="era1">
   <div class="era-head">
     <p class="years">1935 – 1945</p>
     <h2>成立南华 · 传承文化</h2>
@@ -119,7 +186,7 @@ footer { text-align:center; padding:2.5rem 1rem 3rem; font-size:.82rem; color:#9
   </div></div>
 </section>
 
-<section class="era" id="era2">
+<section class="era reveal" id="era2">
   <div class="era-head">
     <p class="years">1946 – 1961</p>
     <h2>劫后余生 · 惨淡经营</h2>
@@ -145,7 +212,7 @@ footer { text-align:center; padding:2.5rem 1rem 3rem; font-size:.82rem; color:#9
   </div></div>
 </section>
 
-<section class="era" id="era3">
+<section class="era reveal" id="era3">
   <div class="era-head">
     <p class="years">1962 – 1978</p>
     <h2>浴火重生 · 再创佳绩</h2>
@@ -170,7 +237,7 @@ footer { text-align:center; padding:2.5rem 1rem 3rem; font-size:.82rem; color:#9
   </div></div>
 </section>
 
-<section class="era" id="era4">
+<section class="era reveal" id="era4">
   <div class="era-head">
     <p class="years">1979 – 2010</p>
     <h2>推陈出新 · 与时并进</h2>
@@ -215,7 +282,7 @@ footer { text-align:center; padding:2.5rem 1rem 3rem; font-size:.82rem; color:#9
   <p class="note">1991–2010 年的篇章，史料正在陆续整理中。</p>
 </section>
 
-<section class="era" id="era5">
+<section class="era reveal" id="era5">
   <div class="era-head">
     <p class="years">2011 – 2020</p>
     <h2>迈向卓越 · 全人教育</h2>
@@ -225,7 +292,7 @@ footer { text-align:center; padding:2.5rem 1rem 3rem; font-size:.82rem; color:#9
   <p class="note">本时期史料正在整理中。2018 年以后的校园纪事，可在<a href="../news/index.html">按年新闻馆</a>逐日回看。</p>
 </section>
 
-<section class="era" id="era6">
+<section class="era reveal" id="era6">
   <div class="era-head">
     <p class="years">2021 – 至今</p>
     <h2>初心不忘 · 谱写辉煌</h2>
@@ -236,5 +303,18 @@ footer { text-align:center; padding:2.5rem 1rem 3rem; font-size:.82rem; color:#9
 </section>
 
 <footer>© 2026 曼绒县南华独立中学 · 史料整理自本校《勿忘历史 · 牢记使命》专栏</footer>
+
+<script>
+document.documentElement.classList.add('has-js');
+const reducedMotion = matchMedia('(prefers-reduced-motion: reduce)').matches;
+if (!reducedMotion && 'IntersectionObserver' in window) {
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold:.1, rootMargin:'0px 0px -6% 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+} else {
+  document.querySelectorAll('.reveal').forEach(el => el.classList.add('in'));
+}
+</script>
 </body>
 </html>
