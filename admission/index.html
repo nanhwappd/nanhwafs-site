@@ -36,6 +36,22 @@ ul.plain { list-style:none; display:grid; gap:.5rem; }
 ul.plain li { padding-left:1.4em; position:relative; }
 ul.plain li::before { content:"●"; color:var(--green); position:absolute; left:0; font-size:.7em; top:.55em; }
 .note { font-size:.9rem; color:#777; }
+.route { list-style:none; display:grid; gap:0; margin:.2rem 0; }
+.route li { position:relative; padding:.55rem 0 .55rem 2.6rem; }
+.route li::before { content:""; position:absolute; left:.62rem; top:0; bottom:0; width:3px; background:#d8d2c2; }
+.route li:first-child::before { top:1rem; }
+.route li:last-child::before { bottom:auto; height:1rem; }
+.route li::after { content:""; position:absolute; left:.28rem; top:.95rem; width:1rem; height:1rem;
+  border-radius:50%; background:#fff; border:3px solid var(--green); }
+.route li.exam::after { background:var(--green); }
+.route .stage { font-weight:700; }
+.route .stage em { font-style:normal; color:var(--green-dark); font-size:.88rem; margin-left:.5em; }
+.route p { font-size:.92rem; color:#666; }
+.uni-groups { display:grid; gap:.9rem; }
+.uni-groups h3 { font-size:.95rem; color:var(--green-dark); margin-bottom:.2rem; }
+.uni-groups ul { list-style:none; display:flex; flex-wrap:wrap; gap:.45rem .5rem; }
+.uni-groups li { background:#fff; border:1px solid #e2dccd; border-radius:999px;
+  padding:.28rem .9rem; font-size:.9rem; }
 .cta { margin-top:2.2rem; display:flex; gap:.8rem; flex-wrap:wrap; }
 .btn { display:inline-block; padding:.7rem 1.6rem; border-radius:999px; text-decoration:none; font-weight:700; }
 .btn-solid { background:var(--green); color:#fff; }
@@ -80,6 +96,28 @@ footer a { color:#9fd8b8; }
       <tr><td>开学日</td><td>翌年 1 月</td></tr>
     </table>
     <p class="note">具体日期以「南华独中招生处」当年公告为准。</p>
+  </div>
+
+  <h2>升学途径</h2>
+  <p>独中统考（UEC）文凭广受海内外大学承认，南华学生同时可报考政府 SPM 文凭，双轨并行，升学之路比想象中更宽。</p>
+  <div class="box">
+    <ul class="route">
+      <li><span class="stage">初一 · 初二</span><p>打好双语三文基础，五大领域校本课程认识自己</p></li>
+      <li class="exam"><span class="stage">初三<em>初中统考</em></span><p>首个全国性统一评估，衔接高中选科</p></li>
+      <li><span class="stage">高一<em>选修科系</em></span><p>依志趣分流：理科 / 文商科</p></li>
+      <li class="exam"><span class="stage">高二<em>SPM</em></span><p>可加考马来西亚教育文凭，多一份国内升学保障</p></li>
+      <li class="exam"><span class="stage">高三<em>高中统考</em></span><p>凭 UEC 文凭直接申请海内外大学</p></li>
+      <li><span class="stage">大学</span><p>本地私立大学与学院，或负笈中国、新加坡、台湾、澳大利亚、英国等地</p></li>
+    </ul>
+  </div>
+
+  <h2>建教合作大专院校</h2>
+  <p>南华独中与海内外多所大专院校签署建教合作，学生在升学申请、奖学金与学分衔接上享有直接通道。</p>
+  <div class="box uni-groups">
+    <div><h3>中国</h3><ul><li>天津大学</li><li>西安交通大学</li><li>华侨大学</li><li>北京理工大学</li></ul></div>
+    <div><h3>台湾</h3><ul><li>国立成功大学</li><li>国立中山大学</li></ul></div>
+    <div><h3>马来西亚</h3><ul><li>拉曼大学（UTAR）</li><li>新纪元大学学院</li></ul></div>
+    <div><h3>韩国</h3><ul><li>东西大学（Dongseo University）</li></ul></div>
   </div>
 
   <h2>奖助学金与贷书计划</h2>
