@@ -7,86 +7,296 @@
 <meta name="description" content="南华独立中学九十周年校庆专页——系列活动预告、最新发布与校庆资讯。">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;700;900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@500;700;900&family=Cormorant:wght@600;700&family=Dancing+Script:wght@600&display=swap" rel="stylesheet">
 <style>
-:root { --green:#3EB370; --green-deep:#2E9059; --gold:#C99A2E; --cream:#F5F1E8; --ink:#1E2A22; --muted:#5C6B60;
-  --serif:"Noto Serif SC","Source Han Serif SC","STZhongsong","SimSun",serif; }
+:root {
+  --ink:#F1ECE2; --muted:#A79C8B; --paper:#000000; --card:#1A1714;
+  --gold:#E0BB5C; --gold-deep:#D2A03F;
+  --serif:"Noto Serif SC","Source Han Serif SC","STZhongsong","SimSun",serif;
+  --en-serif:"Cormorant","Noto Serif SC",serif;
+  --script:"Dancing Script",cursive;
+}
 * { box-sizing:border-box; margin:0; padding:0; }
-body { background:var(--cream); color:var(--ink); font-family:"Noto Sans SC","Microsoft YaHei",system-ui,sans-serif; line-height:1.85; }
+body { background:var(--paper); color:var(--ink); font-family:"Noto Sans SC","Microsoft YaHei",system-ui,sans-serif; line-height:1.85; }
 a { text-decoration:none; color:inherit; }
+img { max-width:100%; display:block; }
 
-.topbar { display:flex; align-items:center; gap:.7rem; padding:1.1rem clamp(1.2rem,4vw,3rem); }
-.topbar img { height:40px; }
-.topbar b { font-family:var(--serif); font-size:1.05rem; letter-spacing:.08em; }
+.topbar { display:flex; align-items:center; gap:.7rem; padding:1.1rem clamp(1.2rem,4vw,3rem); border-bottom:1px solid rgba(184,146,61,.15); }
+.topbar img.crest { height:36px; }
+.topbar b { font-family:var(--serif); font-size:1rem; letter-spacing:.06em; }
 .topbar a.back { margin-left:auto; font-size:.85rem; color:var(--muted); }
-.topbar a.back:hover { color:var(--green-deep); }
+.topbar a.back:hover { color:var(--gold-deep); }
 
-header.lead { max-width:1080px; margin:0 auto; padding:clamp(2.5rem,6vh,4.5rem) clamp(1.2rem,4vw,3rem) 1rem; }
-.kicker { font-size:.82rem; letter-spacing:.3em; color:var(--green-deep); margin-bottom:1rem; }
-h1 { font-family:var(--serif); font-weight:900; font-size:clamp(2rem,5vw,3.6rem); line-height:1.25; letter-spacing:.02em; }
-h1 em { font-style:normal; color:var(--gold); }
-.lead p.intro { margin-top:1.2rem; max-width:38em; color:var(--muted); line-height:2; font-size:.98rem; }
+/* ---- Hero ---- */
+.hero { position:relative; overflow:hidden; max-width:1440px; margin:0 auto; padding:clamp(2rem,6vh,4rem) clamp(1.2rem,4vw,3rem) 1rem; min-height:min(88vh,760px); display:flex; align-items:center; }
+.hero-inner { position:relative; z-index:1; max-width:640px; }
+.hero .mark {
+  position:absolute; top:50%; right:-8%; z-index:0;
+  width:min(72vw,880px); aspect-ratio:1/1; height:auto;
+  transform:translateY(-50%); object-fit:cover;
+  -webkit-mask-image:radial-gradient(circle at center, #000 38%, transparent 70%);
+  mask-image:radial-gradient(circle at center, #000 38%, transparent 70%);
+  pointer-events:none;
+}
+.kicker { font-size:.8rem; letter-spacing:.32em; color:var(--gold-deep); margin-bottom:.9rem; text-transform:uppercase; }
+h1.slogan { font-family:var(--serif); font-weight:900; font-size:clamp(2rem,5.2vw,3.4rem); line-height:1.32; color:var(--ink); }
+h1.slogan .line2 { display:block; }
+.lockup-en { margin-top:1.3rem; display:flex; align-items:baseline; gap:.9rem; flex-wrap:wrap; }
+.lockup-en .en-name { font-family:var(--en-serif); font-weight:700; font-size:1.05rem; letter-spacing:.22em; color:var(--ink); text-transform:uppercase; }
+.lockup-en .en-script { font-family:var(--script); font-size:1.3rem; color:var(--gold); }
+.lead p.intro { margin-top:1.6rem; max-width:36em; color:var(--muted); line-height:2; font-size:.98rem; }
 
+/* ---- Sections ---- */
 section { max-width:1080px; margin:0 auto; padding:2.2rem clamp(1.2rem,4vw,3rem); }
-h2 { font-family:var(--serif); font-weight:700; color:var(--green-deep); font-size:clamp(1.3rem,3vw,1.7rem); margin-bottom:1.2rem; }
+h2 { font-family:var(--serif); font-weight:700; color:var(--ink); font-size:clamp(1.3rem,3vw,1.7rem); margin-bottom:1.2rem; border-left:4px solid var(--gold); padding-left:.7rem; }
+h2 .sub { font-family:"Noto Sans SC","Microsoft YaHei",system-ui,sans-serif; font-weight:400; font-size:.75rem; color:var(--muted); letter-spacing:.1em; margin-left:.6rem; border:none; }
 
 .events { display:grid; gap:1.2rem; grid-template-columns:repeat(auto-fit, minmax(260px, 1fr)); }
-.event { background:#fff; border-radius:1.2rem; padding:1.4rem 1.5rem; box-shadow:0 2px 10px rgba(30,42,34,.07); }
-.event .date { font-family:var(--serif); font-weight:700; font-size:1.05rem; color:var(--gold); letter-spacing:.06em; }
-.event h3 { font-family:var(--serif); font-size:1.15rem; margin-top:.4rem; }
-.event p { margin-top:.5rem; font-size:.9rem; color:var(--muted); }
-.event.tba { border:1.5px dashed rgba(62,179,112,.45); background:rgba(255,255,255,.55); box-shadow:none; }
+.event { background:var(--card); border-radius:.6rem; overflow:hidden; border:1px solid rgba(255,255,255,.07); border-top:2px solid var(--gold); }
+.event .event-body { padding:1.4rem 1.5rem; }
+.event .thumb-wrap { position:relative; overflow:hidden; aspect-ratio:4/3; background:#eee; }
+.event .thumb-wrap img { width:100%; height:100%; object-fit:cover; transition:transform .6s cubic-bezier(.16,.8,.24,1); }
+.event:hover .thumb-wrap img { transform:scale(1.06); }
+.event .thumb-tag { position:absolute; left:.6rem; bottom:.6rem; font-size:.68rem; letter-spacing:.05em; color:#fff; background:rgba(22,21,19,.55); padding:.25rem .6rem; border-radius:99px; backdrop-filter:blur(2px); }
+.event .date { font-family:var(--serif); font-weight:700; font-size:1.02rem; color:var(--gold-deep); letter-spacing:.05em; }
+.event h3 { font-family:var(--serif); font-size:1.12rem; margin-top:.4rem; color:var(--ink); }
+.event p.desc { margin-top:.5rem; font-size:.9rem; color:var(--muted); }
+.event.tba { border-top:2px dashed rgba(184,146,61,.5); background:rgba(255,255,255,.03); box-shadow:none; }
+.event.tba .event-body { padding:1.4rem 1.5rem; }
+.event.done { opacity:.85; }
 
-.newsline { background:#fff; border-radius:1.2rem; padding:1.6rem 1.8rem; box-shadow:0 2px 10px rgba(30,42,34,.07); }
+/* ---- 精彩瞬间 masonry ---- */
+.gallery { columns:3 220px; column-gap:1rem; }
+.gallery figure { break-inside:avoid; margin:0 0 1rem; border-radius:.5rem; overflow:hidden; border:1px solid rgba(255,255,255,.07); }
+.gallery img { width:100%; height:auto; display:block; }
+.gallery figcaption { font-size:.78rem; color:var(--muted); padding:.5rem .7rem .7rem; background:var(--card); }
+@media (max-width:640px) { .gallery { columns:2 160px; } }
+
+.newsline { background:var(--card); border-radius:.6rem; padding:1.6rem 1.8rem; border:1px solid rgba(255,255,255,.07); border-left:3px solid var(--gold); }
 .newsline p { color:var(--muted); font-size:.95rem; }
-.newsline a { color:var(--green-deep); font-weight:700; }
+.newsline p + p { margin-top:.9rem; }
+.newsline a { color:var(--gold-deep); font-weight:700; }
 .newsline a:hover { text-decoration:underline; }
 
-footer { text-align:center; padding:2.5rem 1rem 3rem; font-size:.82rem; color:#9aa89e; }
+/* ---- Footer lockup ---- */
+footer.site { position:relative; overflow:hidden; margin-top:1rem; border-top:1px solid rgba(184,146,61,.15); }
+footer.site .sunburst { position:absolute; bottom:-35%; right:-8%; width:min(50%,500px); opacity:.7; pointer-events:none; }
+.footer-inner { position:relative; z-index:1; max-width:1080px; margin:0 auto; padding:2.6rem clamp(1.2rem,4vw,3rem) 2.2rem; display:flex; align-items:center; gap:1rem; }
+.footer-inner .mark { width:64px; flex:none; }
+.footer-text .cn { font-family:var(--serif); font-weight:700; font-size:1rem; line-height:1.5; color:var(--ink); }
+.footer-text .en { margin-top:.5rem; font-family:var(--en-serif); font-weight:700; letter-spacing:.2em; font-size:.85rem; text-transform:uppercase; color:var(--ink); }
+.footer-text .script { font-family:var(--script); color:var(--gold); font-size:1.05rem; margin-top:.15rem; }
+.copyright { text-align:center; padding:0 1rem 2rem; font-size:.78rem; color:#a39a8c; }
+
+/* ---- Motion layer ---- */
+@media (prefers-reduced-motion: no-preference) {
+  html { scroll-behavior:smooth; }
+  .hero .mark { will-change:transform; }
+  .reveal { opacity:0; transform:translateY(28px); transition:opacity .8s cubic-bezier(.16,.8,.24,1), transform .8s cubic-bezier(.16,.8,.24,1); }
+  .reveal.in { opacity:1; transform:translateY(0); }
+  .reveal-stagger > * { opacity:0; transform:translateY(24px); transition:opacity .6s cubic-bezier(.16,.8,.24,1), transform .6s cubic-bezier(.16,.8,.24,1); }
+  .reveal-stagger.in > * { opacity:1; transform:translateY(0); }
+  .reveal-stagger.in > *:nth-child(1){transition-delay:.05s}
+  .reveal-stagger.in > *:nth-child(2){transition-delay:.14s}
+  .reveal-stagger.in > *:nth-child(3){transition-delay:.23s}
+  .reveal-stagger.in > *:nth-child(4){transition-delay:.32s}
+  .reveal-stagger.in > *:nth-child(5){transition-delay:.41s}
+  .reveal-stagger.in > *:nth-child(6){transition-delay:.5s}
+  h1.slogan .line { display:block; overflow:hidden; }
+  h1.slogan .line span { display:inline-block; transform:translateY(110%); transition:transform .9s cubic-bezier(.16,.8,.24,1); }
+  h1.slogan.in .line span { transform:translateY(0); }
+  h1.slogan.in .line:nth-child(2) span { transition-delay:.12s; }
+}
+.event { transition:transform .45s cubic-bezier(.16,.8,.24,1), box-shadow .45s ease, border-color .45s ease; }
+.event:hover { transform:translateY(-6px); box-shadow:0 16px 34px rgba(184,146,61,.18); border-top-color:var(--gold-deep); }
+.newsline a { position:relative; }
+.newsline a::after { content:''; position:absolute; left:0; bottom:-2px; width:0; height:1px; background:var(--gold-deep); transition:width .35s ease; }
+.newsline a:hover::after { width:100%; }
+.ribbon { overflow:hidden; white-space:nowrap; border-top:1px solid rgba(184,146,61,.2); border-bottom:1px solid rgba(184,146,61,.2); padding:.7rem 0; background:var(--card); }
+.ribbon-track { display:inline-flex; gap:2.4rem; animation:ribbon 32s linear infinite; }
+.ribbon-track span { font-family:var(--serif); font-size:.85rem; letter-spacing:.08em; color:var(--gold-deep); }
+.ribbon-track span::after { content:'✦'; margin-left:2.4rem; color:var(--gold); }
+@keyframes ribbon { from{transform:translateX(0)} to{transform:translateX(-50%)} }
+@media (prefers-reduced-motion: reduce) { .ribbon-track { animation:none; } }
 </style>
 </head>
 <body>
 
 <div class="topbar">
-  <img src="../assets/img/crest-color.png" alt="南华独中校徽">
+  <img class="crest" src="../assets/img/crest-color.png" alt="南华独中校徽">
   <b>南华独立中学</b>
   <a class="back" href="../index.html">← 回到首页</a>
 </div>
 
-<header class="lead">
-  <p class="kicker">1936–2026 · 九十周年校庆</p>
-  <h1>九十载，<em>一束光</em>。</h1>
-  <p class="intro">1936 年，曼绒先贤在胶林间点起一盏华教的灯。九十年过去，这盏灯照亮了一代又一代南华人。2026 年，我们以一系列校庆活动，向点灯的人致敬，也邀请你一起，把光传下去。</p>
-</header>
+<div class="hero">
+  <video class="mark" muted playsinline poster="../assets/img/90th/mark-90.webp" aria-label="南华独中九十周年标志动态版">
+    <source src="../assets/img/90th/motion/mark-90-motion.mp4" type="video/mp4">
+  </video>
+  <div class="hero-inner">
+    <p class="kicker reveal">1936–2026 · 九十周年校庆</p>
+    <h1 class="slogan"><span class="line"><span>九十年风雨兼程</span></span><span class="line"><span>育见百年</span></span></h1>
+    <div class="lockup-en reveal">
+      <span class="en-name">Nan Hwa 90th</span>
+      <span class="en-script">Toward the Next Century</span>
+    </div>
+    <div class="lead">
+      <p class="intro reveal">1936 年，曼绒先贤在胶林间点起一盏华教的灯。九十年过去，这盏灯照亮了一代又一代南华人。2026 年，我们以一系列校庆活动，向点灯的人致敬，也邀请你一起，把光传下去。</p>
+    </div>
+  </div>
+</div>
+
+<div class="ribbon">
+  <div class="ribbon-track">
+    <span>九十周年校庆</span><span>1936–2026</span><span>育见百年</span><span>校友回校日 8月29日</span><span>文艺大汇演《艺汇南华》</span>
+    <span>九十周年校庆</span><span>1936–2026</span><span>育见百年</span><span>校友回校日 8月29日</span><span>文艺大汇演《艺汇南华》</span>
+  </div>
+</div>
 
 <section>
-  <h2>系列活动预告</h2>
-  <div class="events">
+  <h2 class="reveal">即将举行</h2>
+  <div class="events reveal-stagger">
     <div class="event">
-      <p class="date">2026 · 8 月 29 日</p>
-      <h3>九十周年校庆庆典</h3>
-      <p>庆典详情与流程，将于校方正式公告后在本页发布。</p>
+      <div class="event-body">
+        <p class="date">2026 · 8 月 29 日</p>
+        <h3>九十周年校庆庆典</h3>
+        <p class="desc">庆典详情与流程，将于校方正式公告后在本页发布。</p>
+      </div>
+    </div>
+    <div class="event">
+      <div class="thumb-wrap">
+        <img src="../assets/img/90th/photos/alumni-poster.webp" alt="校友回校时光列车限量套票行程海报" loading="lazy">
+        <span class="thumb-tag">活动详情</span>
+      </div>
+      <div class="event-body">
+        <p class="date">2026 · 8 月 29 日 · 上午 9 时</p>
+        <h3>校友回校日「时光列车」</h3>
+        <p class="desc">历届校友重返母校，与师长同窗重聚。凭校友限量套票入场，含茶点、午晚餐及文艺大汇演嘉宾券。</p>
+      </div>
+    </div>
+    <div class="event">
+      <div class="thumb-wrap">
+        <img src="../assets/img/90th/photos/arts-01.webp" alt="文艺大汇演现场，龙狮与三大民族舞蹈演出" loading="lazy">
+        <span class="thumb-tag">往届回顾</span>
+      </div>
+      <div class="event-body">
+        <p class="date">2026 · 8 月 29 日 · 晚 7 时</p>
+        <h3>文艺大汇演《艺汇南华・共鸣大地》</h3>
+        <p class="desc">南华独中大礼堂。华乐、管乐、合唱、三大民族舞蹈、二十四节令鼓、龙狮及中华武术，由师生协力演出。</p>
+      </div>
     </div>
     <div class="event tba">
-      <p class="date">即将公布</p>
-      <h3>校庆系列活动</h3>
-      <p>展览、演出、校友回娘家等系列活动，敬请期待。</p>
-    </div>
-    <div class="event tba">
-      <p class="date">即将公布</p>
-      <h3>九十载南华春秋</h3>
-      <p>一部从 1936 年写起的校史，正在整理中。</p>
+      <div class="event-body">
+        <p class="date">进行中</p>
+        <h3>九十周年特刊征文</h3>
+        <p class="desc">面向全球校友征集「给母校的一封信」，文字将永久收录于《南华九十周年特刊》。</p>
+      </div>
     </div>
   </div>
 </section>
 
 <section>
-  <h2>最新发布</h2>
-  <div class="newsline">
-    <p>校庆最新资讯将陆续在此发布。校园日常动态请见 <a href="../news/index.html">每日南华新闻馆 →</a></p>
+  <h2 class="reveal">系列活动纪实<span class="sub">已举行</span></h2>
+  <div class="events reveal-stagger">
+    <div class="event done">
+      <div class="thumb-wrap">
+        <img src="../assets/img/90th/photos/seminar-02.webp" alt="九十周年校庆教育研讨会，学生专注聆听讲座" loading="lazy">
+      </div>
+      <div class="event-body">
+        <p class="date">2026 · 4 月 10–11 日</p>
+        <h3>九十周年校庆教育研讨会</h3>
+        <p class="desc">陈伟教授、孙德俊讲师、萧婉思博士三场讲座，从科技文明、时代趋势与哲学思辨三个角度，探讨AI时代下的教育重塑。</p>
+      </div>
+    </div>
+    <div class="event done">
+      <div class="thumb-wrap">
+        <img src="../assets/img/90th/photos/sports-01.webp" alt="第二十三届南华独中运动会，啦啦队合影" loading="lazy">
+      </div>
+      <div class="event-body">
+        <p class="date">2026 · 6 月 13 日</p>
+        <h3>第二十三届南华独中运动会</h3>
+        <p class="desc">暨小学田径邀请赛，曼绒县三大源流十一所小学百名健儿同台竞技。</p>
+      </div>
+    </div>
   </div>
 </section>
 
-<footer>© 2026 曼绒县南华独立中学 Nan Hwa High School · 九十周年校庆专页</footer>
+<section>
+  <h2 class="reveal">精彩瞬间</h2>
+  <div class="gallery reveal">
+    <figure>
+      <img src="../assets/img/90th/photos/seminar-01.webp" alt="教育研讨会，董事长与讲者对谈" loading="lazy">
+      <figcaption>90周年校庆教育研讨会 · 2026年4月</figcaption>
+    </figure>
+    <figure>
+      <img src="../assets/img/90th/photos/sports-02.webp" alt="运动会田径赛跳高项目" loading="lazy">
+      <figcaption>第23届运动会 · 田径赛 · 2026年6月</figcaption>
+    </figure>
+    <figure>
+      <img src="../assets/img/90th/photos/arts-02.webp" alt="文艺大汇演开幕仪式，嘉宾击鼓" loading="lazy">
+      <figcaption>文艺大汇演开幕仪式 · 往届回顾</figcaption>
+    </figure>
+    <figure>
+      <img src="../assets/img/90th/photos/seminar-03.webp" alt="教育研讨会讲者颁证合影" loading="lazy">
+      <figcaption>90周年校庆教育研讨会 · 讲者致谢 · 2026年5月</figcaption>
+    </figure>
+    <figure>
+      <img src="../assets/img/90th/photos/sports-03.webp" alt="运动会田径赛跳远项目，健儿凌空一跃" loading="lazy">
+      <figcaption>第23届运动会 · 田径赛 · 2026年6月</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section>
+  <h2 class="reveal">最新发布</h2>
+  <div class="newsline reveal">
+    <p>2026年7月18日，由霹雳华校董事联合会主办、本校承办的「霹雳州九独中重塑AI时代教育研讨会」在本校礼堂举行，近三百位独中董事、校长与教师齐聚一堂，共探AI时代下的教学与评量之道。</p>
+    <p>校园日常动态请见 <a href="../news/index.html">每日南华新闻馆 →</a></p>
+  </div>
+</section>
+
+<footer class="site">
+  <img class="sunburst" src="../assets/img/90th/sunburst-gold-alpha.webp" alt="">
+  <div class="footer-inner reveal">
+    <img class="mark" src="../assets/img/90th/mark-90.webp" alt="">
+    <div class="footer-text">
+      <p class="cn">九十年风雨兼程<br>育见百年</p>
+      <p class="en">Nan Hwa 90th</p>
+      <p class="script">Toward the Next Century</p>
+    </div>
+  </div>
+</footer>
+<p class="copyright">© 2026 曼绒县南华独立中学 Nan Hwa High School · 九十周年校庆专页</p>
+
+<script>
+(function(){
+  var mark = document.querySelector('.hero .mark');
+  var hero = document.querySelector('.hero');
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  if (mark && mark.tagName === 'VIDEO' && !reduced) {
+    mark.play().catch(function(){});
+  }
+
+  if (!reduced && hero) {
+    window.addEventListener('scroll', function(){
+      var r = hero.getBoundingClientRect();
+      var p = Math.min(Math.max(-r.top / (r.height || 1), 0), 1);
+      if (mark) mark.style.transform = 'translateY(calc(-50% + ' + (p * -18) + 'px))';
+    }, { passive:true });
+  }
+
+  var slogan = document.querySelector('h1.slogan');
+  if (slogan) requestAnimationFrame(function(){ slogan.classList.add('in'); });
+
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+    });
+  }, { threshold:0.15 });
+
+  document.querySelectorAll('.reveal, .reveal-stagger').forEach(function(el){ io.observe(el); });
+})();
+</script>
+
 </body>
 </html>
