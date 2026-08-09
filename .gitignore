@@ -1,3 +1,6 @@
 reference/
 open-claude.bat
 .impeccable/
+
+# 原始素材备份：母本留本机 D:\ + GDrive，不进 repo（GH 单档 100MB 硬限）
+assets/video/*-orig-backup.mp4
