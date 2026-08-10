@@ -58,7 +58,9 @@ def main():
             os.remove(fp)
 
     videos_md = ['# 视频上传清单（交冠铭 · YouTube 学校频道）', '',
-                 '上传后把「slug: YouTube视频ID」填进 `data/youtube_map.json`，重跑 build_news.py 即自动内嵌。', '']
+                 '上传后把「slug: YouTube视频ID」填进 `data/youtube_map.json`，重跑 build_news.py 即自动内嵌。',
+                 '一篇多个视频时值写成列表：`"20191123-2": ["ID1", "ID2"]`。',
+                 '流程见 `scripts/stage_youtube.py`（备料 → 拖拽上传 → 反查生成 map）。', '']
     compressed = skipped = 0
     by_year = defaultdict(list)
 
@@ -94,8 +96,12 @@ def main():
         mp4s = [m for m in p['media'] if m.lower().endswith('.mp4')]
         if mp4s:
             if p['slug'] in ymap:
-                figs.insert(0, f'      <div class="video-embed"><iframe src="https://www.youtube.com/embed/{ymap[p["slug"]]}" '
-                                f'allowfullscreen loading="lazy" title="{html.escape(title)}"></iframe></div>\n')
+                # ponytail: value may be one id or a list of ids (22 posts have 2+ videos)
+                vids = ymap[p['slug']]
+                vids = [vids] if isinstance(vids, str) else vids
+                figs[0:0] = [f'      <div class="video-embed"><iframe src="https://www.youtube.com/embed/{v}" '
+                             f'allowfullscreen loading="lazy" title="{html.escape(title)}"></iframe></div>\n'
+                             for v in vids]
             else:
                 figs.append('      <p class="video-note">📹 本篇含视频，收录于学校官方脸书。</p>\n')
                 videos_md.append(f"- `{p['slug']}` {p['date']} {title}")
