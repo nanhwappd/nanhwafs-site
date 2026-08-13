@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>学校组织 · 三机构与各处室 · 南华独立中学</title>
+<meta name="description" content="南华独立中学学校组织：董事会、家长联谊会、校友会三机构，校长室与十一个处室的职能分工，以及家长最常问的「这件事该找哪个处室」速查表。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@600;700;900&display=swap" rel="stylesheet">
+<style>
+/* 配色与动效沿用 faculty/about/academic 等页的暖金衬线系统，弹簧曲线同源（CSS linear()，不依赖 JS 库） */
+:root { --cream:#F8F4EA; --paper:#FFFFFF; --ink:#2A2822; --muted:#7A6E56; --muted-lt:#9C9484;
+  --gold:#C9974A; --gold-deep:#B5804A; --terracotta:#B5643A; --rule:#E3D4B0;
+  --serif:"Noto Serif SC","Source Han Serif SC","STZhongsong","SimSun",serif;
+  --spring-soft:linear(0, .35 18%, .78 36%, 1.04 54%, 1.09 62%, 1.02 80%, 1);
+  --spring-bouncy:linear(0, .4 16%, .95 32%, 1.18 44%, .96 60%, 1.04 74%, .99 86%, 1); }
+* { box-sizing:border-box; margin:0; padding:0; }
+body { background:var(--cream); color:var(--ink); font-family:"Noto Sans SC","Microsoft YaHei",system-ui,sans-serif; font-weight:300; }
+a { text-decoration:none; color:inherit; }
+
+.topbar { display:flex; align-items:center; gap:.7rem; padding:1.1rem clamp(1.2rem,4vw,3rem); }
+.topbar img { height:40px; }
+.topbar b { font-family:var(--serif); font-size:1.05rem; letter-spacing:.08em; }
+.topbar a.back { margin-left:auto; font-size:.85rem; color:var(--muted); }
+.topbar a.back:hover { color:var(--gold-deep); }
+
+header.lead { max-width:1080px; margin:0 auto; padding:clamp(2.5rem,6vh,4.5rem) clamp(1.2rem,4vw,3rem) 1rem; }
+.kicker { font-size:.82rem; letter-spacing:.3em; color:var(--gold); margin-bottom:1rem; }
+h1 { font-family:var(--serif); font-weight:900; font-size:clamp(2rem,5vw,3.6rem); line-height:1.25; letter-spacing:.02em; }
+h1 .w { display:inline-block; opacity:0; filter:blur(8px); transform:translateY(24px);
+  transition:opacity .5s ease-out, filter .5s ease-out, transform .6s var(--spring-soft); }
+h1 .w.on { opacity:1; filter:blur(0); transform:translateY(0); }
+h1 em { font-style:normal; color:var(--gold); }
+.lead p.intro { margin-top:1.2rem; max-width:38em; color:var(--muted); line-height:2; font-size:.98rem; font-weight:300; }
+
+section { max-width:1080px; margin:0 auto; padding:0 clamp(1.2rem,4vw,3rem); }
+.sec-head { margin:clamp(2.6rem,6vh,4rem) 0 1.4rem; }
+.sec-head h2 { font-family:var(--serif); font-weight:700; font-size:clamp(1.3rem,2.6vw,1.75rem); letter-spacing:.06em; }
+.sec-head h2::before { content:""; display:block; width:2.4rem; height:2px; background:var(--gold); margin-bottom:.9rem; }
+.sec-head p { margin-top:.7rem; max-width:40em; color:var(--muted); line-height:1.95; font-size:.92rem; }
+
+.grid { display:grid; gap:1.2rem; }
+.g3 { grid-template-columns:repeat(3,1fr); }
+.g2 { grid-template-columns:repeat(2,1fr); }
+@media (max-width:880px) { .g3, .g2 { grid-template-columns:1fr; } }
+
+.card { background:var(--paper); border:1px solid var(--rule); border-radius:.6rem; padding:1.3rem 1.4rem 1.4rem;
+  box-shadow:0 2px 10px rgba(90,60,20,.08);
+  opacity:0; transform:translateY(30px);
+  transition:opacity .7s ease-out, box-shadow .45s ease, transform .7s var(--spring-soft); }
+.card.in-view { opacity:1; transform:translateY(0); }
+.card:hover { transform:translateY(-6px); box-shadow:0 16px 40px rgba(90,60,20,.15); }
+.card h3 { font-family:var(--serif); font-weight:700; font-size:1.16rem; letter-spacing:.05em; }
+.card .duty { margin-top:.75rem; color:var(--muted); font-size:.88rem; line-height:1.95; }
+.card .duty li { list-style:none; padding-left:1rem; position:relative; }
+.card .duty li::before { content:"·"; position:absolute; left:.25rem; color:var(--gold); }
+.who { margin-top:.95rem; padding-top:.8rem; border-top:1px dashed var(--rule);
+  font-size:.82rem; letter-spacing:.04em; color:var(--gold-deep);
+  display:flex; align-items:center; gap:.55rem; flex-wrap:wrap; }
+.who.vacant { color:var(--muted-lt); }
+.who .face { width:34px; height:34px; border-radius:50%; object-fit:cover; flex:none;
+  border:1px solid var(--rule); background:#EFE9DA;
+  transition:transform .5s var(--spring-bouncy); }
+.card:hover .who .face { transform:scale(1.08); }
+.who .faces { display:flex; }
+.who .faces .face:not(:first-child) { margin-left:-.5rem; }
+
+/* 校长室：单卡通栏，视觉上高一级 */
+.principal { background:linear-gradient(150deg,#FFFDF7 0%, #F6EEDC 100%); border-color:var(--gold); }
+.principal h3 { font-size:1.32rem; }
+
+/* 科组标签墙 */
+.subjects { display:flex; flex-wrap:wrap; gap:.55rem; }
+.subj { background:var(--paper); border:1px solid var(--rule); border-radius:999px;
+  padding:.5rem 1.05rem; font-size:.85rem; color:var(--ink);
+  opacity:0; transform:scale(.6); transition:opacity .4s ease-out, transform .55s var(--spring-bouncy); }
+.subjects.in-view .subj { opacity:1; transform:scale(1); }
+.subj b { font-family:var(--serif); font-weight:700; }
+.subj span { color:var(--gold-deep); margin-left:.45rem; font-size:.8rem; }
+
+/* 家长速查：桌面表格，手机堆叠卡 */
+.lookup { width:100%; border-collapse:collapse; background:var(--paper);
+  border:1px solid var(--rule); border-radius:.6rem; overflow:hidden; font-size:.9rem; }
+.lookup th, .lookup td { text-align:left; padding:.85rem 1rem; border-bottom:1px solid var(--rule); }
+.lookup th { background:#F2EADA; font-weight:600; letter-spacing:.06em; font-size:.82rem; color:var(--muted); }
+.lookup tr:last-child td { border-bottom:none; }
+.lookup td:first-child { font-weight:400; }
+.lookup td.dept { font-family:var(--serif); font-weight:700; color:var(--gold-deep); white-space:nowrap; }
+@media (max-width:640px) {
+  .lookup, .lookup tbody, .lookup tr, .lookup td { display:block; width:100%; }
+  .lookup thead { display:none; }
+  .lookup tr { border-bottom:1px solid var(--rule); padding:.8rem 1rem; }
+  .lookup tr:last-child { border-bottom:none; }
+  .lookup td { border:none; padding:.15rem 0; }
+  .lookup td.dept { font-size:1rem; margin-bottom:.2rem; }
+  .lookup td.who-cell { color:var(--muted); font-size:.85rem; }
+}
+
+.note { max-width:1080px; margin:3rem auto 4rem; padding:0 clamp(1.2rem,4vw,3rem);
+  font-size:.78rem; color:var(--muted-lt); line-height:1.85; }
+
+@media (prefers-reduced-motion: reduce) {
+  h1 .w, .card, .subj { transition:none; opacity:1; transform:none; filter:none; }
+}
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <img src="../assets/img/crest-color.png" alt="南华独中校徽">
+  <b>南华独立中学</b>
+  <a class="back" href="../index.html">← 回到首页</a>
+</div>
+
+<header class="lead">
+  <p class="kicker">学校组织 · ORGANIZATION</p>
+  <h1 id="headline"></h1>
+  <p class="intro">南华由三机构与校方共同支撑：董事会掌方针与资源，家长联谊会连结家庭，校友会承接毕业后的路。校内则由校长室统领十一个处室，各司其职。这一页写给家长——先看清楚一件事该找谁，再看架构。</p>
+</header>
+
+<section>
+  <div class="sec-head">
+    <h2>一、三机构</h2>
+    <p>独中不属于任何个人。董事会、家长联谊会、校友会与校方并肩，是华文独立中学延续九十年的基本结构。</p>
+  </div>
+  <div class="grid g3">
+    <article class="card">
+      <h3>董事会</h3>
+      <ul class="duty">
+        <li>议决办学方针与年度预算</li>
+        <li>筹措办学经费、扩建校舍</li>
+        <li>聘任校长、监督校务推行</li>
+      </ul>
+      <p class="who">董事长　颜登逸先生</p>
+    </article>
+    <article class="card">
+      <h3>家长联谊会（家联）</h3>
+      <ul class="duty">
+        <li>家校沟通与意见反馈</li>
+        <li>协办校内大型活动与筹款</li>
+        <li>参与学生福利事项</li>
+      </ul>
+      <p class="who vacant">理事名单以校方最新公布为准</p>
+    </article>
+    <article class="card">
+      <h3>校友会</h3>
+      <ul class="duty">
+        <li>联系历届毕业生、组织回校活动</li>
+        <li>设立奖助学金回馈母校</li>
+        <li>为在校生提供升学与职涯经验</li>
+      </ul>
+      <p class="who vacant">理事名单以校方最新公布为准</p>
+    </article>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head">
+    <h2>二、校长室</h2>
+  </div>
+  <div class="grid">
+    <article class="card principal">
+      <h3>校长室</h3>
+      <ul class="duty">
+        <li>领导全校行政，执行董事会议决</li>
+        <li>建立学校愿景与发展方向</li>
+        <li>征聘与考核教职员</li>
+        <li>对外代表学校，负责校誉与宣传</li>
+        <li>办公室书记：接听来电与接待访客，是新生与家长第一线的联系窗口</li>
+      </ul>
+      <p class="who"><img class="face" src="../assets/img/faculty/01.jpg" alt="" loading="lazy">校长　陳麗冰博士</p>
+    </article>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head">
+    <h2>三、各处室</h2>
+    <p>十一个处室分掌教学、纪律、辅导、活动与后勤。下列职能摘自校方《行政责职》，主任名录依 2026 年 6 月教职员名单。</p>
+  </div>
+  <div class="grid g2">
+
+    <article class="card">
+      <h3>教务处</h3>
+      <ul class="duty">
+        <li>主持全校教务，编排课程与时间表</li>
+        <li>办理校内考试与补考，督导各科主任</li>
+        <li>办理新生报名手续与入学试事宜</li>
+        <li>成绩册、离校证书、毕业证书与校外考试文凭</li>
+      </ul>
+      <p class="who"><img class="face" src="../assets/img/faculty/02.jpg" alt="" loading="lazy">教务主任　杨秀珍老师</p>
+    </article>
+
+    <article class="card">
+      <h3>训导处</h3>
+      <ul class="duty">
+        <li>拟定并处理学生奖惩，记录备查</li>
+        <li>处理迟到、早退、缺课、请假事宜</li>
+        <li>检查仪容、服装、发型</li>
+        <li>处理学生偶发事件并联络家长</li>
+      </ul>
+      <p class="who"><img class="face" src="../assets/img/faculty/03.jpg" alt="" loading="lazy">训导主任　李淑桦老师</p>
+    </article>
+
+    <article class="card">
+      <h3>辅导处</h3>
+      <ul class="duty">
+        <li>个案辅导、新生始业辅导、亲职教育</li>
+        <li>办理校内外奖助学金</li>
+        <li>升学与就业资讯、大专院校联系</li>
+        <li>处理外国学生签证事宜</li>
+      </ul>
+      <p class="who"><img class="face" src="../assets/img/faculty/06.jpg" alt="" loading="lazy">辅导主任　叶佳盛老师</p>
+    </article>
+
+    <article class="card">
+      <h3>联课活动处</h3>
+      <ul class="duty">
+        <li>统理全校学生社团与制服团体</li>
+        <li>考核学生联课成绩</li>
+        <li>审核团体活动财政预算</li>
+        <li>初一新生须参加至少一项制服团体或学会</li>
+      </ul>
+      <p class="who"><img class="face" src="../assets/img/faculty/08.jpg" alt="" loading="lazy">联课主任　徐子轩老师</p>
+    </article>
+
+    <article class="card">
+      <h3>项目策划处</h3>
+      <ul class="duty">
+        <li>学校品牌包装、招生与对外宣传</li>
+        <li>校内活动策划与落实</li>
+        <li>管理官方社交平台与官方网站内容</li>
+        <li>对外维护校誉，准确及时传递信息</li>
+      </ul>
+      <p class="who"><img class="face" src="../assets/img/faculty/04.jpg" alt="" loading="lazy">项目策划处主任　林子策老师</p>
+    </article>
+
+    <article class="card">
+      <h3>体育处</h3>
+      <ul class="duty">
+        <li>掌管篮球、排球、乒乓、羽球、田径、游泳六项</li>
+        <li>选拔与训练校队代表</li>
+        <li>统筹校内运动会与对外赛事</li>
+      </ul>
+      <p class="who vacant">主任职衔待校方确认</p>
+    </article>
+
+    <article class="card">
+      <h3>图书馆处</h3>
+      <ul class="duty">
+        <li>订购馆藏、策划阅读推广活动</li>
+        <li>招募与培训学生图书管理员</li>
+        <li>借还书务与馆内秩序</li>
+      </ul>
+      <p class="who vacant">主任职衔待校方确认</p>
+    </article>
+
+    <article class="card">
+      <h3>事务处（总务）</h3>
+      <ul class="duty">
+        <li>采购日常用品、维修校内设备</li>
+        <li>管理校产与场地租用</li>
+        <li>接待访客与住宿安排</li>
+      </ul>
+      <p class="who vacant">主任职衔待校方确认</p>
+    </article>
+
+    <article class="card">
+      <h3>会计处</h3>
+      <ul class="duty">
+        <li>处理全盘账目与教职员薪金</li>
+        <li>收取学杂费、住宿费并发出正式收据</li>
+        <li>处理宿舍生户口与贩卖部账目</li>
+      </ul>
+      <p class="who vacant">主任职衔待校方确认</p>
+    </article>
+
+    <article class="card">
+      <h3>舍务处</h3>
+      <ul class="duty">
+        <li>拟定宿舍规章、处理宿舍纪律</li>
+        <li>审查宿舍生外出与领款申请</li>
+        <li>监管日常作息，通知家长学生健康状况</li>
+      </ul>
+      <p class="who vacant">总舍监职衔待校方确认</p>
+    </article>
+
+    <article class="card">
+      <h3>技职教育中心</h3>
+      <ul class="duty">
+        <li>统筹技职课程与实作教学</li>
+        <li>管理技职专用教室与设备</li>
+        <li>衔接升学与就业技能认证</li>
+      </ul>
+      <p class="who"><img class="face" src="../assets/img/faculty/07.jpg" alt="" loading="lazy">中心主任　赖静绣老师</p>
+    </article>
+
+    <article class="card">
+      <h3>AI 教学与应用中心</h3>
+      <ul class="duty">
+        <li>推动全校教师 AI 备课与教学应用</li>
+        <li>统筹 AI 课程、竞赛与对外交流</li>
+        <li>维护校内数码系统与知识库</li>
+      </ul>
+      <p class="who"><span class="faces"><img class="face" src="../assets/img/faculty/04.jpg" alt="" loading="lazy"><img class="face" src="../assets/img/faculty/05.jpg" alt="" loading="lazy"><img class="face" src="../assets/img/faculty/28.jpg" alt="" loading="lazy"></span>团队　林子策老师 · 黄冠銘老师 · 余延盛老师</p>
+    </article>
+
+  </div>
+</section>
+
+<section>
+  <div class="sec-head">
+    <h2>四、教学科组</h2>
+    <p>各科主任负责本科教学计划、督导科任老师与命题阅卷（含新生入学试）。</p>
+  </div>
+  <div class="subjects" id="subjects">
+    <span class="subj"><b>华文兼史地</b><span>廖丽华老师</span></span>
+    <span class="subj"><b>英文</b><span>李淑桦老师</span></span>
+    <span class="subj"><b>马来文</b><span>Cikgu Noor Athikah bt Abu Kassim</span></span>
+    <span class="subj"><b>数学</b><span>柯家浚老师</span></span>
+    <span class="subj"><b>科学</b><span>刘瑞龙老师</span></span>
+    <span class="subj"><b>电脑科技</b><span>黄冠銘老师</span></span>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head">
+    <h2>五、这件事该找谁</h2>
+    <p>家长与新生最常问的十件事，对应的处室与第一联系人。</p>
+  </div>
+  <table class="lookup">
+    <thead><tr><th>询问事项</th><th>对应处室</th><th>第一联系人</th></tr></thead>
+    <tbody>
+      <tr><td>新生报名 · 入学考试</td><td class="dept">教务处</td><td class="who-cell">教务处书记</td></tr>
+      <tr><td>电话初次询问 · 到校访问</td><td class="dept">校长室</td><td class="who-cell">办公室书记</td></tr>
+      <tr><td>招生咨询 · 校园参观安排</td><td class="dept">项目策划处</td><td class="who-cell">项目策划处主任</td></tr>
+      <tr><td>学杂费缴付 · 收据</td><td class="dept">会计处</td><td class="who-cell">会计助理</td></tr>
+      <tr><td>宿舍申请 · 外出申请</td><td class="dept">舍务处</td><td class="who-cell">舍监 / 总舍监</td></tr>
+      <tr><td>仪容 · 请假 · 奖惩</td><td class="dept">训导处</td><td class="who-cell">训导主任 / 训导助理</td></tr>
+      <tr><td>奖助学金 · 升学辅导</td><td class="dept">辅导处</td><td class="who-cell">辅导主任 / 辅导助理</td></tr>
+      <tr><td>外国学生签证</td><td class="dept">辅导处</td><td class="who-cell">辅导主任</td></tr>
+      <tr><td>学会 · 制服团体 · 联课</td><td class="dept">联课活动处</td><td class="who-cell">联课主任</td></tr>
+      <tr><td>场地租借 · 设备维修</td><td class="dept">事务处</td><td class="who-cell">总务主任</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<p class="note">处室职能依据校方《曼绒南华独立中学行政责职》（2023 年版）；主任名录依 2026 年 6 月教职员名单。标注「待校方确认」者为该处室现任主管尚未取得正式名录，非该处室不存在。三机构理事名单以校方最新公布为准。<br>
+教师完整名录见 <a href="../faculty/index.html" style="color:var(--gold-deep)">师资团队</a>。</p>
+
+<script>
+// 标题逐词弹簧显影，与 faculty 页同源
+const hl = document.getElementById('headline');
+['学校组织，是','把每件事','<em>接住的人</em>','。'].forEach((w,i)=>{
+  const s = document.createElement('span');
+  s.className = 'w'; s.innerHTML = w;
+  s.style.transitionDelay = (i*0.12)+'s';
+  hl.appendChild(s);
+});
+setTimeout(()=>document.querySelectorAll('#headline .w').forEach(w=>w.classList.add('on')), 60);
+
+// 滚动入场（触发一次即 unobserve）
+const io = new IntersectionObserver(es=>es.forEach(e=>{
+  if(e.isIntersecting){ e.target.classList.add('in-view'); io.unobserve(e.target); }
+}),{threshold:.12});
+document.querySelectorAll('.card').forEach((c,i)=>{ c.style.transitionDelay=(i%6*.05)+'s'; io.observe(c); });
+io.observe(document.getElementById('subjects'));
+document.querySelectorAll('#subjects .subj').forEach((s,i)=>{ s.style.transitionDelay=(i*.06)+'s'; });
+</script>
+</body>
+</html>

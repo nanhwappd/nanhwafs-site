@@ -207,9 +207,10 @@ def main():
     with sync_playwright() as p:
         b = p.chromium.connect_over_cdp(CDP)
         ctx = b.contexts[0]
-        failures, streak = [], 0
+        failures, streak, processed = [], 0, 0
         for i, (slug, title, path) in enumerate(todo, 1):
             t0 = time.time()
+            processed = i
             try:
                 vid = upload_one(ctx, slug, title, path)
                 bad = verify(ctx, vid, title)
@@ -231,7 +232,9 @@ def main():
                                     'file': path}, ensure_ascii=False) + '\n')
             print(f'[{i}/{len(todo)}] {slug} -> {vid}  {time.time() - t0:.0f}s  {title[:30]}', flush=True)
 
-        print(f'\n=== done. ok={len(todo) - len(failures)} failed={len(failures)}')
+        # 中途 break 时 len(todo) 不等于已处理数，别用它算 ok（会虚报成功）
+        print(f'\n=== done. processed={processed} ok={processed - len(failures)} '
+              f'failed={len(failures)} remaining={len(todo) - processed}')
         for slug, path, msg in failures:
             print(f'  FAILED {slug}  {os.path.basename(path)}  {msg[:90]}')
 
