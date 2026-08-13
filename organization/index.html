@@ -66,6 +66,30 @@ section { max-width:1080px; margin:0 auto; padding:0 clamp(1.2rem,4vw,3rem); }
 .who .faces { display:flex; }
 .who .faces .face:not(:first-child) { margin-left:-.5rem; }
 
+/* 处室职员：暂无照片，用姓氏字圈占位，尺寸与 .face 同源 */
+.crew { margin-top:.6rem; display:flex; flex-wrap:wrap; gap:.5rem .9rem; }
+.crew .m { display:flex; align-items:center; gap:.42rem; font-size:.78rem; color:var(--muted); }
+.crew .ph { width:26px; height:26px; border-radius:50%; flex:none; border:1px solid var(--rule);
+  background:#EFE9DA; display:flex; align-items:center; justify-content:center;
+  font-family:var(--serif); font-style:normal; font-size:.76rem; color:var(--gold-deep); }
+.face.ph { display:inline-flex; align-items:center; justify-content:center;
+  font-family:var(--serif); font-style:normal; font-size:.8rem; color:var(--gold-deep); }
+/* 待校方校对的条目：标出来，方便校长与董事会逐条核 */
+.tbc { font-size:.68rem; letter-spacing:.08em; color:var(--terracotta);
+  border:1px solid var(--rule); border-radius:999px; padding:.14rem .5rem; margin-left:.3rem;
+  white-space:nowrap; }
+.crew .m span { color:var(--muted-lt); }
+
+/* 后勤名录：食堂与校工，只列名不做卡 */
+.roster { background:var(--paper); border:1px solid var(--rule); border-radius:.6rem;
+  padding:1.2rem 1.4rem 1.3rem; }
+.roster + .roster { margin-top:1.2rem; }
+.roster h3 { font-family:var(--serif); font-weight:700; font-size:1.1rem; letter-spacing:.05em; }
+.roster .lead-in { margin-top:.7rem; font-size:.86rem; color:var(--gold-deep); line-height:1.9; }
+.roster .names { margin-top:.75rem; font-size:.82rem; color:var(--muted); line-height:2.1; }
+.roster .names b { font-family:var(--serif); font-weight:700; color:var(--ink);
+  font-size:.8rem; letter-spacing:.06em; margin-right:.45rem; }
+
 /* 校长室：单卡通栏，视觉上高一级 */
 .principal { background:linear-gradient(150deg,#FFFDF7 0%, #F6EEDC 100%); border-color:var(--gold); }
 .principal h3 { font-size:1.32rem; }
@@ -133,6 +157,7 @@ section { max-width:1080px; margin:0 auto; padding:0 clamp(1.2rem,4vw,3rem); }
         <li>聘任校长、监督校务推行</li>
       </ul>
       <p class="who">董事长　颜登逸先生</p>
+      <p class="crew"><a href="../board/index.html" style="color:var(--gold-deep);font-size:.8rem">董事名录与历届董事长 →</a></p>
     </article>
     <article class="card">
       <h3>家长联谊会（家联）</h3>
@@ -190,6 +215,10 @@ section { max-width:1080px; margin:0 auto; padding:0 clamp(1.2rem,4vw,3rem); }
         <li>成绩册、离校证书、毕业证书与校外考试文凭</li>
       </ul>
       <p class="who"><img class="face" src="../assets/img/faculty/02.jpg" alt="" loading="lazy">教务主任　杨秀珍老师</p>
+      <div class="crew">
+        <span class="m"><i class="ph">陈</i>陈广燕 <span>教务处兼会计处助理</span></span>
+        <span class="m"><i class="ph">郭</i>郭炎妮 <span>教务处助理</span></span>
+      </div>
     </article>
 
     <article class="card">
@@ -201,6 +230,9 @@ section { max-width:1080px; margin:0 auto; padding:0 clamp(1.2rem,4vw,3rem); }
         <li>处理学生偶发事件并联络家长</li>
       </ul>
       <p class="who"><img class="face" src="../assets/img/faculty/03.jpg" alt="" loading="lazy">训导主任　李淑桦老师</p>
+      <div class="crew">
+        <span class="m"><i class="ph">林</i>林美欣 <span>训导处助理</span></span>
+      </div>
     </article>
 
     <article class="card">
@@ -243,7 +275,7 @@ section { max-width:1080px; margin:0 auto; padding:0 clamp(1.2rem,4vw,3rem); }
         <li>选拔与训练校队代表</li>
         <li>统筹校内运动会与对外赛事</li>
       </ul>
-      <p class="who vacant">主任职衔待校方确认</p>
+      <p class="who"><img class="face" src="../assets/img/faculty/33.jpg" alt="" loading="lazy">体育主任　颜国政老师</p>
     </article>
 
     <article class="card">
@@ -253,17 +285,18 @@ section { max-width:1080px; margin:0 auto; padding:0 clamp(1.2rem,4vw,3rem); }
         <li>招募与培训学生图书管理员</li>
         <li>借还书务与馆内秩序</li>
       </ul>
-      <p class="who vacant">主任职衔待校方确认</p>
+      <p class="who"><img class="face" src="../assets/img/faculty/27.jpg" alt="" loading="lazy">图书馆主任　叶佳莹老师（兼任）<span class="tbc">待校对</span></p>
     </article>
 
     <article class="card">
-      <h3>事务处（总务）</h3>
+      <h3>庶务处（事务处）</h3>
       <ul class="duty">
         <li>采购日常用品、维修校内设备</li>
         <li>管理校产与场地租用</li>
+        <li>统辖全校校工与技工</li>
         <li>接待访客与住宿安排</li>
       </ul>
-      <p class="who vacant">主任职衔待校方确认</p>
+      <p class="who"><i class="face ph">K</i>主任　Kamaruddin bin Musa（En. Kamal）<span class="tbc">待校对</span></p>
     </article>
 
     <article class="card">
@@ -273,7 +306,11 @@ section { max-width:1080px; margin:0 auto; padding:0 clamp(1.2rem,4vw,3rem); }
         <li>收取学杂费、住宿费并发出正式收据</li>
         <li>处理宿舍生户口与贩卖部账目</li>
       </ul>
-      <p class="who vacant">主任职衔待校方确认</p>
+      <p class="who vacant">本处目前不设主任，由职员执行</p>
+      <div class="crew">
+        <span class="m"><i class="ph">黄</i>黄月吟 <span>会计助理</span></span>
+        <span class="m"><i class="ph">陈</i>陈广燕 <span>兼任</span></span>
+      </div>
     </article>
 
     <article class="card">
@@ -283,7 +320,11 @@ section { max-width:1080px; margin:0 auto; padding:0 clamp(1.2rem,4vw,3rem); }
         <li>审查宿舍生外出与领款申请</li>
         <li>监管日常作息，通知家长学生健康状况</li>
       </ul>
-      <p class="who vacant">总舍监职衔待校方确认</p>
+      <p class="who"><img class="face" src="../assets/img/faculty/06.jpg" alt="" loading="lazy">代主任　叶佳盛老师</p>
+      <div class="crew">
+        <span class="m"><i class="ph">李</i>李庥静 <span>女舍监</span></span>
+        <span class="m"><i class="ph">马</i>马欣艳 <span>女舍监</span></span>
+      </div>
     </article>
 
     <article class="card">
@@ -311,7 +352,29 @@ section { max-width:1080px; margin:0 auto; padding:0 clamp(1.2rem,4vw,3rem); }
 
 <section>
   <div class="sec-head">
-    <h2>四、教学科组</h2>
+    <h2>四、后勤团队</h2>
+    <p>食堂与校工团队把校园的一日三餐、水电门窗、草木清洁撑起来。他们不在课堂上，孩子却每天都遇得到。</p>
+  </div>
+
+  <div class="roster">
+    <h3>食堂</h3>
+    <p class="lead-in">食堂行政主任　张碧云（厨师兼任）　·　副主任　陈美凤（厨师兼任）</p>
+    <p class="names"><b>食堂员工</b>王碧梨 · Jayaletchumy A/P Subramanian · Fattu A/P Rayapan · Vanita A/P Velautham · Pushpamala A/P Kuppusamy</p>
+  </div>
+
+  <div class="roster">
+    <h3>校工与技工</h3>
+    <p class="lead-in">归庶务处统辖，主任　En. Kamal</p>
+    <p class="names"><b>清洁</b>Nurashikin Bt Abdullah · Kartini Bt. Mohd · Pushpalatha A/P Naraja · Nor Hasitamorni Bt Othman · Rasinah Binti Yusof</p>
+    <p class="names"><b>维修</b>Kamaruddin bin Musa · Ibrahim Bin Ahmad</p>
+    <p class="names"><b>校工</b>Muhammad Harris Hakimie Bin Anto · Mohamad Rozaimi Bin Erahim · Mohamad Syamsul Azhar Bin Mat Nudin</p>
+    <p class="names"><b>园丁</b>Nantahrao A/L Simmachalam　<b>司机</b>Abu Siad Bin Mat Piah</p>
+  </div>
+</section>
+
+<section>
+  <div class="sec-head">
+    <h2>五、教学科组</h2>
     <p>各科主任负责本科教学计划、督导科任老师与命题阅卷（含新生入学试）。</p>
   </div>
   <div class="subjects" id="subjects">
@@ -326,7 +389,7 @@ section { max-width:1080px; margin:0 auto; padding:0 clamp(1.2rem,4vw,3rem); }
 
 <section>
   <div class="sec-head">
-    <h2>五、这件事该找谁</h2>
+    <h2>六、这件事该找谁</h2>
     <p>家长与新生最常问的十件事，对应的处室与第一联系人。</p>
   </div>
   <table class="lookup">
@@ -341,13 +404,13 @@ section { max-width:1080px; margin:0 auto; padding:0 clamp(1.2rem,4vw,3rem); }
       <tr><td>奖助学金 · 升学辅导</td><td class="dept">辅导处</td><td class="who-cell">辅导主任 / 辅导助理</td></tr>
       <tr><td>外国学生签证</td><td class="dept">辅导处</td><td class="who-cell">辅导主任</td></tr>
       <tr><td>学会 · 制服团体 · 联课</td><td class="dept">联课活动处</td><td class="who-cell">联课主任</td></tr>
-      <tr><td>场地租借 · 设备维修</td><td class="dept">事务处</td><td class="who-cell">总务主任</td></tr>
+      <tr><td>场地租借 · 设备维修</td><td class="dept">庶务处</td><td class="who-cell">庶务处主任</td></tr>
     </tbody>
   </table>
 </section>
 
-<p class="note">处室职能依据校方《曼绒南华独立中学行政责职》（2023 年版）；主任名录依 2026 年 6 月教职员名单。标注「待校方确认」者为该处室现任主管尚未取得正式名录，非该处室不存在。三机构理事名单以校方最新公布为准。<br>
-教师完整名录见 <a href="../faculty/index.html" style="color:var(--gold-deep)">师资团队</a>。</p>
+<p class="note">处室职能依据校方《曼绒南华独立中学行政责职》（2023 年版）；人员依《2026 年度教职员名单》（2026-07-06 修订）。<b>标注「待校对」者为整理者依现有文件推定，尚未经校方核实，敬请指正。</b>「庶务处」与 2023 年文件的「事务处」在本页视为同一处室；会计处在名单上写作「财务处」，此处从校内通行称法。家联与校友会理事名单以校方最新公布为准。本页不刊载任何教职员的私人电话与电邮。<br>
+教师完整名录见 <a href="../faculty/index.html" style="color:var(--gold-deep)">师资团队</a>；董事名录见 <a href="../board/index.html" style="color:var(--gold-deep)">董事会</a>。</p>
 
 <script>
 // 标题逐词弹簧显影，与 faculty 页同源

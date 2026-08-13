@@ -68,6 +68,27 @@ h1 em { font-style:normal; color:var(--gold); }
 .note { max-width:1080px; margin:0 auto 4rem; padding:0 clamp(1.2rem,4vw,3rem);
   font-size:.78rem; color:var(--muted-lt); line-height:1.8; }
 
+/* 行政职员：暂无照片，用姓氏字圈占位 */
+.staff-sec { max-width:1080px; margin:0 auto; padding:0 clamp(1.2rem,4vw,3rem) 3.5rem; }
+.staff-sec h2 { font-family:var(--serif); font-weight:700; font-size:clamp(1.25rem,2.4vw,1.6rem); letter-spacing:.06em; }
+.staff-sec h2::before { content:""; display:block; width:2.4rem; height:2px; background:var(--gold); margin-bottom:.9rem; }
+.staff-sec p.sub { margin-top:.7rem; max-width:38em; color:var(--muted); line-height:1.95; font-size:.9rem; }
+.staff-grid { margin-top:1.6rem; display:grid; gap:1rem; grid-template-columns:repeat(3,1fr); }
+@media (max-width:880px) { .staff-grid { grid-template-columns:1fr; max-width:520px; } }
+.staff-card { background:var(--paper); border:1px solid var(--rule); border-radius:.6rem;
+  padding:1rem 1.15rem; display:flex; align-items:center; gap:.85rem;
+  box-shadow:0 2px 10px rgba(90,60,20,.08);
+  opacity:0; transform:translateY(24px);
+  transition:opacity .7s ease-out, box-shadow .45s ease, transform .7s var(--spring-soft); }
+.staff-card.in-view { opacity:1; transform:translateY(0); }
+.staff-card:hover { transform:translateY(-5px); box-shadow:0 14px 34px rgba(90,60,20,.15); }
+.staff-card .ph { width:46px; height:46px; border-radius:50%; flex:none;
+  border:1px solid var(--rule); background:linear-gradient(155deg,#EFE9DA 0%, #E7DCC2 100%);
+  display:flex; align-items:center; justify-content:center;
+  font-family:var(--serif); font-style:normal; font-weight:700; font-size:1.15rem; color:var(--gold-deep); }
+.staff-card h3 { font-family:var(--serif); font-weight:700; font-size:1.05rem; letter-spacing:.05em; }
+.staff-card .post { margin-top:.25rem; font-size:.76rem; letter-spacing:.08em; color:var(--gold-deep); }
+
 @media (prefers-reduced-motion: reduce) {
   h1 .w, .card, .tag, .portrait img { transition:none; opacity:1; transform:none; filter:none; }
 }
@@ -540,7 +561,20 @@ h1 em { font-style:normal; color:var(--gold); }
 
 </main>
 
-<p class="note">名单依据 2026 年 6 月教职员名单（39 位专任+兼职教师，另有 1 位主任因缺照片暂未收录）；卡片入场/抬升/头像回弹/标签弹入均用 kinetics 式弹簧曲线（CSS linear()），不依赖任何 JS 库。</p>
+<section class="staff-sec">
+  <h2>行政职员</h2>
+  <p class="sub">各处室的行政职员，是把报名、成绩、缴费、宿舍这些事一件件办妥的人。家长到校办事，多半先遇见他们。照片暂缺，版位已留。</p>
+  <div class="staff-grid">
+    <article class="staff-card"><i class="ph">陈</i><div><h3>陈广燕</h3><p class="post">教务处兼会计处助理</p></div></article>
+    <article class="staff-card"><i class="ph">郭</i><div><h3>郭炎妮</h3><p class="post">教务处助理</p></div></article>
+    <article class="staff-card"><i class="ph">林</i><div><h3>林美欣</h3><p class="post">训导处助理</p></div></article>
+    <article class="staff-card"><i class="ph">黄</i><div><h3>黄月吟</h3><p class="post">会计助理</p></div></article>
+    <article class="staff-card"><i class="ph">李</i><div><h3>李庥静</h3><p class="post">女舍监</p></div></article>
+    <article class="staff-card"><i class="ph">马</i><div><h3>马欣艳</h3><p class="post">女舍监</p></div></article>
+  </div>
+</section>
+
+<p class="note">教师名单依《2026 年度教职员名单》（2026-07-06 修订）共 41 位专任与兼职教师，本页收录 39 位；张猷年老师、陈恩慈老师因缺照片暂未收录。行政职员 6 位依《2026 年度教职员名单》（2026-07-06 修订），照片暂缺。食堂与校工团队、各处室职能分工见 <a href="../organization/index.html" style="color:var(--gold-deep)">学校组织</a>。本页不刊载任何教职员的私人电话与电邮。<br>卡片入场/抬升/头像回弹/标签弹入均用 kinetics 式弹簧曲线（CSS linear()），不依赖任何 JS 库。</p>
 
 <script>
 // 标题逐词弹簧显影（aetheris BlurText × kinetics spring）
@@ -558,6 +592,7 @@ const io = new IntersectionObserver(es=>es.forEach(e=>{
   if(e.isIntersecting){ e.target.classList.add('in-view'); io.unobserve(e.target); }
 }),{threshold:.12});
 document.querySelectorAll('.card').forEach((c,i)=>{ c.style.transitionDelay=(i*.04)+'s'; io.observe(c); });
+document.querySelectorAll('.staff-card').forEach((c,i)=>{ c.style.transitionDelay=(i*.05)+'s'; io.observe(c); });
 </script>
 </body>
 </html>

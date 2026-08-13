@@ -43,6 +43,12 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://nanhwappd.github.io/nanhwafs-site/board/index.html</loc>
+    <lastmod>2026-08-14</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://nanhwappd.github.io/nanhwafs-site/organization/index.html</loc>
     <lastmod>2026-08-13</lastmod>
     <changefreq>monthly</changefreq>
