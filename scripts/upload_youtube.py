@@ -13,6 +13,7 @@
 import argparse
 import json
 import os
+import socket
 import sys
 import time
 
@@ -64,17 +65,45 @@ def upload_one(ctx, slug, title, path):
             pass
 
 
+def set_file(pg, path):
+    """Playwright 把 connect_over_cdp 的浏览器当「远端」，>50MB 直接拒传
+    （Cannot transfer files larger than 50Mb to a browser not co-located）。
+    但浏览器就在本机，用 CDP 的 DOM.setFileInputFiles 塞本地路径即可，无此上限。
+    163 支里有 19 支超标（最大 420 MB），不修就等于漏掉年度回顾这类重头片。
+
+    ⚠️ 一律走 CDP，不分大小：50 MB 以下也会栽在 set_input_files 的 30 秒预设超时上
+    （档案要经 websocket 传给 driver，几十 MB 就够慢）。CDP 塞的是路径，跟大小无关。"""
+    cdp = pg.context.new_cdp_session(pg)
+    r = cdp.send('Runtime.evaluate',
+                 {'expression': "document.querySelector('input[type=file]')"})
+    obj = r.get('result', {}).get('objectId')
+    if obj:
+        cdp.send('DOM.setFileInputFiles', {'files': [path], 'objectId': obj})
+        return
+    # input 藏在 shadow root 时 document.querySelector 找不到，改走 pierce 的节点树
+    doc = cdp.send('DOM.getDocument', {'depth': -1, 'pierce': True})
+    node = cdp.send('DOM.querySelector', {'nodeId': doc['root']['nodeId'],
+                                          'selector': 'input[type="file"]'})
+    if not node.get('nodeId'):
+        raise RuntimeError('找不到 file input，无法塞档')
+    cdp.send('DOM.setFileInputFiles', {'files': [path], 'nodeId': node['nodeId']})
+
+
 def _upload_in_tab(pg, slug, title, path):
     pg.goto(UPLOAD_URL, wait_until='domcontentloaded', timeout=120000)
     pg.wait_for_selector('input[type="file"]', state='attached', timeout=60000)
-    pg.locator('input[type="file"]').first.set_input_files(path)
+    set_file(pg, path)
 
     d = pg.locator('ytcp-uploads-dialog')
-    # 视频链接一出现就代表 YouTube 已经分配 ID
-    link = d.locator('a[href*="youtu.be/"]').first
-    # 同一个档若在频道上留着废弃的上传 session，这个链接永远不会出现。别等太久。
-    link.wait_for(state='attached', timeout=240000)
-    vid = link.get_attribute('href').rsplit('/', 1)[-1]
+    # 视频链接一出现就代表 YouTube 已经分配 ID。
+    # ⚠️ 短片会被判成 Shorts，链接是 youtube.com/shorts/<id> 而不是 youtu.be/<id>——
+    # 只认 youtu.be 的话，每支短片都会白等满 240 秒（08-14 实测，过站游戏 1 三次全栽这里）。
+    link = d.locator('a[href*="youtu.be/"], a[href*="/shorts/"]').first
+    # 链接要等 YouTube 收到够多字节才分配。热点上传 420 MB 远超 240 秒，
+    # 所以超时按档案大小放宽（每 10 MB 加 30 秒），封顶 30 分钟。
+    mb = os.path.getsize(path) / (1024 * 1024)
+    link.wait_for(state='attached', timeout=min(240000 + mb * 3000, 1800000))
+    vid = link.get_attribute('href').rstrip('/').rsplit('/', 1)[-1]
 
     # ⚠️ youtu.be 链接一分配就出现，此时字节还没传完。不等完就走＝列表显示「上传已中断」。
     # 只认 ytcp-video-upload-progress 这个元素：上传中含「正在上传」，传完转「上传完毕」。
@@ -83,7 +112,9 @@ def _upload_in_tab(pg, slug, title, path):
     while True:
         txt = pg.evaluate("""() => {const e = document.querySelector('ytcp-video-upload-progress');
                               return e ? e.innerText.replace(/\\s+/g, ' ').trim() : ''}""")
-        if txt and '正在上传' not in txt and ('上传完毕' in txt or '处理' in txt):
+        # 「检查完毕。未发现任何问题。」也是传完的形态之一，漏掉它会白等满 3600 秒
+        done_words = ('上传完毕', '处理', '检查完毕', '未发现任何问题')
+        if txt and '正在上传' not in txt and any(w in txt for w in done_words):
             break
         if time.time() > deadline:
             raise TimeoutError(f'upload stalled: {txt[:120]}')
@@ -134,6 +165,32 @@ def _upload_in_tab(pg, slug, title, path):
         # 别的按钮又可能等于「返回」。点完「仍然发布」对话框会自己收。
     pg.wait_for_timeout(2000)
     return vid
+
+
+# 线路抖动（热点掉线）不是坏档，不该算进「连续 5 支失败」把整场毁掉。
+# 08-14 实测：一次热点断线连炸 4 支，全是 ERR_NAME_NOT_RESOLVED。
+TRANSIENT = ('ERR_NAME_NOT_RESOLVED', 'ERR_INTERNET_DISCONNECTED', 'ERR_NETWORK_CHANGED',
+             'ERR_CONNECTION', 'ERR_TIMED_OUT', 'ERR_ADDRESS_UNREACHABLE', 'ERR_PROXY')
+
+
+def online():
+    try:
+        socket.getaddrinfo('studio.youtube.com', 443)
+        return True
+    except OSError:
+        return False
+
+
+def wait_online(max_min=30):
+    """回 True = 线路回来了。回 False = 等超时，交给上层当真失败。"""
+    deadline = time.time() + max_min * 60
+    while time.time() < deadline:
+        if online():
+            time.sleep(10)          # 刚回来先让它站稳，别抢第一秒
+            return True
+        print('  ...等线路回来', flush=True)
+        time.sleep(20)
+    return False
 
 
 VIS_TEXT = {'UNLISTED': '不公开', 'PUBLIC': '公开', 'PRIVATE': '私享'}
@@ -211,13 +268,22 @@ def main():
         for i, (slug, title, path) in enumerate(todo, 1):
             t0 = time.time()
             processed = i
-            try:
-                vid = upload_one(ctx, slug, title, path)
-                bad = verify(ctx, vid, title)
-                if bad:
-                    raise RuntimeError(f'verify: {bad}')
-            except Exception as e:
-                msg = f'{type(e).__name__}: {e}'[:200].replace('\n', ' ')
+            msg = None
+            for attempt in range(3):
+                try:
+                    vid = upload_one(ctx, slug, title, path)
+                    bad = verify(ctx, vid, title)
+                    if bad:
+                        raise RuntimeError(f'verify: {bad}')
+                    msg = None
+                    break
+                except Exception as e:
+                    msg = f'{type(e).__name__}: {e}'[:200].replace('\n', ' ')
+                    if any(t in msg for t in TRANSIENT) and attempt < 2 and wait_online():
+                        print(f'[{i}/{len(todo)}] 线路抖动，重试 {slug}', flush=True)
+                        continue
+                    break
+            if msg:
                 print(f'[{i}/{len(todo)}] FAIL {slug} {os.path.basename(path)}: {msg}', flush=True)
                 failures.append((slug, path, msg))
                 streak += 1
