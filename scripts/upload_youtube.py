@@ -221,6 +221,16 @@ def probe(ctx, vid):
             pass
 
 
+def norm_title(s):
+    """比标题前先把空白折平。
+
+    ⚠️ 08-17 实测：标题里有连续空格时，YouTube 存下来会并成单一空格
+    （`中秋安圆  心明致远` -> `中秋安圆 心明致远`），而 probe() 读的又是 innerText，
+    本来就会折空白。用精确比对会把**已经传成功**的影片判成失败——影片留在频道上，
+    却没写进 uploaded.jsonl，下次续跑必定重传成重复。"""
+    return ' '.join((s or '').split())
+
+
 def verify(ctx, vid, title):
     """回 None = 通过；回字串 = 失败原因。写 log 前必须过这关。"""
     r = probe(ctx, vid)
@@ -229,7 +239,7 @@ def verify(ctx, vid, title):
     want = VIS_TEXT[VISIBILITY]
     if want not in (r.get('vis') or '') and want not in (r.get('bodyHas') or []):
         return f'可见性不是{want} raw={r}'
-    if (r.get('title') or '').strip() != title.strip():
+    if norm_title(r.get('title')) != norm_title(title):
         return f'标题不符 got={r.get("title")!r} want={title!r}'
     return None
 
