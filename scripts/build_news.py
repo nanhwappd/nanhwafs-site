@@ -51,6 +51,7 @@ DATE_LINE_RE = re.compile(r'^\d{1,2}\s*[/.\-]\s*\d{1,2}\s*[/.\-]\s*\d{2,4}$')
 DANGLING = '之：:，,、·|-—～~…'      # 行尾出现即视为没写完，可接下一行
 TERMINAL = '。！？!?」』）)'           # 行尾出现即视为写完，不再接
 JOIN_MIN, JOIN_MAX, TITLE_MAX, CUT_MAX, SENT_MIN = 12, 30, 48, 40, 8
+EXCERPT_MAX = 120          # 卡片摘要上限；CSS 再 clamp 成 3 行，够长才会出现省略号
 
 
 def strip_decor(line):
@@ -82,6 +83,34 @@ def make_title(p, s_text):
             cut = max(head.rfind(c) for c in '，、：')
         return head[:cut] if cut >= JOIN_MIN else head.rstrip('　 ') + '…'
     return t.rstrip('。！？!?' + DANGLING + ' 　')
+
+
+TAG_LINE_RE = re.compile(r'^[#＃]\S+(\s+[#＃]\S+)*$')       # 整行都是话题标签，对摘要没价值
+PUNCT_RE = re.compile(r'''[\s，。！？、：；·…—－\-,.!?:;"'“”‘’（）()【】《》]+''')
+
+
+def make_excerpt(s_text, title):
+    """标题之后的正文开头。光有图＋标题看不出新闻概貌，卡片要几行小字撑住。"""
+    lines = [strip_decor(l) for l in s_text.split('\n')
+             if l.strip() and not URL_RE.fullmatch(l.strip())]
+    lines = [l for l in lines if l and not DATE_LINE_RE.match(l) and not TAG_LINE_RE.match(l)]
+    tn = PUNCT_RE.sub('', title.replace('·', ''))          # 去标点再比，否则「清明节」对不上「清明节，」
+    rest, started = [], False
+    for l in lines:
+        if not started:
+            ln = PUNCT_RE.sub('', l)
+            if ln and ln in tn:
+                continue                                    # 整行已被标题吃掉
+            if ln.startswith(tn) and len(title) >= 3:
+                tail = title[-3:]                           # 整篇挤成一行：从标题末尾接着往下取
+                i = l.find(tail)
+                if i >= 0:
+                    l = l[i + len(tail):].lstrip('，。、：；·… ')
+                if not l:
+                    continue
+        started = True
+        rest.append(l)
+    return ' '.join(' '.join(rest).split())[:EXCERPT_MAX]
 
 
 def main():
@@ -120,6 +149,7 @@ def main():
 
         s_text = fix_names(cc.convert(p['text']))
         title = make_title(p, s_text)
+        excerpt = make_excerpt(s_text, title)
         desc = ' '.join(s_text.split())[:80] or title
 
         body = ''.join(f'      <p>{esc_autolink(ln.strip())}</p>\n'
@@ -181,6 +211,7 @@ def main():
                 videos_md += [f'  - `{os.path.join(FB_ROOT, m.replace("/", os.sep))}`' for m in mp4s]
 
         p['_title'], p['_desc'], p['_figs'], p['_body'], p['_og'] = title, desc, figs, body, og_img
+        p['_excerpt'] = excerpt
         by_year[year].append(p)
 
     # write pages with prev/next within year
@@ -210,11 +241,12 @@ def main():
 
     def compact_row(p, href_prefix=''):
         # 深档年份（≤2021）：一行一条，日期＋标题，有图/有片只给一个小记号
-        mark = '▶' if p.get('_yt') else ('◻' if p.get('_thumb') else '')
+        mark, label = ('▶', '含视频') if p.get('_yt') else (('◻', '含照片') if p.get('_thumb') else ('', ''))
+        badge = (f'<span class="mark"><span aria-hidden="true">{mark}</span>'
+                 f'<span class="sr-only">{label}</span></span>') if mark else '<span></span>'
         return (f'<a class="post-row" href="{href_prefix}{p["slug"]}.html">'
                 f'<time datetime="{p["date"]}">{p["date"]}</time>'
-                f'<span class="t">{html.escape(p["_title"])}</span>'
-                f'<span class="mark" aria-hidden="true">{mark}</span></a>')
+                f'<span class="t">{html.escape(p["_title"])}</span>{badge}</a>')
 
     def card(p, href_prefix=''):
         # 整张卡是入口（照片/视频封面当钩子），无媒体的贴文走纯文字变体，不留空图框
@@ -227,9 +259,13 @@ def main():
                      f'src="{href_prefix}{p["_thumb"]}" loading="lazy" alt=""></span>')
         else:
             media = ''
+        # 摘要撑住「只有图＋标题看不出这是什么新闻」的情况；溢出由 CSS clamp 出省略号，
+        # 底下那行「阅读全文」只是视觉提示——整张卡本来就是链接，不能再嵌一个 <a>。
+        ex = (f'<span class="ex">{html.escape(p["_excerpt"])}</span>'
+              f'<span class="more">阅读全文 →</span>') if p.get('_excerpt') else ''
         return (f'<a class="post-card{"" if media else " is-text"}" href="{href_prefix}{p["slug"]}.html">'
                 f'{media}<span class="txt"><time datetime="{p["date"]}">{p["date"]}</time>'
-                f'<span class="t">{html.escape(p["_title"])}</span></span></a>')
+                f'<span class="t">{html.escape(p["_title"])}</span>{ex}</span></a>')
 
     head = ('<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="UTF-8">'
             '<meta name="viewport" content="width=device-width, initial-scale=1">'

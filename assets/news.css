@@ -1,5 +1,7 @@
 /* 全站唯一样式档——1198 页新闻共用，改版只动这一个文件（皮肤可整体换，骨架 HTML 永不动） */
-:root { --green:#3EB370; --cream:#F5F1E8; --ink:#222; }
+:root { --green:#3EB370; --cream:#F5F1E8; --ink:#222;
+        /* 南华绿在白底只有 2.5:1，做块面可以，做小字不行。文字用途一律走这支加深版（5.7:1）。 */
+        --green-ink:#276B4E; }
 * { box-sizing:border-box; margin:0; padding:0; }
 body { font-family:"Noto Sans SC","Microsoft YaHei",system-ui,sans-serif;
        color:var(--ink); background:var(--cream); line-height:1.85; font-size:18px; }
@@ -11,14 +13,14 @@ body { font-family:"Noto Sans SC","Microsoft YaHei",system-ui,sans-serif;
 .site-header nav a:hover { opacity:1; text-decoration:underline; }
 
 .post-page { max-width:720px; margin:0 auto; padding:1.5rem 1.2rem 3rem; }
-.crumb { font-size:.85rem; color:#888; margin-bottom:1.4rem; }
-.crumb a { color:#888; text-decoration:none; }
-.crumb a:hover { color:var(--green); }
+.crumb { font-size:.85rem; color:#666; margin-bottom:1.4rem; }
+.crumb a { color:#666; text-decoration:none; }
+.crumb a:hover { color:var(--green-ink); }
 
 article h1 { font-size:1.55rem; line-height:1.45; color:var(--green); margin-bottom:.4rem; }
-article time { display:block; font-size:.9rem; color:#888; margin-bottom:1.6rem; }
+article time { display:block; font-size:.9rem; color:#666; margin-bottom:1.6rem; }
 article .body p { margin-bottom:1.1em; }
-article .body a { color:var(--green); word-break:break-all; }
+article .body a { color:var(--green-ink); word-break:break-all; }
 
 .figures figure { margin:1.6rem 0; }
 .figures a { display:block; cursor:zoom-in; }
@@ -33,14 +35,14 @@ article .body a { color:var(--green); word-break:break-all; }
 .post-actions .act { display:inline-flex; align-items:center; gap:.45rem; font:inherit; font-size:.92rem;
                      padding:.5rem .95rem; border-radius:999px; border:1px solid #d8d3c6;
                      background:#fff; color:var(--ink); text-decoration:none; }
-.post-actions .act.fb { border-color:var(--green); color:var(--green); }
+.post-actions .act.fb { border-color:var(--green-ink); color:var(--green-ink); }
 .post-actions .act.fb:hover, .post-actions .act.fb:focus-visible { background:var(--green); color:#fff; }
 .post-actions .act:focus-visible { outline:3px solid var(--green); outline-offset:2px; }
 .post-actions .act.soon { color:#a09a8c; cursor:not-allowed; }
 
 .pager { display:flex; justify-content:space-between; gap:1rem; margin-top:2.5rem;
          padding-top:1.2rem; border-top:1px solid #ddd; font-size:.95rem; }
-.pager a { color:var(--green); text-decoration:none; max-width:48%; }
+.pager a { color:var(--green-ink); text-decoration:none; max-width:48%; }
 .pager a:hover { text-decoration:underline; }
 
 .site-footer { background:#2a2a2a; color:#bbb; text-align:center; padding:1.4rem 1rem; font-size:.85rem; }
@@ -81,11 +83,17 @@ article .body a { color:var(--green); word-break:break-all; }
                                     border-style:solid; border-width:11px 0 11px 19px;
                                     border-color:transparent transparent transparent #fff; transform:translateX(4px); }
 
-.post-card .txt { padding:.85rem 1rem 1.1rem; display:flex; flex-direction:column; gap:.25rem; }
-.post-card time { font-size:.8rem; color:#888; }
-.post-card .t { font-weight:600; font-size:1rem; line-height:1.5;
+/* 字号走模块化阶梯 12/14/16，层级靠「字号＋字重＋色阶」三重区分，不靠把标题加粗撑。
+   标题用 500（label 级）而不是 600–700（heading 级）——卡片标题不是页面标题。 */
+.post-card .txt { padding:.85rem 1rem 1.05rem; display:flex; flex-direction:column; gap:.3rem; }
+.post-card time { font-size:12px; color:#6b6b6b; }        /* #888 在白底只有 3.5:1，不够 */
+.post-card .t { font-weight:500; font-size:16px; line-height:1.45; color:var(--ink);
                 display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
-.post-card:hover .t, .post-card:focus-visible .t { color:var(--green); }
+.post-card .ex { font-size:14px; font-weight:400; line-height:1.6; color:#5a564f;
+                 display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
+/* 视觉提示而已——整张卡本来就是链接，这里不能再嵌一个 <a> */
+.post-card .more { font-size:12px; color:var(--green-ink); margin-top:.15rem; }
+.post-card:hover .t, .post-card:focus-visible .t { color:var(--green-ink); }
 /* 无照片无视频的通告类贴文：靠「矮一截」区分，不加侧边色条。
    align-self:start 必须留着——否则它被拉成同排照片卡的高度，桌面版会出现一个大半空白的白盒。 */
 .post-card.is-text { align-self:start; }
@@ -100,10 +108,10 @@ article .body a { color:var(--green); word-break:break-all; }
 .post-row:first-child { border-top:0; }
 .post-row:hover, .post-row:focus-visible { background:#f7f5ef; }
 .post-row:focus-visible { outline:2px solid var(--green); outline-offset:-2px; }
-.post-row time { font-size:.8rem; color:#999; font-variant-numeric:tabular-nums; white-space:nowrap; }
-.post-row .t { font-size:.98rem; line-height:1.5; font-weight:500; }
-.post-row:hover .t { color:var(--green); }
-.post-row .mark { color:#b9b3a5; font-size:.8rem; }
+.post-row time { font-size:12px; color:#666; font-variant-numeric:tabular-nums; white-space:nowrap; }
+.post-row .t { font-size:16px; line-height:1.5; font-weight:500; }
+.post-row:hover .t { color:var(--green-ink); }
+.post-row .mark { color:#6f6a60; font-size:12px; }
 @media (max-width:520px) {
   .post-row { grid-template-columns:1fr auto; }
   .post-row time { grid-column:1 / -1; }      /* 窄屏日期独占一行，标题不被挤成一字一行 */
@@ -121,3 +129,7 @@ article .body a { color:var(--green); word-break:break-all; }
 @media (prefers-reduced-motion: no-preference) {
   html { scroll-behavior:smooth; }
 }
+
+/* 只给屏幕阅读器：列表里的 ◻/▶ 记号是视觉速记，语义得另外给出来 */
+.sr-only { position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden;
+           clip:rect(0 0 0 0); white-space:nowrap; border:0; }
