@@ -10,9 +10,10 @@ from opencc import OpenCC
 SITE = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 FB_ROOT = r'D:\Fb_AllRecord'
 BASE_URL = 'https://nanhwappd.github.io/nanhwafs-site'  # swap when custom domain lands (P5)
-MAX_SIDE, QUALITY, MAX_IMGS = 1280, 78, 8
+MAX_SIDE, QUALITY, MAX_IMGS = 1600, 82, 8   # 08-23 他批准 1280/q78 → 1600/q82（+180MB，仍在 GH Pages 1GB 内）
 THUMB_SIDE, THUMB_Q = 480, 72          # 索引卡片缩图：从 repo 内 1280 图再缩，不回头读 D:\Fb_AllRecord
 YT_THUMB = 'https://i.ytimg.com/vi/{}/hqdefault.jpg'   # 480x360，mqdefault 在 2x 手机屏会糊
+MIN_CARD_AR = 2 / 3          # 长过 2:3 的图，卡片按 2:3 收住（Pinterest 同样的下限）
 
 cc = OpenCC('t2s')
 URL_RE = re.compile(r'https?://[^\s<]+')
@@ -130,13 +131,20 @@ def main():
             src = os.path.join(FB_ROOT, rel.replace('/', os.sep))
             name = f"{p['slug']}-{i}.jpg"
             dst = os.path.join(ydir, 'img', name)
-            if os.path.exists(dst):
+            # 幂等＋可升级：已存在但边长小于当前上限、而原档还更大时，重压一遍（不删档，直接覆写）
+            stale = os.path.exists(dst) and max(Image.open(dst).size) < MAX_SIDE \
+                and max(Image.open(src).size) > max(Image.open(dst).size)
+            if os.path.exists(dst) and not stale:
                 skipped += 1
             else:
                 im = Image.open(src).convert('RGB')
                 im.thumbnail((MAX_SIDE, MAX_SIDE))
                 im.save(dst, 'JPEG', quality=QUALITY, optimize=True)
                 compressed += 1
+                if stale:                       # 主图换了，卡片缩图跟着重出
+                    old_t = os.path.join(ydir, 'img', f"{p['slug']}-t.jpg")
+                    if i == 0 and os.path.exists(old_t):
+                        os.remove(old_t)
             # 包一层链接＝原生看大图。正文里图只渲染 682px(桌面)/337px(手机)，剪报内文非放大不可读
             figs.append(f'      <figure><a href="img/{name}" target="_blank" rel="noopener" '
                         f'title="点开看原图"><img src="img/{name}" loading="lazy" '
@@ -152,6 +160,10 @@ def main():
                     tim.save(tdst, 'JPEG', quality=THUMB_Q, optimize=True)
                     thumbed += 1
                 p['_thumb'] = f'img/{tname}'
+                # 卡片按图片自己的比例长，不裁（他 08-23 定：不裁图源）。
+                # 只对极端长图设下限 2:3——Pinterest 的推荐比例，再长下去一张卡就吃掉整个手机屏。
+                tw, th = Image.open(tdst).size
+                p['_ar'] = f'{tw}/{th}' if tw / th >= MIN_CARD_AR else '2/3'
 
         mp4s = [m for m in p['media'] if m.lower().endswith('.mp4')]
         if mp4s:
@@ -207,10 +219,12 @@ def main():
     def card(p, href_prefix=''):
         # 整张卡是入口（照片/视频封面当钩子），无媒体的贴文走纯文字变体，不留空图框
         if p.get('_yt'):
-            media = (f'<span class="thumb is-video"><img src="{YT_THUMB.format(p["_yt"])}" '
-                     f'loading="lazy" alt=""></span>')
+            # YouTube hqdefault 一律 480x360
+            media = (f'<span class="thumb is-video" style="--card-ar:4/3"><img '
+                     f'src="{YT_THUMB.format(p["_yt"])}" loading="lazy" alt=""></span>')
         elif p.get('_thumb'):
-            media = f'<span class="thumb"><img src="{href_prefix}{p["_thumb"]}" loading="lazy" alt=""></span>'
+            media = (f'<span class="thumb" style="--card-ar:{p["_ar"]}"><img '
+                     f'src="{href_prefix}{p["_thumb"]}" loading="lazy" alt=""></span>')
         else:
             media = ''
         return (f'<a class="post-card{"" if media else " is-text"}" href="{href_prefix}{p["slug"]}.html">'

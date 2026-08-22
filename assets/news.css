@@ -51,7 +51,9 @@ article .body a { color:var(--green); word-break:break-all; }
 .year-list h1 { color:var(--green); font-size:1.6rem; margin-bottom:1.2rem; }
 .year-list h2 { color:var(--green); font-size:1.15rem; margin:0 0 .9rem; }
 
-.cards { display:grid; grid-template-columns:1fr; gap:1rem; }
+/* align-items:start ＝ 每张卡按自己的图高长，不被同排最高者拉齐。
+   这是「不裁图源」的代价与前提：行底参差（Pinterest 的取舍），换到一个像素都不裁。 */
+.cards { display:grid; grid-template-columns:1fr; gap:1rem; align-items:start; }
 @media (min-width:640px) { .cards { grid-template-columns:repeat(2,1fr); } }
 @media (min-width:900px) { .cards { grid-template-columns:repeat(3,1fr); } }
 
@@ -63,10 +65,10 @@ article .body a { color:var(--green); word-break:break-all; }
 
 /* min-height:0 + 绝对定位的 img 缺一不可：卡片是 column flex，flex item 的 min-height:auto
    会让直幅照片的内容高度压过 aspect-ratio，实测直幅缩图撑到 598px 高（应为 189px）。 */
-.post-card .thumb { position:relative; display:block; aspect-ratio:16/9; min-height:0;
+/* --card-ar 由 build 写进 inline style ＝ 这张图自己的比例，所以 cover 实际上不裁任何东西；
+   它只兜住舍入误差，以及超过 2:3 被 build 收住的极端长图。 */
+.post-card .thumb { position:relative; display:block; aspect-ratio:var(--card-ar, 16/9); min-height:0;
                     overflow:hidden; background:#e6e1d6; }
-/* object-position:top 不是美学选择：37% 缩图是直幅（剪报/直式海报），居中裁只剩中间一条认不出内容，
-   最惨的纵向只留 19%。剪报大标题与人像头部都在顶部，从顶裁能救回大部分。 */
 .post-card .thumb img { position:absolute; inset:0; width:100%; height:100%;
                         object-fit:cover; object-position:center top; display:block; }
 /* 播放角标：告诉家长这篇点进去有视频 */
