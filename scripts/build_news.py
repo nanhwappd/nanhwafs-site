@@ -234,7 +234,8 @@ def main():
     head = ('<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="UTF-8">'
             '<meta name="viewport" content="width=device-width, initial-scale=1">'
             '<title>{t} · 南华独立中学</title><meta name="description" content="{d}">'
-            '<link rel="stylesheet" href="{css}"></head><body>'
+            '<link rel="stylesheet" href="{css}">'
+            '<script defer src="{js}"></script></head><body>'
             '<header class="site-header"><a class="logo" href="{home}">南华独立中学</a>'
             '<nav><a href="{newsroot}">新闻动态</a></nav></header><main class="year-list">')
     foot = '</main><footer class="site-footer">© 曼绒县南华独立中学</footer></body></html>'
@@ -246,7 +247,8 @@ def main():
         else:
             cards = '<div class="rows">' + '\n'.join(compact_row(p) for p in plist) + '</div>'
         page = (head.format(t=f'{year} 年新闻动态', d=f'曼绒县南华独立中学 {year} 年校园新闻档案，共 {len(plist)} 篇。',
-                            css='../../assets/news.css', home='../../index.html', newsroot='../index.html')
+                            css='../../assets/news.css', js='../../assets/news-masonry.js',
+                            home='../../index.html', newsroot='../index.html')
                 + f'<h1>{year} 年新闻动态（{len(plist)} 篇）</h1>' + year_nav(year) + cards + foot)
         with open(os.path.join(SITE, 'news', year, 'index.html'), 'w', encoding='utf-8') as f:
             f.write(page)
@@ -255,7 +257,8 @@ def main():
     cards = '<div class="cards">' + '\n'.join(card(p, f'{p["year"]}/') for p in latest) + '</div>'
     pills = ''.join(f'<a href="{y}/index.html">{y}</a>' for y in years)
     page = (head.format(t='新闻动态', d='曼绒县南华独立中学新闻档案（2018–2026），按年归档。',
-                        css='../assets/news.css', home='../index.html', newsroot='index.html')
+                        css='../assets/news.css', js='../assets/news-masonry.js',
+                        home='../index.html', newsroot='index.html')
             + f'<h1>新闻动态</h1><nav class="year-nav">{pills}</nav><h2>最新</h2>' + cards + foot)
     with open(os.path.join(SITE, 'news', 'index.html'), 'w', encoding='utf-8') as f:
         f.write(page)
