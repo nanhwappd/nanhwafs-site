@@ -65,7 +65,10 @@ article .body a { color:var(--green); word-break:break-all; }
    会让直幅照片的内容高度压过 aspect-ratio，实测直幅缩图撑到 598px 高（应为 189px）。 */
 .post-card .thumb { position:relative; display:block; aspect-ratio:16/9; min-height:0;
                     overflow:hidden; background:#e6e1d6; }
-.post-card .thumb img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; display:block; }
+/* object-position:top 不是美学选择：37% 缩图是直幅（剪报/直式海报），居中裁只剩中间一条认不出内容，
+   最惨的纵向只留 19%。剪报大标题与人像头部都在顶部，从顶裁能救回大部分。 */
+.post-card .thumb img { position:absolute; inset:0; width:100%; height:100%;
+                        object-fit:cover; object-position:center top; display:block; }
 /* 播放角标：告诉家长这篇点进去有视频 */
 .post-card .thumb.is-video::before { content:''; position:absolute; inset:0; margin:auto;
                                      width:54px; height:54px; border-radius:50%; background:rgba(20,20,20,.62); }
