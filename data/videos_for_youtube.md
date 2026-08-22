@@ -4,7 +4,7 @@
 一篇多个视频时值写成列表：`"20191123-2": ["ID1", "ID2"]`。
 流程见 `scripts/stage_youtube.py`（备料 → 拖拽上传 → 反查生成 map）。
 
-- `20210929-8` 2021-09-29 南华独中董事长
+- `20210929-8` 2021-09-29 南华独中董事长·颜登逸先生 致词
   - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\381490640111246.mp4`
-- `20221207-1` 2022-12-07 【精彩回顾】
+- `20221207-1` 2022-12-07 精彩回顾·2022年 南华独中 校园开放日 暨 义卖会 直播
   - `D:\Fb_AllRecord\this_profile's_activity_across_facebook\posts\media\videos\674444080945571.mp4`
