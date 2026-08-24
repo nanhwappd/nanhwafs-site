@@ -246,7 +246,10 @@ def main():
                  f'<span class="sr-only">{label}</span></span>') if mark else '<span></span>'
         return (f'<a class="post-row" href="{href_prefix}{p["slug"]}.html">'
                 f'<time datetime="{p["date"]}">{p["date"]}</time>'
-                f'<span class="t">{html.escape(p["_title"])}</span>{badge}</a>')
+                # WCAG 1.3.1：整页 69 条标题原本全是 <span>，只有一个 H1，
+                # 屏幕阅读器的标题跳转等于没有。改 <h3>（页面 H1 是「新闻馆」，
+                # H2 是年份分段），字号字重仍由 .t 显式指定，视觉零变化。
+                f'<h3 class="t">{html.escape(p["_title"])}</h3>{badge}</a>')
 
     def card(p, href_prefix=''):
         # 整张卡是入口（照片/视频封面当钩子），无媒体的贴文走纯文字变体，不留空图框
@@ -265,7 +268,7 @@ def main():
               f'<span class="more">阅读全文 →</span>') if p.get('_excerpt') else ''
         return (f'<a class="post-card{"" if media else " is-text"}" href="{href_prefix}{p["slug"]}.html">'
                 f'{media}<span class="txt"><time datetime="{p["date"]}">{p["date"]}</time>'
-                f'<span class="t">{html.escape(p["_title"])}</span>{ex}</span></a>')
+                f'<h3 class="t">{html.escape(p["_title"])}</h3>{ex}</span></a>')
 
     head = ('<!DOCTYPE html><html lang="zh-Hans"><head><meta charset="UTF-8">'
             '<meta name="viewport" content="width=device-width, initial-scale=1">'
